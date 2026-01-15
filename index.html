@@ -1905,42 +1905,36 @@
                 <span class="number-highlight">12.000+</span>
                 <span data-de=" Getötet in nur 4 Tagen" data-en=" Killed in Just 4 Days"> Getötet in nur 4 Tagen</span>
             <!-- Video Embeds - Language Specific -->
-        <div class="hero-videos fade-in delay-5">
-        
-            <!-- German video 1 -->
-            <div class="video-container" data-lang="de">
-                <iframe
-                    src="https://www.youtube.com/embed/6CRy0vRNP-k"
-                    title="tagesschau24 Top-Thema , 13.1.2026 | Iran: zahlreiche Tote bei Protesten"
-                    frameborder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        
-            <!-- German video 2 -->
-            <div class="video-container" data-lang="de">
-                <iframe
-                    src="https://www.youtube.com/embed/FR5qRMGdfTc"
-                    title="Massenproteste im Iran"
-                    frameborder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        
-            <!-- English video -->
-            <div class="video-container" data-lang="en">
-                <iframe
-                    src="https://www.youtube.com/embed/cv5687Grds0"
-                    title="Iranian regime will not go down without a fight"
-                    frameborder="0"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-                </iframe>
-            </div>
-        
-        </div>
+            <div class="hero-videos fade-in delay-5">
+    <div class="video-container" data-lang="de">
+        <iframe
+            src="https://www.youtube.com/embed/6CRy0vRNP-k"
+            title="tagesschau24 Top-Thema , 13.1.2026 | Iran: zahlreiche Tote bei Protesten"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="video-container" data-lang="de">
+        <iframe
+            src="https://www.youtube.com/embed/FR5qRMGdfTc"
+            title="Massenproteste im Iran"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+                
+    <div class="video-container" data-lang="en">
+        <iframe
+            src="https://www.youtube.com/watch?v=cv5687Grds0"
+            title="Iranian regime will not go down without a fight"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
 
 
             </h1>
@@ -2609,56 +2603,37 @@
             document.documentElement.classList.toggle('dark', event.matches);
         });
 
-<script>
-                /* =========================
-                   Language handling
-                ========================== */
-            
-                // 1️⃣ Default language
-                var currentLang = 'de';
-            
-                // 2️⃣ Language switch function
-                function setLanguage(lang) {
-                    currentLang = lang;
-            
-                    // Set <html lang="">
-                    document.documentElement.lang = lang;
-            
-                    // Update text content based on data-de / data-en
-                    document.querySelectorAll('[data-de][data-en]').forEach(function (el) {
-                        el.textContent = el.getAttribute('data-' + lang);
-                    });
-            
-                    // Toggle active language button
-                    document.querySelectorAll('.lang-btn').forEach(function (btn) {
-                        btn.classList.toggle('active', btn.dataset.lang === lang);
-                    });
-            
-                    // Page title (same for both languages here)
-                    document.title = 'Iran Awareness | #IranProtests #DigitalBlackoutIran';
-            
-                    // 🎥 Show / hide videos based on language
-                    document.querySelectorAll('.video-container').forEach(function (container) {
-                        if (container.dataset.lang === lang) {
-                            container.style.display = 'block';
-                        } else {
-                            container.style.display = 'none';
-                        }
-                    });
+        // Language handling
+        var currentLang = 'de';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-de][data-en]').forEach(function(el) {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            document.title = lang === 'de'
+                ? 'Iran Awareness | #IranProtests #DigitalBlackoutIran'
+                : 'Iran Awareness | #IranProtests #DigitalBlackoutIran';
+
+            // Switch video containers based on language
+            document.querySelectorAll('.video-container').forEach(function(container) {
+                if (container.dataset.lang === lang) {
+                    container.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
                 }
-            
-                // 3️⃣ Apply default language after DOM is fully loaded
-                document.addEventListener('DOMContentLoaded', function () {
-                    setLanguage(currentLang);
-                });
-            
-                // 4️⃣ Language button click handlers
-                document.querySelectorAll('.lang-btn').forEach(function (btn) {
-                    btn.addEventListener('click', function () {
-                        setLanguage(this.dataset.lang);
-                    });
-                });
-            </script>
+            });
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                setLanguage(this.dataset.lang);
+            });
+        });
 
         // Mobile menu
         var mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -2816,4 +2791,3 @@
     </script>
 </body>
 </html>
-
