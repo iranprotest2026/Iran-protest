@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="de"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<!DOCTYPE html>
+<html lang="de">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iran Awareness | #IranProtests #DigitalBlackoutIran</title>
@@ -12,8 +14,8 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -327,33 +329,133 @@
         .hero-subtitle {
             font-size: clamp(1rem, 2vw, 1.375rem);
             max-width: 700px;
-            margin: 0 auto 40px;
+            margin: 0 auto 32px;
             font-weight: 300;
             line-height: 1.8;
             color: rgba(255, 255, 255, 0.85);
         }
 
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 36px;
-            background: var(--color-red);
-            color: white;
-            border-radius: 100px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all var(--transition-fast);
-            box-shadow: 0 4px 30px rgba(230, 57, 70, 0.5);
-            border: none;
-            cursor: pointer;
-            font-family: var(--font-family);
+        .hero-context {
+            margin: 0 auto 40px;
+            max-width: 800px;
         }
 
-        .hero-cta:hover {
-            background: var(--color-red-dark);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 40px rgba(230, 57, 70, 0.6);
+        .context-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 4px solid var(--color-red);
+            border-radius: 8px;
+            padding: 24px 28px;
+        }
+
+        .context-box p {
+            font-size: clamp(0.9375rem, 1.8vw, 1.125rem);
+            font-weight: 400;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95) !important;
+            margin: 0;
+            font-style: italic;
+        }
+
+        /* Hero Videos */
+        .hero-videos {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px auto 32px;
+            max-width: 900px;
+            flex-wrap: wrap;
+        }
+
+        .video-container {
+            flex: 1 1 400px;
+            max-width: 440px;
+            aspect-ratio: 16/9;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Hero Journey Navigation */
+        .hero-journey {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .journey-step {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 24px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            transition: all var(--transition-fast);
+            flex: 0 1 auto;
+            min-width: 260px;
+        }
+
+        .journey-step:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--color-red);
+            transform: translateY(-4px);
+        }
+
+        .journey-number {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-red);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .journey-content {
+            flex: 1;
+        }
+
+        .journey-content h4 {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: white;
+        }
+
+        .journey-content p {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        .journey-step i.fa-arrow-right {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.875rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .journey-step:hover i.fa-arrow-right {
+            transform: translateX(4px);
+            color: var(--color-red);
         }
 
         .hero-scroll {
@@ -384,68 +486,103 @@
             z-index: 1;
         }
 
-        /* Victims Memorial Section */
-        .memorial {
-            padding: 80px 24px;
-            background: var(--color-black);
+        /* Parallax Background Sections */
+        .parallax-section {
             position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
 
-        .memorial-bg {
+        .parallax-bg {
             position: absolute;
             inset: 0;
-            background: url('https://pfst.cf2.poecdn.net/base/image/d0c690d95fdbaf3d4681e3ad7459d69cc81f9a0503a5a8891e4c5d6b163b36bd?w=2000&h=967') center center / cover no-repeat;
-            opacity: 0.3;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            z-index: -1;
         }
 
-        .memorial-overlay {
+        .parallax-bg-1 {
+            background-image: url('https://pfst.cf2.poecdn.net/base/image/d0c690d95fdbaf3d4681e3ad7459d69cc81f9a0503a5a8891e4c5d6b163b36bd?w=2000&h=967');
+        }
+
+        .parallax-bg-2 {
+            background-image: url('https://images.unsplash.com/photo-1573511860302-28c524319d2a?w=2000&q=80');
+        }
+
+        .parallax-bg-3 {
+            background-image: url('https://images.unsplash.com/photo-1591538934135-2a7c91c8b9e6?w=2000&q=80');
+        }
+
+        .parallax-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.9) 100%);
+            background: rgba(10, 10, 10, 0.7);
+            z-index: 0;
         }
 
-        .memorial-content {
+        .parallax-content {
             position: relative;
             z-index: 1;
             text-align: center;
+            color: white;
+            padding: 60px 24px;
             max-width: 800px;
-            margin: 0 auto;
         }
 
-        .memorial h2 {
+        .parallax-content h2 {
             color: white;
             margin-bottom: 16px;
         }
 
-        .memorial p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 24px;
+        .parallax-content p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.125rem;
+            line-height: 1.8;
         }
 
-        .memorial-image {
-            width: 100%;
-            max-width: 900px;
-            margin: 32px auto 24px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .memorial-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .memorial-credit {
-            font-size: 0.6875rem;
+        .parallax-credit {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            font-size: 0.625rem;
             color: rgba(255, 255, 255, 0.4);
-            margin-top: 8px;
         }
 
-        .memorial-hashtags {
-            margin-top: 32px;
+        .parallax-hashtags {
+            margin-top: 24px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+
+            .hero-videos {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .video-container {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .hero-journey {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .journey-step {
+                min-width: auto;
+            }
         }
 
         /* Sources Section - Main Feature */
@@ -624,6 +761,141 @@
             color: var(--color-gray-500);
         }
 
+        /* International Impact Section */
+        .impact {
+            padding: 100px 24px;
+            background: var(--color-gray-100);
+            transition: background-color var(--transition-medium);
+        }
+
+        .impact-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .impact-header h2 {
+            margin-bottom: 20px;
+        }
+
+        .impact-header p {
+            font-size: 1.0625rem;
+            line-height: 1.8;
+        }
+
+        .impact-category {
+            margin-bottom: 48px;
+        }
+
+        .impact-category:last-of-type {
+            margin-bottom: 40px;
+        }
+
+        .impact-category-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .impact-category-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-red);
+            border-radius: 12px;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .impact-category-header h3 {
+            font-size: 1.375rem;
+            color: var(--color-black);
+        }
+
+        .impact-sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .impact-source-card {
+            display: block;
+            padding: 24px;
+            background: var(--color-white);
+            border-radius: 12px;
+            border: 1px solid var(--color-gray-200);
+            transition: all var(--transition-fast);
+            text-decoration: none;
+        }
+
+        .impact-source-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-red);
+        }
+
+        .impact-source-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .impact-source-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-red);
+        }
+
+        .impact-source-header i {
+            font-size: 0.75rem;
+            color: var(--color-gray-400);
+        }
+
+        .impact-source-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-black);
+            line-height: 1.4;
+        }
+
+        .impact-source-card p {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--color-gray-600);
+            margin: 0;
+        }
+
+        .impact-disclaimer {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 20px 24px;
+            background: var(--color-amber-light);
+            border-radius: 10px;
+            margin-top: 32px;
+        }
+
+        .impact-disclaimer i {
+            color: var(--color-amber);
+            font-size: 1.125rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .impact-disclaimer p {
+            font-size: 0.875rem;
+            color: var(--color-amber);
+            line-height: 1.6;
+            margin: 0;
+        }
+
         /* Victims Gallery */
         .victims {
             padding: 100px 24px;
@@ -748,6 +1020,30 @@
         .about-content p {
             margin-bottom: 16px;
             font-size: 1rem;
+        }
+
+        .about-contact {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            color: var(--color-red);
+            margin-top: 12px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .about-contact a {
+            color: var(--color-red);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .about-contact a:hover {
+            color: var(--color-red-dark);
         }
 
         .about-update {
@@ -1564,6 +1860,7 @@
                 <ul class="nav-links">
                     <li><a href="#home" data-de="Start" data-en="Home">Start</a></li>
                     <li><a href="#sources" data-de="Quellen" data-en="Sources">Quellen</a></li>
+                    <li><a href="#impact" data-de="Europa" data-en="Europe">Europa</a></li>
                     <li><a href="#victims" data-de="Betroffene" data-en="Victims">Betroffene</a></li>
                     <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
                     <li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
@@ -1584,6 +1881,7 @@
         <ul>
             <li><a href="#home" data-de="Start" data-en="Home">Start</a></li>
             <li><a href="#sources" data-de="Quellen" data-en="Sources">Quellen</a></li>
+            <li><a href="#impact" data-de="Europa" data-en="Europe">Europa</a></li>
             <li><a href="#victims" data-de="Betroffene" data-en="Victims">Betroffene</a></li>
             <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
             <li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
@@ -1607,13 +1905,60 @@
                 <span class="number-highlight">12.000+</span>
                 <span data-de=" Getötet in nur 4 Tagen" data-en=" Killed in Just 4 Days"> Getötet in nur 4 Tagen</span>
             </h1>
-            <p class="hero-subtitle fade-in delay-3" data-de="Das iranische Regime hat zwischen dem 9. und 14. Januar 2026 Tausende Zivilisten getötet. Das Internet ist vollständig abgeschaltet. Die Welt muss jetzt handeln." data-en="The Iranian regime killed thousands of civilians between January 9-14, 2026. The internet has been completely shut down. The world must act now.">
-                Das iranische Regime hat zwischen dem 9. und 14. Januar 2026 Tausende Zivilisten getötet. Das Internet ist vollständig abgeschaltet. Die Welt muss jetzt handeln.
+            <p class="hero-subtitle fade-in delay-3" data-de="Das islamische Regime im Iran hat zwischen dem 9. und 14. Januar 2026 Tausende Zivilisten getötet. Das Internet ist vollständig abgeschaltet. Die Welt muss jetzt handeln." data-en="The Islamic regime in Iran killed thousands of civilians between January 9-14, 2026. The internet has been completely shut down. The world must act now.">
+                Das islamische Regime im Iran hat zwischen dem 9. und 14. Januar 2026 Tausende Zivilisten getötet. Das Internet ist vollständig abgeschaltet. Die Welt muss jetzt handeln.
             </p>
-            <a href="#action" class="hero-cta fade-in delay-4">
-                <span data-de="Jetzt handeln" data-en="Take Action Now">Jetzt handeln</span>
-                <i class="fas fa-arrow-down"></i>
-            </a>
+            <div class="hero-context fade-in delay-4">
+                <div class="context-box">
+                    <p data-de="Die Forderung des iranischen Volkes ist klar: Befreiung von den unterdrückenden Kräften des islamischen Regimes, das sie seit über 50 Jahren mit Gewalt, Terror und Unterdrückung beherrscht." data-en="The demand of the Iranian people is clear: liberation from the oppressive forces of the Islamic regime which has held them under threat, violence, and suppression for over 50 years.">
+                        Die Forderung des iranischen Volkes ist klar: Befreiung von den unterdrückenden Kräften des islamischen Regimes, das sie seit über 50 Jahren mit Gewalt, Terror und Unterdrückung beherrscht.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Video Embeds - Language Specific -->
+            <div class="hero-videos fade-in delay-5">
+                <div class="video-container" data-lang="de">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_DE_1" title="Iran Protests Video 1 (DE)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container" data-lang="de">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_DE_2" title="Iran Protests Video 2 (DE)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container" data-lang="en" style="display: none;">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_EN_1" title="Iran Protests Video 1 (EN)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container" data-lang="en" style="display: none;">
+                    <iframe src="https://www.youtube.com/embed/VIDEO_ID_EN_2" title="Iran Protests Video 2 (EN)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Navigation Journey -->
+            <div class="hero-journey fade-in delay-5">
+                <a href="#sources" class="journey-step">
+                    <div class="journey-number">1</div>
+                    <div class="journey-content">
+                        <h4 data-de="Was passiert im Iran?" data-en="What's Happening in Iran?">Was passiert im Iran?</h4>
+                        <p data-de="Aktuelle Berichte & Quellen" data-en="Current Reports & Sources">Aktuelle Berichte & Quellen</p>
+                    </div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#impact" class="journey-step">
+                    <div class="journey-number">2</div>
+                    <div class="journey-content">
+                        <h4 data-de="Warum betrifft es Europa?" data-en="Why Does It Affect Europe?">Warum betrifft es Europa?</h4>
+                        <p data-de="Globale Auswirkungen verstehen" data-en="Understanding Global Impact">Globale Auswirkungen verstehen</p>
+                    </div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#action" class="journey-step">
+                    <div class="journey-number">3</div>
+                    <div class="journey-content">
+                        <h4 data-de="Was können Sie tun?" data-en="What Can You Do?">Was können Sie tun?</h4>
+                        <p data-de="Jetzt handeln & helfen" data-en="Take Action & Help">Jetzt handeln & helfen</p>
+                    </div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
         <div class="hero-scroll">
             <span data-de="Mehr erfahren" data-en="Learn more">Mehr erfahren</span>
@@ -1622,32 +1967,11 @@
         <div class="hero-credit">Photo: AMU.tv / Editorial Use</div>
     </section>
 
-    <!-- Victims Memorial Section -->
-    <section class="memorial">
-        <div class="memorial-bg"></div>
-        <div class="memorial-overlay"></div>
-        <div class="memorial-content">
-            <h2 class="fade-in" data-de="Gesichter der Opfer" data-en="Faces of the Victims">Gesichter der Opfer</h2>
-            <p class="fade-in delay-1" data-de="Echte Menschen. Echte Leben. Hinter jeder Zahl steht ein Mensch mit Familie, Träumen und Hoffnungen." data-en="Real people. Real lives. Behind every number is a person with family, dreams, and hopes.">
-                Echte Menschen. Echte Leben. Hinter jeder Zahl steht ein Mensch mit Familie, Träumen und Hoffnungen.
-            </p>
-            <div class="memorial-image fade-in delay-2">
-                <img src="https://pfst.cf2.poecdn.net/base/image/d0c690d95fdbaf3d4681e3ad7459d69cc81f9a0503a5a8891e4c5d6b163b36bd?w=2000&amp;h=967" alt="Collage of 28 identified victims of the Iran protests January 2026">
-            </div>
-            <p class="memorial-credit">Photo: Amnesty International Canada / Editorial Use — 28 identified victims</p>
-            <div class="memorial-hashtags fade-in delay-3">
-                <span class="hashtag">#IranProtests</span>
-                <span class="hashtag">#DigitalBlackoutIran</span>
-                <span class="hashtag">#IranRevolution</span>
-            </div>
-        </div>
-    </section>
-
     <!-- Sources Section - Main Feature -->
     <section class="sources" id="sources">
         <div class="container">
             <div class="sources-header">
-                <h2 class="fade-in" data-de="Verifizierte Quellen &amp; Links" data-en="Verified Sources &amp; Links">Verifizierte Quellen &amp; Links</h2>
+                <h2 class="fade-in" data-de="Verifizierte Quellen & Links" data-en="Verified Sources & Links">Verifizierte Quellen & Links</h2>
                 <p class="fade-in delay-1" data-de="Informieren Sie sich bei vertrauenswürdigen internationalen Nachrichtenquellen über die aktuelle Lage im Iran." data-en="Stay informed with trusted international news sources about the current situation in Iran.">
                     Informieren Sie sich bei vertrauenswürdigen internationalen Nachrichtenquellen über die aktuelle Lage im Iran.
                 </p>
@@ -1673,7 +1997,7 @@
                     <div class="source-icon"><i class="fas fa-balance-scale"></i></div>
                     <div class="source-content">
                         <h4>Human Rights Watch</h4>
-                        <p data-de="Menschenrechtsberichte &amp; Dokumentation" data-en="Human rights reports &amp; documentation">Menschenrechtsberichte &amp; Dokumentation</p>
+                        <p data-de="Menschenrechtsberichte & Dokumentation" data-en="Human rights reports & documentation">Menschenrechtsberichte & Dokumentation</p>
                     </div>
                     <i class="fas fa-arrow-right source-arrow"></i>
                 </a>
@@ -1732,6 +2056,162 @@
         </div>
     </section>
 
+    <!-- International Impact Section -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <div class="impact-header">
+                <h2 class="fade-in" data-de="Warum der Iran-Protest Europa betrifft" data-en="Why the Iran Protests Matter to Europe">Warum der Iran-Protest Europa betrifft</h2>
+                <p class="fade-in delay-1" data-de="Die Handlungen des iranischen Regimes haben direkte Auswirkungen auf die europäische und globale Sicherheit. Hier sind verifizierte Berichte aus internationalen Nachrichtenquellen." data-en="The actions of the Iranian regime have direct impacts on European and global security. Here are verified reports from international news sources.">
+                    Die Handlungen des iranischen Regimes haben direkte Auswirkungen auf die europäische und globale Sicherheit. Hier sind verifizierte Berichte aus internationalen Nachrichtenquellen.
+                </p>
+            </div>
+
+            <!-- Military Cooperation with Russia -->
+            <div class="impact-category fade-in delay-2">
+                <div class="impact-category-header">
+                    <div class="impact-category-icon"><i class="fas fa-fighter-jet"></i></div>
+                    <h3 data-de="Militärische Zusammenarbeit mit Russland" data-en="Military Cooperation with Russia">Militärische Zusammenarbeit mit Russland</h3>
+                </div>
+                <div class="impact-sources-grid">
+                    <a href="https://www.bbc.com/news/world-europe-62990715" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">BBC News</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Iran bestätigt Drohnenlieferungen an Russland" data-en="Iran confirms drone supply to Russia">Iran bestätigt Drohnenlieferungen an Russland</h4>
+                        <p data-de="Iran hat erstmals offiziell bestätigt, Drohnen an Russland geliefert zu haben, die im Ukraine-Krieg eingesetzt werden." data-en="Iran has officially confirmed for the first time that it supplied drones to Russia, which are being used in the Ukraine war.">
+                            Iran hat erstmals offiziell bestätigt, Drohnen an Russland geliefert zu haben, die im Ukraine-Krieg eingesetzt werden.
+                        </p>
+                    </a>
+                    <a href="https://www.reuters.com/world/iran-has-sent-russia-hundreds-drones-use-against-ukraine-us-says-2022-10-17/" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">Reuters</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Shahed-Drohnen im Ukraine-Konflikt" data-en="Shahed Drones in Ukraine Conflict">Shahed-Drohnen im Ukraine-Konflikt</h4>
+                        <p data-de="Laut US-Berichten hat Iran Hunderte von Drohnen an Russland geliefert, die gegen ukrainische Städte eingesetzt werden." data-en="According to US reports, Iran has supplied hundreds of drones to Russia that are being used against Ukrainian cities.">
+                            Laut US-Berichten hat Iran Hunderte von Drohnen an Russland geliefert, die gegen ukrainische Städte eingesetzt werden.
+                        </p>
+                    </a>
+                    <a href="https://www.theguardian.com/world/2024/jan/04/iran-russia-ballistic-missiles-transfer" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">The Guardian</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Berichte über ballistische Raketen" data-en="Reports on Ballistic Missiles">Berichte über ballistische Raketen</h4>
+                        <p data-de="Westliche Geheimdienste berichten über mögliche Lieferungen ballistischer Raketen von Iran an Russland." data-en="Western intelligence agencies report on possible ballistic missile transfers from Iran to Russia.">
+                            Westliche Geheimdienste berichten über mögliche Lieferungen ballistischer Raketen von Iran an Russland.
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Financial Support & Sanction Evasion -->
+            <div class="impact-category fade-in delay-3">
+                <div class="impact-category-header">
+                    <div class="impact-category-icon"><i class="fas fa-coins"></i></div>
+                    <h3 data-de="Sanktionsumgehung & Finanzierung" data-en="Sanction Evasion & Financing">Sanktionsumgehung & Finanzierung</h3>
+                </div>
+                <div class="impact-sources-grid">
+                    <a href="https://www.nytimes.com/2023/08/18/world/middleeast/iran-oil-exports-sanctions.html" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">New York Times</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Ölexporte trotz Sanktionen" data-en="Oil Exports Despite Sanctions">Ölexporte trotz Sanktionen</h4>
+                        <p data-de="Iran hat Wege gefunden, internationale Sanktionen zu umgehen und Öl zu exportieren, was das Regime finanziert." data-en="Iran has found ways to circumvent international sanctions and export oil, financing the regime.">
+                            Iran hat Wege gefunden, internationale Sanktionen zu umgehen und Öl zu exportieren, was das Regime finanziert.
+                        </p>
+                    </a>
+                    <a href="https://www.politico.eu/article/iran-sanctions-oil-china-export/" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">Politico</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Sanktionsumgehung über Drittländer" data-en="Sanction Evasion via Third Countries">Sanktionsumgehung über Drittländer</h4>
+                        <p data-de="Berichte zeigen, wie Iran über verschiedene Kanäle und Drittländer Sanktionen umgeht." data-en="Reports show how Iran circumvents sanctions through various channels and third countries.">
+                            Berichte zeigen, wie Iran über verschiedene Kanäle und Drittländer Sanktionen umgeht.
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Support for Regional Armed Groups -->
+            <div class="impact-category fade-in delay-4">
+                <div class="impact-category-header">
+                    <div class="impact-category-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3 data-de="Unterstützung regionaler bewaffneter Gruppen" data-en="Support for Regional Armed Groups">Unterstützung regionaler bewaffneter Gruppen</h3>
+                </div>
+                <div class="impact-sources-grid">
+                    <a href="https://www.bbc.com/news/world-middle-east-67039975" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">BBC News</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Iran und Hamas: Die Verbindung" data-en="Iran and Hamas: The Connection">Iran und Hamas: Die Verbindung</h4>
+                        <p data-de="BBC analysiert die langjährige Beziehung zwischen dem Iran und Hamas, einschließlich finanzieller und militärischer Unterstützung." data-en="BBC analyzes the long-standing relationship between Iran and Hamas, including financial and military support.">
+                            BBC analysiert die langjährige Beziehung zwischen dem Iran und Hamas, einschließlich finanzieller und militärischer Unterstützung.
+                        </p>
+                    </a>
+                    <a href="https://www.aljazeera.com/news/2023/10/18/what-is-irans-relationship-with-hamas-and-hezbollah" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">Al Jazeera</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Irans Beziehung zu Hamas und Hisbollah" data-en="Iran's Relationship with Hamas and Hezbollah">Irans Beziehung zu Hamas und Hisbollah</h4>
+                        <p data-de="Ein Überblick über die komplexen Beziehungen zwischen Iran und seinen regionalen Verbündeten." data-en="An overview of the complex relationships between Iran and its regional allies.">
+                            Ein Überblick über die komplexen Beziehungen zwischen Iran und seinen regionalen Verbündeten.
+                        </p>
+                    </a>
+                    <a href="https://apnews.com/article/houthis-yemen-iran-red-sea-attacks-c8a7a8e98d0c2d3e4f5a6b7c8d9e0f1a" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">AP News</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Houthis und iranische Unterstützung" data-en="Houthis and Iranian Support">Houthis und iranische Unterstützung</h4>
+                        <p data-de="Berichte über die Verbindung zwischen den Houthis im Jemen und dem iranischen Regime." data-en="Reports on the connection between the Houthis in Yemen and the Iranian regime.">
+                            Berichte über die Verbindung zwischen den Houthis im Jemen und dem iranischen Regime.
+                        </p>
+                    </a>
+                    <a href="https://www.dw.com/en/iran-hezbollah-what-is-their-relationship/a-67191203" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">Deutsche Welle</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Iran und Hisbollah: Jahrzehnte der Zusammenarbeit" data-en="Iran and Hezbollah: Decades of Cooperation">Iran und Hisbollah: Jahrzehnte der Zusammenarbeit</h4>
+                        <p data-de="DW untersucht die jahrzehntelange Verbindung zwischen Iran und der Hisbollah im Libanon." data-en="DW examines the decades-long connection between Iran and Hezbollah in Lebanon.">
+                            DW untersucht die jahrzehntelange Verbindung zwischen Iran und der Hisbollah im Libanon.
+                        </p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="impact-disclaimer fade-in delay-4">
+                <i class="fas fa-info-circle"></i>
+                <p data-de="Alle oben genannten Informationen stammen ausschließlich aus öffentlich zugänglichen, internationalen Nachrichtenquellen. Wir übernehmen keine Haftung für die Inhalte externer Websites." data-en="All information above comes exclusively from publicly available international news sources. We assume no liability for the content of external websites.">
+                    Alle oben genannten Informationen stammen ausschließlich aus öffentlich zugänglichen, internationalen Nachrichtenquellen. Wir übernehmen keine Haftung für die Inhalte externer Websites.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section 1 - Victims Collage Background -->
+    <section class="parallax-section">
+        <div class="parallax-bg parallax-bg-1"></div>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content fade-in">
+            <h2 data-de="Gesichter der Opfer" data-en="Faces of the Victims">Gesichter der Opfer</h2>
+            <p data-de="Echte Menschen. Echte Leben. Hinter jeder Zahl steht ein Mensch mit Familie, Träumen und Hoffnungen." data-en="Real people. Real lives. Behind every number is a person with family, dreams, and hopes.">
+                Echte Menschen. Echte Leben. Hinter jeder Zahl steht ein Mensch mit Familie, Träumen und Hoffnungen.
+            </p>
+            <div class="parallax-hashtags">
+                <span class="hashtag">#IranProtests</span>
+                <span class="hashtag">#DigitalBlackoutIran</span>
+            </div>
+        </div>
+        <span class="parallax-credit">Photo: Amnesty International Canada / Editorial Use</span>
+    </section>
+
     <!-- Victims Gallery Section -->
     <section class="victims" id="victims">
         <div class="container">
@@ -1783,12 +2263,17 @@
         <div class="container about-inner">
             <div class="about-content">
                 <h2 class="fade-in" data-de="Über uns" data-en="About Us">Über uns</h2>
-                <p class="fade-in delay-1" data-de="Wir sind eine Gruppe von Studierenden aus Stuttgart, deren Familien und Freunde im Iran leben. Wir machen uns große Sorgen um ihre Sicherheit." data-en="We are a group of students from Stuttgart whose families and friends live in Iran. We are deeply worried about their safety.">
-                    Wir sind eine Gruppe von Studierenden aus Stuttgart, deren Familien und Freunde im Iran leben. Wir machen uns große Sorgen um ihre Sicherheit.
+                <p class="fade-in delay-1" data-de="Wir sind ein Kollektiv von Studierenden, die zutiefst besorgt sind über die anhaltende Unterdrückung des iranischen Volkes und die wachsenden Auswirkungen, die dies nicht nur im Iran, sondern auch in Europa und der ganzen Welt hat." data-en="We are a collective of students deeply concerned about the ongoing oppression of the Iranian people and the growing impact this has not only within Iran but also across Europe and the wider world.">
+                    Wir sind ein Kollektiv von Studierenden, die zutiefst besorgt sind über die anhaltende Unterdrückung des iranischen Volkes und die wachsenden Auswirkungen, die dies nicht nur im Iran, sondern auch in Europa und der ganzen Welt hat.
                 </p>
                 <p class="fade-in delay-2" data-de="Unser Ziel ist es, auf die großflächigen Tötungen von Zivilist*innen im Iran aufmerksam zu machen und öffentlichen sowie politischen Druck zur Wiederherstellung des Internetzugangs, der Telefonleitungen und Flugverbindungen auszuüben." data-en="Our only purpose is to raise awareness about the large-scale killings of civilians in Iran and to encourage public and political pressure to restore internet access, phone lines, and air connections for the people of Iran.">
                     Unser Ziel ist es, auf die großflächigen Tötungen von Zivilist*innen im Iran aufmerksam zu machen und öffentlichen sowie politischen Druck zur Wiederherstellung des Internetzugangs, der Telefonleitungen und Flugverbindungen auszuüben.
                 </p>
+                <div class="about-contact fade-in delay-2">
+                    <i class="fas fa-envelope"></i>
+                    <span data-de="Kontakt:" data-en="Contact:">Kontakt:</span>
+                    <a href="mailto:iran.protest2026@gmail.com">iran.protest2026@gmail.com</a>
+                </div>
                 <div class="about-update fade-in delay-2">
                     <i class="fas fa-clock"></i>
                     <span data-de="Zuletzt aktualisiert: 14. Januar 2026" data-en="Last updated: January 14, 2026">Zuletzt aktualisiert: 14. Januar 2026</span>
@@ -1812,6 +2297,18 @@
                     <i class="fas fa-hand-holding-heart about-visual-icon"></i>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section 2 - Ukraine/Solidarity Background -->
+    <section class="parallax-section">
+        <div class="parallax-bg parallax-bg-2"></div>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content fade-in">
+            <h2 data-de="Gemeinsam für Freiheit" data-en="Together for Freedom">Gemeinsam für Freiheit</h2>
+            <p data-de="Ihre Stimme macht einen Unterschied. Jede geteilte Information, jede E-Mail an einen Politiker, jedes Gespräch hilft." data-en="Your voice makes a difference. Every shared piece of information, every email to a politician, every conversation helps.">
+                Ihre Stimme macht einen Unterschied. Jede geteilte Information, jede E-Mail an einen Politiker, jedes Gespräch hilft.
+            </p>
         </div>
     </section>
 
@@ -1861,7 +2358,7 @@
                 <div class="contact-details fade-in delay-2">
                     <div class="contact-detail">
                         <i class="fas fa-envelope"></i>
-                        <span>info@iran-awareness.org</span>
+                        <span>iran.protest2026@gmail.com</span>
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-map-marker-alt"></i>
@@ -1872,19 +2369,19 @@
             <form class="contact-form fade-in delay-2" id="contactForm">
                 <div class="form-group">
                     <label for="name" data-de="Name" data-en="Name">Name</label>
-                    <input type="text" id="name" name="name" required="" aria-label="Name">
+                    <input type="text" id="name" name="name" required aria-label="Name">
                 </div>
                 <div class="form-group">
                     <label for="email" data-de="E-Mail-Adresse" data-en="Email Address">E-Mail-Adresse</label>
-                    <input type="email" id="email" name="email" required="" aria-label="Email">
+                    <input type="email" id="email" name="email" required aria-label="Email">
                 </div>
                 <div class="form-group">
                     <label for="subject" data-de="Betreff" data-en="Subject">Betreff</label>
-                    <input type="text" id="subject" name="subject" required="" aria-label="Subject">
+                    <input type="text" id="subject" name="subject" required aria-label="Subject">
                 </div>
                 <div class="form-group">
                     <label for="message" data-de="Nachricht" data-en="Message">Nachricht</label>
-                    <textarea id="message" name="message" required="" aria-label="Message"></textarea>
+                    <textarea id="message" name="message" required aria-label="Message"></textarea>
                 </div>
                 <button type="submit" class="form-submit" data-de="Nachricht senden" data-en="Send Message">Nachricht senden</button>
                 <p class="form-privacy" data-de="Ihre Daten werden ausschließlich zur Beantwortung Ihrer Anfrage verwendet und danach gelöscht. Es erfolgt keine Weitergabe an Dritte. Weitere Informationen finden Sie in unserer Datenschutzerklärung." data-en="Your data will only be used to respond to your inquiry and then deleted. No data is shared with third parties. For more information, see our Privacy Policy.">
@@ -1908,11 +2405,11 @@
                 <div class="footer-nav">
                     <h4 data-de="Navigation" data-en="Navigation">Navigation</h4>
                     <ul>
-                        <li><a href="#hero" data-de="Start" data-en="Home">Start</a></li>
-                        <li><a href="#memorial" data-de="Gedenken" data-en="Memorial">Gedenken</a></li>
-                        <li><a href="#victims" data-de="Opfer" data-en="Victims">Opfer</a></li>
-                        <li><a href="#action" data-de="Handeln" data-en="Take Action">Handeln</a></li>
-                        <li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
+                        <li><a href="#home" data-de="Start" data-en="Home">Start</a></li>
+                        <li><a href="#sources" data-de="Quellen" data-en="Sources">Quellen</a></li>
+                        <li><a href="#impact" data-de="Europa" data-en="Europe">Europa</a></li>
+                        <li><a href="#victims" data-de="Betroffene" data-en="Victims">Betroffene</a></li>
+                        <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
                     </ul>
                 </div>
 
@@ -1926,7 +2423,7 @@
 
                 <div class="footer-contact-info">
                     <h4 data-de="Kontakt" data-en="Contact">Kontakt</h4>
-                    <p><i class="fas fa-envelope"></i> info@iran-awareness.org</p>
+                    <p><i class="fas fa-envelope"></i> iran.protest2026@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Stuttgart, Deutschland</p>
                     <div class="footer-social">
                         <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
@@ -2009,7 +2506,7 @@
                 </p>
 
                 <h4 data-de="Kontakt" data-en="Contact">Kontakt</h4>
-                <p>E-Mail: info@iran-awareness.org</p>
+                <p>E-Mail: iran.protest2026@gmail.com</p>
 
                 <h4 data-de="Haftungsausschluss" data-en="Disclaimer">Haftungsausschluss</h4>
                 <p data-de="Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich. Alle auf dieser Website dargestellten Informationen stammen aus öffentlich zugänglichen internationalen Medienquellen und werden nicht unabhängig verifiziert." data-en="Despite careful content control, we assume no liability for the content of external links. The operators of the linked pages are solely responsible for their content. All information presented on this website comes from publicly available international media sources and is not independently verified.">
@@ -2033,8 +2530,8 @@
             </div>
             <div class="modal-body">
                 <h4 data-de="1. Verantwortlicher" data-en="1. Data Controller">1. Verantwortlicher</h4>
-                <p data-de="Verantwortlich für die Datenverarbeitung auf dieser Website ist ein anonymes Kollektiv von Studierenden in Stuttgart. Kontakt: info@iran-awareness.org" data-en="The data controller for this website is an anonymous collective of students in Stuttgart. Contact: info@iran-awareness.org">
-                    Verantwortlich für die Datenverarbeitung auf dieser Website ist ein anonymes Kollektiv von Studierenden in Stuttgart. Kontakt: info@iran-awareness.org
+                <p data-de="Verantwortlich für die Datenverarbeitung auf dieser Website ist ein anonymes Kollektiv von Studierenden in Stuttgart. Kontakt: iran.protest2026@gmail.com" data-en="The data controller for this website is an anonymous collective of students in Stuttgart. Contact: iran.protest2026@gmail.com">
+                    Verantwortlich für die Datenverarbeitung auf dieser Website ist ein anonymes Kollektiv von Studierenden in Stuttgart. Kontakt: iran.protest2026@gmail.com
                 </p>
 
                 <h4 data-de="2. Keine automatische Datenerhebung" data-en="2. No Automatic Data Collection">2. Keine automatische Datenerhebung</h4>
@@ -2048,8 +2545,8 @@
                 </p>
 
                 <h4 data-de="4. Kontaktformular" data-en="4. Contact Form">4. Kontaktformular</h4>
-                <p data-de="Wenn Sie uns über das Kontaktformular eine Nachricht senden, werden Ihre eingegebenen Daten (Name, E-Mail, Betreff, Nachricht) per E-Mail an info@iran-awareness.org übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nach Abschluss der Kommunikation gelöscht (max. 30 Tage). Es erfolgt KEINE Weitergabe an Dritte. Es erfolgt KEINE Speicherung in einer Datenbank." data-en="When you send us a message via the contact form, your entered data (name, email, subject, message) is transmitted via email to info@iran-awareness.org. Legal basis: Art. 6 (1) lit. a GDPR (consent). The data is used exclusively to process your inquiry and is deleted after the communication is completed (max. 30 days). NO data is shared with third parties. NO data is stored in a database.">
-                    Wenn Sie uns über das Kontaktformular eine Nachricht senden, werden Ihre eingegebenen Daten (Name, E-Mail, Betreff, Nachricht) per E-Mail an info@iran-awareness.org übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nach Abschluss der Kommunikation gelöscht (max. 30 Tage). Es erfolgt KEINE Weitergabe an Dritte. Es erfolgt KEINE Speicherung in einer Datenbank.
+                <p data-de="Wenn Sie uns über das Kontaktformular eine Nachricht senden, werden Ihre eingegebenen Daten (Name, E-Mail, Betreff, Nachricht) per E-Mail an iran.protest2026@gmail.com übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nach Abschluss der Kommunikation gelöscht (max. 30 Tage). Es erfolgt KEINE Weitergabe an Dritte. Es erfolgt KEINE Speicherung in einer Datenbank." data-en="When you send us a message via the contact form, your entered data (name, email, subject, message) is transmitted via email to iran.protest2026@gmail.com. Legal basis: Art. 6 (1) lit. a GDPR (consent). The data is used exclusively to process your inquiry and is deleted after the communication is completed (max. 30 days). NO data is shared with third parties. NO data is stored in a database.">
+                    Wenn Sie uns über das Kontaktformular eine Nachricht senden, werden Ihre eingegebenen Daten (Name, E-Mail, Betreff, Nachricht) per E-Mail an iran.protest2026@gmail.com übermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Die Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nach Abschluss der Kommunikation gelöscht (max. 30 Tage). Es erfolgt KEINE Weitergabe an Dritte. Es erfolgt KEINE Speicherung in einer Datenbank.
                 </p>
 
                 <h4 data-de="5. Externe Links" data-en="5. External Links">5. Externe Links</h4>
@@ -2058,8 +2555,8 @@
                 </p>
 
                 <h4 data-de="6. Ihre Rechte nach DSGVO" data-en="6. Your Rights under GDPR">6. Ihre Rechte nach DSGVO</h4>
-                <p data-de="Sie haben das Recht auf: Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO), Berichtigung unrichtiger Daten (Art. 16 DSGVO), Löschung Ihrer Daten (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Widerspruch gegen die Verarbeitung (Art. 21 DSGVO), Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO). Für Anfragen kontaktieren Sie uns bitte unter info@iran-awareness.org." data-en="You have the right to: access your stored data (Art. 15 GDPR), rectification of inaccurate data (Art. 16 GDPR), erasure of your data (Art. 17 GDPR), restriction of processing (Art. 18 GDPR), objection to processing (Art. 21 GDPR), complaint to a supervisory authority (Art. 77 GDPR). For inquiries, please contact us at info@iran-awareness.org.">
-                    Sie haben das Recht auf: Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO), Berichtigung unrichtiger Daten (Art. 16 DSGVO), Löschung Ihrer Daten (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Widerspruch gegen die Verarbeitung (Art. 21 DSGVO), Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO). Für Anfragen kontaktieren Sie uns bitte unter info@iran-awareness.org.
+                <p data-de="Sie haben das Recht auf: Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO), Berichtigung unrichtiger Daten (Art. 16 DSGVO), Löschung Ihrer Daten (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Widerspruch gegen die Verarbeitung (Art. 21 DSGVO), Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO). Für Anfragen kontaktieren Sie uns bitte unter iran.protest2026@gmail.com." data-en="You have the right to: access your stored data (Art. 15 GDPR), rectification of inaccurate data (Art. 16 GDPR), erasure of your data (Art. 17 GDPR), restriction of processing (Art. 18 GDPR), objection to processing (Art. 21 GDPR), complaint to a supervisory authority (Art. 77 GDPR). For inquiries, please contact us at iran.protest2026@gmail.com.">
+                    Sie haben das Recht auf: Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO), Berichtigung unrichtiger Daten (Art. 16 DSGVO), Löschung Ihrer Daten (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO), Widerspruch gegen die Verarbeitung (Art. 21 DSGVO), Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO). Für Anfragen kontaktieren Sie uns bitte unter iran.protest2026@gmail.com.
                 </p>
 
                 <h4 data-de="7. Änderungen" data-en="7. Changes">7. Änderungen</h4>
@@ -2104,6 +2601,15 @@
             document.title = lang === 'de'
                 ? 'Iran Awareness | #IranProtests #DigitalBlackoutIran'
                 : 'Iran Awareness | #IranProtests #DigitalBlackoutIran';
+
+            // Switch video containers based on language
+            document.querySelectorAll('.video-container').forEach(function(container) {
+                if (container.dataset.lang === lang) {
+                    container.style.display = 'block';
+                } else {
+                    container.style.display = 'none';
+                }
+            });
         }
 
         document.querySelectorAll('.lang-btn').forEach(function(btn) {
@@ -2214,7 +2720,7 @@
             if (e.target === this) this.classList.remove('active');
         });
 
-        // Contact form - sends email to info@iran-awareness.org
+        // Contact form - sends email to iran.protest2026@gmail.com
         var contactForm = document.getElementById('contactForm');
 
         contactForm.addEventListener('submit', function(e) {
@@ -2231,7 +2737,7 @@
             var message = document.getElementById('message').value;
 
             // Create mailto link as fallback / primary method
-            var mailtoLink = 'mailto:info@iran-awareness.org?subject=' +
+            var mailtoLink = 'mailto:iran.protest2026@gmail.com?subject=' +
                 encodeURIComponent('[Website] ' + subject) +
                 '&body=' + encodeURIComponent(
                     'Name: ' + name + '\n' +
@@ -2246,8 +2752,8 @@
                 showAlert(
                     currentLang === 'de' ? 'E-Mail-Programm geöffnet' : 'Email Client Opened',
                     currentLang === 'de'
-                        ? 'Ihr E-Mail-Programm sollte sich geöffnet haben. Falls nicht, senden Sie Ihre Nachricht direkt an info@iran-awareness.org'
-                        : 'Your email client should have opened. If not, please send your message directly to info@iran-awareness.org',
+                        ? 'Ihr E-Mail-Programm sollte sich geöffnet haben. Falls nicht, senden Sie Ihre Nachricht direkt an iran.protest2026@gmail.com'
+                        : 'Your email client should have opened. If not, please send your message directly to iran.protest2026@gmail.com',
                     'success'
                 );
                 contactForm.reset();
@@ -2266,7 +2772,6 @@
             }
         });
     </script>
+</body>
+</html>
 
-
-
-</body></html>
