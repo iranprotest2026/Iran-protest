@@ -259,20 +259,29 @@
             padding: calc(var(--header-height) + 60px) 24px 60px;
             overflow: hidden;
         }
-
+        
         .hero-background {
             position: absolute;
             inset: 0;
-            background: url('https://i.postimg.cc/nzJMNPTn/Untitled.jpg') center center / cover no-repeat;
+            background-image: url('https://i.postimg.cc/nzJMNPTn/Untitled.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain; /* 👈 کل عکس دیده می‌شود */
+            background-color: #000;   /* فضای خالی اطراف عکس */
             z-index: 0;
         }
-
+        
         .hero-background::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%);
+            background: linear-gradient(
+                180deg,
+                rgba(0,0,0,0.5) 0%,
+                rgba(0,0,0,0.8) 100%
+            );
         }
+
 
         .hero-content {
             max-width: 900px;
