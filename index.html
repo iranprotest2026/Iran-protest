@@ -761,11 +761,84 @@
             color: var(--color-gray-500);
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--color-red);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 20px rgba(230, 57, 70, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all var(--transition-fast);
+            z-index: 999;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--color-red-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(230, 57, 70, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 44px;
+                height: 44px;
+                font-size: 1rem;
+            }
+        }
+
         /* International Impact Section */
         .impact {
+            position: relative;
             padding: 100px 24px;
-            background: var(--color-gray-100);
+            background-color: var(--color-gray-100);
             transition: background-color var(--transition-medium);
+        }
+
+        .impact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.03) 0%, transparent 50%, rgba(230, 57, 70, 0.05) 100%),
+                        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e63946' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            opacity: 1;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .impact > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .dark .impact::before {
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.05) 0%, transparent 50%, rgba(230, 57, 70, 0.08) 100%),
+                        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e63946' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
         }
 
         .impact-header {
@@ -1859,7 +1932,7 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="#home" data-de="Start" data-en="Home">Start</a></li>
-                    <li><a href="#sources" data-de="Quellen" data-en="Sources">Quellen</a></li>
+                    <li><a href="#sources" data-de="Medien" data-en="Media">Medien</a></li>
                     <li><a href="#impact" data-de="Europa" data-en="Europe">Europa</a></li>
                     <li><a href="#victims" data-de="Betroffene" data-en="Victims">Betroffene</a></li>
                     <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
@@ -1880,7 +1953,7 @@
     <div class="mobile-menu">
         <ul>
             <li><a href="#home" data-de="Start" data-en="Home">Start</a></li>
-            <li><a href="#sources" data-de="Quellen" data-en="Sources">Quellen</a></li>
+            <li><a href="#sources" data-de="Medien" data-en="Media">Medien</a></li>
             <li><a href="#impact" data-de="Europa" data-en="Europe">Europa</a></li>
             <li><a href="#victims" data-de="Betroffene" data-en="Victims">Betroffene</a></li>
             <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
@@ -1893,8 +1966,8 @@
         <div class="hero-background"></div>
         <div class="hero-content">
             <div class="hero-hashtags fade-in">
-                <span class="hashtag hashtag-large">#IranProtests</span>
-                <span class="hashtag hashtag-large">#DigitalBlackoutIran</span>
+                <a href="https://x.com/search?q=%23IranProtests" target="_blank" rel="noopener noreferrer" class="hashtag hashtag-large">#IranProtests</a>
+                <a href="https://x.com/search?q=%23DigitalBlackoutIran" target="_blank" rel="noopener noreferrer" class="hashtag hashtag-large">#DigitalBlackoutIran</a>
             </div>
             <div class="hero-label fade-in delay-1">
                 <span class="hero-label-dot"></span>
@@ -1904,47 +1977,31 @@
                 <span data-de="" data-en=""></span>
                 <span class="number-highlight">12.000+</span>
                 <span data-de=" Getötet in nur 4 Tagen" data-en=" Killed in Just 4 Days"> Getötet in nur 4 Tagen</span>
-            <!-- Video Embeds - Language Specific -->
-            <div class="hero-videos fade-in delay-5">
-    <div class="video-container" data-lang="de">
-        <iframe
-            src="https://www.youtube.com/embed/6CRy0vRNP-k"
-            title="tagesschau24 Top-Thema , 13.1.2026 | Iran: zahlreiche Tote bei Protesten"
-            frameborder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    </div>
-
-    <div class="video-container" data-lang="de">
-        <iframe
-            src="https://www.youtube.com/embed/FR5qRMGdfTc"
-            title="Massenproteste im Iran"
-            frameborder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    </div>
-                
-    <div class="video-container" data-lang="en">
-        <iframe
-            src="https://www.youtube.com/watch?v=cv5687Grds0"
-            title="Iranian regime will not go down without a fight"
-            frameborder="0"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    </div>
-
-
             </h1>
-            <p class="hero-subtitle fade-in delay-3" data-de="Das islamische Regime im Iran hat zwischen dem 9. und 13. Januar 2026 Tausende Zivilisten getötet. Das Internet ist vollständig abgeschaltet. Die Welt muss jetzt handeln." data-en="The Islamic regime in Iran killed thousands of civilians between January 9-13, 2026. The internet has been completely shut down. The world must act now.">
+
+            <!-- Video Embeds - Language Specific (Right after title) -->
+            <div class="hero-videos fade-in delay-3">
+                <div class="video-container" data-lang="de">
+                    <iframe src="https://www.youtube.com/embed/FR5qRMGdfTc" title="Iran Protests Video 1 (DE)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container" data-lang="de">
+                    <iframe src="https://www.youtube.com/embed/6CRy0vRNP-k" title="Iran Protests Video 2 (DE)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container" data-lang="en" style="display: none;">
+                    <iframe src="https://www.youtube.com/embed/BPO3x5Ipo2U" title="Iran Protests Video 1 (EN)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="video-container" data-lang="en" style="display: none;">
+                    <iframe src="https://www.youtube.com/embed/dFB0LaGPlnw" title="Iran Protests Video 2 (EN)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <p class="hero-subtitle fade-in delay-4" data-de="Das islamische Regime im Iran hat zwischen dem 9. und 13. Januar 2026 Tausende Zivilisten getötet. Das Internet ist vollständig abgeschaltet. Die Welt muss jetzt handeln." data-en="The Islamic regime in Iran killed thousands of civilians between January 9-13, 2026. The internet has been completely shut down. The world must act now.">
                 Das islamische Regime im Iran hat zwischen dem 9. und 13. Januar 2026 Tausende Zivilisten getötet. Das Internet ist vollständig abgeschaltet. Die Welt muss jetzt handeln.
             </p>
             <div class="hero-context fade-in delay-4">
                 <div class="context-box">
-                    <p data-de="Die Forderung des iranischen Volkes ist klar: Befreiung von den unterdrückenden Kräften des islamischen Regimes, das sie seit über 50 Jahren mit Gewalt, Terror und Unterdrückung beherrscht." data-en="The demand of the Iranian people is clear: liberation from the oppressive forces of the Islamic regime which has held them under threat, violence, and suppression for over 50 years.">
-                        Die Forderung des iranischen Volkes ist klar: Befreiung von den unterdrückenden Kräften des islamischen Regimes, das sie seit über 50 Jahren mit Gewalt, Terror und Unterdrückung beherrscht.
+                    <p data-de="Die Forderung des iranischen Volkes ist klar: Befreiung von den unterdrückenden Kräften des islamischen Regimes, das sie seit über 50 Jahren mit Gewalt, Terror und Unterdrückung beherrscht. Unser Problem ist nicht nur die Inflation — wir fordern den Sturz des islamischen Regimes." data-en="The demand of the Iranian people is clear: liberation from the oppressive forces of the Islamic regime which has held them under threat, violence, and suppression for over 50 years. Our problem is not just inflation — we demand the removal of the Islamic regime.">
+                        Die Forderung des iranischen Volkes ist klar: Befreiung von den unterdrückenden Kräften des islamischen Regimes, das sie seit über 50 Jahren mit Gewalt, Terror und Unterdrückung beherrscht. Unser Problem ist nicht nur die Inflation — wir fordern den Sturz des islamischen Regimes.
                     </p>
                 </div>
             </div>
@@ -1955,7 +2012,7 @@
                     <div class="journey-number">1</div>
                     <div class="journey-content">
                         <h4 data-de="Was passiert im Iran?" data-en="What's Happening in Iran?">Was passiert im Iran?</h4>
-                        <p data-de="Aktuelle Berichte & Quellen" data-en="Current Reports & Sources">Aktuelle Berichte & Quellen</p>
+                        <p data-de="Aktuelle Berichte & Medien" data-en="Current Reports & Media">Aktuelle Berichte & Medien</p>
                     </div>
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -1970,8 +2027,8 @@
                 <a href="#action" class="journey-step">
                     <div class="journey-number">3</div>
                     <div class="journey-content">
-                        <h4 data-de="So können Sie unterstützen?" data-en="How can you support?">So können Sie unterstützen?</h4>
-                        <p data-de="Jetzt handeln & helfen" data-en="Take Action & Help">Jetzt handeln & helfen</p>
+                        <h4 data-de="So können Sie helfen" data-en="How You Can Help">So können Sie helfen</h4>
+                        <p data-de="Jetzt unterstützen" data-en="Support Now">Jetzt unterstützen</p>
                     </div>
                     <i class="fas fa-arrow-right"></i>
                 </a>
@@ -2058,7 +2115,7 @@
                         <i class="fas fa-exclamation-triangle"></i>
                     </div>
                     <span class="press-update-label" data-de="Aktuelle Meldung" data-en="Breaking News">Aktuelle Meldung</span>
-                    <span class="press-update-date" data-de="9.–14. Januar 2026" data-en="January 9–13, 2026">9.–14. Januar 2026</span>
+                    <span class="press-update-date" data-de="9.–13. Januar 2026" data-en="January 9–13, 2026">9.–13. Januar 2026</span>
                 </div>
                 <h3 data-de="Berichte über massive Opferzahlen" data-en="Reports of Massive Casualties">Berichte über massive Opferzahlen</h3>
                 <p>
@@ -2066,7 +2123,7 @@
                     <span class="number-highlight">12.000 bis 20.000</span>
                     <span data-de=" Todesopfern innerhalb dieser wenigen Tage." data-en=" people killed within just those few days."> Todesopfern innerhalb dieser wenigen Tage.</span>
                 </p>
-                <p class="press-update-note" data-de="Hinweis: Die offiziellen Zahlen der iranischen Behörden bestätigen diese Angaben nicht. Wir überprüfen diese Informationen nicht unabhängig und geben lediglich wieder, was von internationalen Medien berichtet wurde." data-en="Note: The official figures by Iranian authorities do not confirm these numbers. We do not independently verify this information and only report what international media stated.">
+                <p class="press-update-note" data-de="Hinweis: Die offiziellen Zahlen der iranischen Behörden bestätigen diese Angaben nicht. Wir überprüfen diese Informationen nicht unabh��ngig und geben lediglich wieder, was von internationalen Medien berichtet wurde." data-en="Note: The official figures by Iranian authorities do not confirm these numbers. We do not independently verify this information and only report what international media stated.">
                     Hinweis: Die offiziellen Zahlen der iranischen Behörden bestätigen diese Angaben nicht. Wir überprüfen diese Informationen nicht unabhängig und geben lediglich wieder, was von internationalen Medien berichtet wurde.
                 </p>
             </div>
@@ -2286,14 +2343,9 @@
                 <p class="fade-in delay-2" data-de="Unser Ziel ist es, auf die großflächigen Tötungen von Zivilist*innen im Iran aufmerksam zu machen und öffentlichen sowie politischen Druck zur Wiederherstellung des Internetzugangs, der Telefonleitungen und Flugverbindungen auszuüben." data-en="Our only purpose is to raise awareness about the large-scale killings of civilians in Iran and to encourage public and political pressure to restore internet access, phone lines, and air connections for the people of Iran.">
                     Unser Ziel ist es, auf die großflächigen Tötungen von Zivilist*innen im Iran aufmerksam zu machen und öffentlichen sowie politischen Druck zur Wiederherstellung des Internetzugangs, der Telefonleitungen und Flugverbindungen auszuüben.
                 </p>
-                <div class="about-contact fade-in delay-2">
-                    <i class="fas fa-envelope"></i>
-                    <span data-de="Kontakt:" data-en="Contact:">Kontakt:</span>
-                    <a href="mailto:iran.protest2026@gmail.com">iran.protest2026@gmail.com</a>
-                </div>
                 <div class="about-update fade-in delay-2">
                     <i class="fas fa-clock"></i>
-                    <span data-de="Zuletzt aktualisiert: 14. Januar 2026" data-en="Last updated: January 14, 2026">Zuletzt aktualisiert: 14. Januar 2026</span>
+                    <span data-de="Zuletzt aktualisiert: 13. Januar 2026" data-en="Last updated: January 13, 2026">Zuletzt aktualisiert: 13. Januar 2026</span>
                 </div>
                 <p class="fade-in delay-3" data-de="Wir bleiben anonym, um unsere Familien im Iran vor möglichen Bedrohungen oder Repressalien durch das iranische Regime zu schützen." data-en="We choose to stay anonymous to protect our families in Iran from potential threats or pressure by the Iranian regime.">
                     Wir bleiben anonym, um unsere Familien im Iran vor möglichen Bedrohungen oder Repressalien durch das iranische Regime zu schützen.
@@ -2333,7 +2385,7 @@
     <section class="action" id="action">
         <div class="container">
             <div class="action-inner">
-                <h2 class="fade-in" data-de="So können Sie unterstützen" data-en="How can you support?">So können Sie unterstützen</h2>
+                <h2 class="fade-in" data-de="So können Sie unterstützen" data-en="How You Can Help">So können Sie unterstützen</h2>
                 <div class="action-content fade-in delay-1">
                     <p data-de="Die wichtigste Maßnahme ist, sich zu informieren und das Wort zu verbreiten." data-en="The most important action is to stay informed and spread the word.">
                         Die wichtigste Maßnahme ist, sich zu informieren und das Wort zu verbreiten.
@@ -2409,6 +2461,11 @@
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Footer -->
     <footer id="footer">
         <div class="container">
@@ -2423,7 +2480,7 @@
                     <h4 data-de="Navigation" data-en="Navigation">Navigation</h4>
                     <ul>
                         <li><a href="#home" data-de="Start" data-en="Home">Start</a></li>
-                        <li><a href="#sources" data-de="Quellen" data-en="Sources">Quellen</a></li>
+                        <li><a href="#sources" data-de="Medien" data-en="Media">Medien</a></li>
                         <li><a href="#impact" data-de="Europa" data-en="Europe">Europa</a></li>
                         <li><a href="#victims" data-de="Betroffene" data-en="Victims">Betroffene</a></li>
                         <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
@@ -2787,6 +2844,21 @@
                 });
                 document.getElementById('alertModal').classList.remove('active');
             }
+        });
+
+        // Back to Top Button
+        var backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 400) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
