@@ -256,32 +256,23 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            padding: calc(var(--header-height) + 20px) 24px 60px;
+            padding: calc(var(--header-height) + 60px) 24px 60px;
             overflow: hidden;
         }
-        
+
         .hero-background {
             position: absolute;
             inset: 0;
-            background-image: url('https://i.postimg.cc/NMHS2Nwg/Untitled.jpg');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-color: #000; 
+            background: url('https://pfst.cf2.poecdn.net/base/image/10a745321db56dd0db1206b2f11eeb875e50fcb7d3dfc8d6e1f8df2e4c99a5fb?w=1200&h=675') center center / cover no-repeat;
             z-index: 0;
         }
-        
+
         .hero-background::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                180deg,
-                rgba(0,0,0,0.5) 0%,
-                rgba(0,0,0,0.8) 100%
-            );
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.85) 100%);
         }
-
 
         .hero-content {
             max-width: 900px;
@@ -519,11 +510,11 @@
         }
 
         .parallax-bg-2 {
-            background-image: url('https://pfst.cf2.poecdn.net/base/image/10a745321db56dd0db1206b2f11eeb875e50fcb7d3dfc8d6e1f8df2e4c99a5fb?w=1200&h=675');
+            background-image: url('https://images.unsplash.com/photo-1573511860302-28c524319d2a?w=2000&q=80');
         }
 
         .parallax-bg-3 {
-            background-image: url('https://i.postimg.cc/SsfLP86d/G-ie-Ya-TWAAA-x7E.jpg');
+            background-image: url('https://images.unsplash.com/photo-1591538934135-2a7c91c8b9e6?w=2000&q=80');
         }
 
         .parallax-overlay {
@@ -1201,7 +1192,7 @@
             line-height: 1.75;
         }
 
-        /* Take Action Section */
+        /* Take Action / Downloads Section */
         .action {
             padding: 100px 24px;
             background: var(--color-white);
@@ -1265,6 +1256,233 @@
             transition: background-color var(--transition-medium);
         }
 
+        /* Downloads Subsection */
+        .downloads-section {
+            margin-top: 60px;
+            padding-top: 60px;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .downloads-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--color-black);
+        }
+
+        .downloads-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--color-gray-500);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Download Cards Grid */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 992px) {
+            .download-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .download-grid {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Download Card */
+        .download-card {
+            display: block;
+            background: var(--color-gray-100);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            cursor: pointer;
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .download-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-card:focus {
+            outline: 3px solid var(--color-red);
+            outline-offset: 2px;
+        }
+
+        .dark .download-card:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Thumbnail Container */
+        .download-thumbnail {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .dark .download-thumbnail {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+        }
+
+        /* Aspect ratios for different formats */
+        .download-thumbnail.ratio-a4,
+        .download-thumbnail.ratio-a3 {
+            aspect-ratio: 210 / 297;
+        }
+
+        .download-thumbnail.ratio-a6 {
+            aspect-ratio: 105 / 148;
+        }
+
+        /* Poster Preview SVG */
+        .poster-preview {
+            width: 85%;
+            height: 85%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            padding: 12%;
+            position: relative;
+        }
+
+        .dark .poster-preview {
+            background: #1a1a1a;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .poster-preview-icon {
+            font-size: 2rem;
+            color: var(--color-red);
+            margin-bottom: 8px;
+        }
+
+        .poster-preview-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-black);
+            text-align: center;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        .poster-preview-hashtag {
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: var(--color-red);
+            text-align: center;
+        }
+
+        /* Format Badge */
+        .format-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--color-red);
+            color: white;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            box-shadow: 0 2px 8px rgba(230, 57, 70, 0.4);
+        }
+
+        /* Card Info */
+        .download-info {
+            padding: 20px;
+        }
+
+        .download-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .download-title i {
+            color: var(--color-red);
+            font-size: 0.875rem;
+        }
+
+        .download-desc {
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .download-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--color-gray-200);
+        }
+
+        .download-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.75rem;
+            color: var(--color-gray-400);
+        }
+
+        .download-meta-item i {
+            font-size: 0.75rem;
+        }
+
+        /* Legal Disclaimer */
+        .download-disclaimer {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 24px;
+            background: var(--color-gray-100);
+            border-radius: 12px;
+            border-left: 3px solid var(--color-gray-300);
+        }
+
+        .download-disclaimer p {
+            font-size: 0.8125rem;
+            color: var(--color-gray-500);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .download-disclaimer i {
+            margin-right: 8px;
+            color: var(--color-gray-400);
+        }
+
         /* Contact Section */
         .contact {
             padding: 100px 24px;
@@ -1304,6 +1522,25 @@
         }
 
         .contact-detail i {
+            width: 24px;
+            color: var(--color-red);
+            font-size: 1.125rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--color-gray-500);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .contact-link:hover {
+            color: var(--color-red);
+        }
+
+        .contact-link i {
             width: 24px;
             color: var(--color-red);
             font-size: 1.125rem;
@@ -1997,15 +2234,15 @@
                     <iframe src="https://www.youtube.com/embed/6CRy0vRNP-k" title="Iran Protests Video 2 (DE)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-container" data-lang="en" style="display: none;">
-                    <iframe src="https://www.youtube.com/embed/GP80vysFCgs" title="Iran Protests Video 1 (EN)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/BPO3x5Ipo2U" title="Iran Protests Video 1 (EN)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <div class="video-container" data-lang="en" style="display: none;">
-                    <iframe src="https://www.youtube.com/embed/MoLF6pUAkwg" title="Iran Protests Video 2 (EN)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/dFB0LaGPlnw" title="Iran Protests Video 2 (EN)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <p class="hero-subtitle fade-in delay-4" data-de="Seit dem 8. Januar 2026 sind Internet und Telefonverbindungen im Iran vollständig abgeschaltet. Seit diesem Zeitpunkt hat das islamische Regime eine landesweite, massive Repressions- und Tötungskampagne gegen die Zivilbevölkerung begonnen. Allein zwischen dem 9. und 13. Januar wurden mindestens 12.000 Menschen getötet, und diese Zahl steigt bis heute stetig weiter an. Die Welt muss jetzt handeln." data-en="Internet access and telephone lines in Iran have been shut down since January 8, 2026. Since that date, the Islamic regime has launched a massive nationwide crackdown and massacre against civilians. Between January 9 and January 13 alone, at least 12,000 people were killed, and this number is continuously rising every hour. The world must act now.">
-                Seit dem 8. Januar 2026 sind Internet und Telefonverbindungen im Iran vollständig abgeschaltet. Seit diesem Zeitpunkt hat das islamische Regime eine landesweite, massive Repressions- und Tötungskampagne gegen die Zivilbevölkerung begonnen. Allein zwischen dem 9. und 13. Januar wurden mindestens 12.000 Menschen getötet, und diese Zahl steigt bis heute stetig weiter an. Die Welt muss jetzt handeln.
+            <p class="hero-subtitle fade-in delay-4" data-de="Das islamische Regime im Iran hat zwischen dem 9. und 13. Januar 2026 Tausende Zivilisten getötet. Das Internet ist vollständig abgeschaltet. Die Welt muss jetzt handeln." data-en="The Islamic regime in Iran killed thousands of civilians between January 9-13, 2026. The internet has been completely shut down. The world must act now.">
+                Das islamische Regime im Iran hat zwischen dem 9. und 13. Januar 2026 Tausende Zivilisten getötet. Das Internet ist vollständig abgeschaltet. Die Welt muss jetzt handeln.
             </p>
             <div class="hero-context fade-in delay-4">
                 <div class="context-box">
@@ -2060,15 +2297,15 @@
                 </p>
             </div>
             <div class="sources-grid">
-                <a href="https://www.zdfheute.de/thema/iran-222.html" target="_blank" rel="noopener noreferrer" class="source-card fade-in">
+                <a href="https://www.bbc.com/persian" target="_blank" rel="noopener noreferrer" class="source-card fade-in">
                     <div class="source-icon"><i class="fas fa-broadcast-tower"></i></div>
                     <div class="source-content">
-                        <h4>ZDF</h4>
-                        <p data-de="Internationale Berichterstattung" data-en="International coverage in Farsi">Internationale Berichterstattung</p>
+                        <h4>BBC Persian</h4>
+                        <p data-de="Internationale Berichterstattung in Farsi" data-en="International coverage in Farsi">Internationale Berichterstattung in Farsi</p>
                     </div>
                     <i class="fas fa-arrow-right source-arrow"></i>
                 </a>
-                <a href="https://www.dw.com/en/2026-iran-protests/t-75407674" target="_blank" rel="noopener noreferrer" class="source-card fade-in delay-1">
+                <a href="https://www.dw.com/fa-ir" target="_blank" rel="noopener noreferrer" class="source-card fade-in delay-1">
                     <div class="source-icon"><i class="fas fa-globe-europe"></i></div>
                     <div class="source-content">
                         <h4>Deutsche Welle</h4>
@@ -2100,6 +2337,14 @@
                     </div>
                     <i class="fas fa-arrow-right source-arrow"></i>
                 </a>
+                <a href="https://iranhr.net" target="_blank" rel="noopener noreferrer" class="source-card fade-in delay-4">
+                    <div class="source-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="source-content">
+                        <h4>Iran Human Rights</h4>
+                        <p data-de="Dokumentation von Menschenrechtsverletzungen" data-en="Human rights violation documentation">Dokumentation von Menschenrechtsverletzungen</p>
+                    </div>
+                    <i class="fas fa-arrow-right source-arrow"></i>
+                </a>
             </div>
             <div class="sources-note fade-in delay-4" data-de="Diese Website verlinkt ausschließlich auf externe, unabhängige Quellen. Wir überprüfen die Informationen nicht selbst und übernehmen keine Haftung für deren Inhalte." data-en="This website only links to external, independent sources. We do not verify the information ourselves and assume no liability for their content.">
                 Diese Website verlinkt ausschließlich auf externe, unabhängige Quellen. Wir überprüfen die Informationen nicht selbst und übernehmen keine Haftung für deren Inhalte.
@@ -2124,7 +2369,7 @@
                     <span class="number-highlight">12.000 bis 20.000</span>
                     <span data-de=" Todesopfern innerhalb dieser wenigen Tage." data-en=" people killed within just those few days."> Todesopfern innerhalb dieser wenigen Tage.</span>
                 </p>
-                <p class="press-update-note" data-de="Hinweis: Die offiziellen Zahlen der iranischen Behörden bestätigen diese Angaben nicht. Wir überprüfen diese Informationen nicht unabh��ngig und geben lediglich wieder, was von internationalen Medien berichtet wurde." data-en="Note: The official figures by Iranian authorities do not confirm these numbers. We do not independently verify this information and only report what international media stated.">
+                <p class="press-update-note" data-de="Hinweis: Die offiziellen Zahlen der iranischen Behörden bestätigen diese Angaben nicht. Wir überprüfen diese Informationen nicht unabhängig und geben lediglich wieder, was von internationalen Medien berichtet wurde." data-en="Note: The official figures by Iranian authorities do not confirm these numbers. We do not independently verify this information and only report what international media stated.">
                     Hinweis: Die offiziellen Zahlen der iranischen Behörden bestätigen diese Angaben nicht. Wir überprüfen diese Informationen nicht unabhängig und geben lediglich wieder, was von internationalen Medien berichtet wurde.
                 </p>
             </div>
@@ -2148,7 +2393,7 @@
                     <h3 data-de="Militärische Zusammenarbeit mit Russland" data-en="Military Cooperation with Russia">Militärische Zusammenarbeit mit Russland</h3>
                 </div>
                 <div class="impact-sources-grid">
-                    <a href="https://www.bbc.com/news/world-us-canada-62130725" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                    <a href="https://www.bbc.com/news/world-europe-62990715" target="_blank" rel="noopener noreferrer" class="impact-source-card">
                         <div class="impact-source-header">
                             <span class="impact-source-name">BBC News</span>
                             <i class="fas fa-external-link-alt"></i>
@@ -2158,7 +2403,7 @@
                             Iran hat erstmals offiziell bestätigt, Drohnen an Russland geliefert zu haben, die im Ukraine-Krieg eingesetzt werden.
                         </p>
                     </a>
-                    <a href="https://www.reuters.com/world/europe/ukraine-says-russia-launched-8060-iran-developed-drones-during-war-2024-09-13/" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                    <a href="https://www.reuters.com/world/iran-has-sent-russia-hundreds-drones-use-against-ukraine-us-says-2022-10-17/" target="_blank" rel="noopener noreferrer" class="impact-source-card">
                         <div class="impact-source-header">
                             <span class="impact-source-name">Reuters</span>
                             <i class="fas fa-external-link-alt"></i>
@@ -2168,7 +2413,7 @@
                             Laut US-Berichten hat Iran Hunderte von Drohnen an Russland geliefert, die gegen ukrainische Städte eingesetzt werden.
                         </p>
                     </a>
-                    <a href="https://www.nytimes.com/interactive/2019/08/03/world/middleeast/us-iran-sanctions-ships.html" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                    <a href="https://www.theguardian.com/world/2024/jan/04/iran-russia-ballistic-missiles-transfer" target="_blank" rel="noopener noreferrer" class="impact-source-card">
                         <div class="impact-source-header">
                             <span class="impact-source-name">The Guardian</span>
                             <i class="fas fa-external-link-alt"></i>
@@ -2198,9 +2443,9 @@
                             Iran hat Wege gefunden, internationale Sanktionen zu umgehen und Öl zu exportieren, was das Regime finanziert.
                         </p>
                     </a>
-                    <a href="https://www.inss.org.il/publication/aircraft-under-the-radar/" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                    <a href="https://www.politico.eu/article/iran-sanctions-oil-china-export/" target="_blank" rel="noopener noreferrer" class="impact-source-card">
                         <div class="impact-source-header">
-                            <span class="impact-source-name">iNSS</span>
+                            <span class="impact-source-name">Politico</span>
                             <i class="fas fa-external-link-alt"></i>
                         </div>
                         <h4 data-de="Sanktionsumgehung über Drittländer" data-en="Sanction Evasion via Third Countries">Sanktionsumgehung über Drittländer</h4>
@@ -2228,7 +2473,7 @@
                             BBC analysiert die langjährige Beziehung zwischen dem Iran und Hamas, einschließlich finanzieller und militärischer Unterstützung.
                         </p>
                     </a>
-                    <a href="https://studies.aljazeera.net/en/analyses/iran-and-gaza-war-complications-relationship-america-and-west" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                    <a href="https://www.aljazeera.com/news/2023/10/18/what-is-irans-relationship-with-hamas-and-hezbollah" target="_blank" rel="noopener noreferrer" class="impact-source-card">
                         <div class="impact-source-header">
                             <span class="impact-source-name">Al Jazeera</span>
                             <i class="fas fa-external-link-alt"></i>
@@ -2238,7 +2483,7 @@
                             Ein Überblick über die komplexen Beziehungen zwischen Iran und seinen regionalen Verbündeten.
                         </p>
                     </a>
-                    <a href="https://apnews.com/article/houthis-yemen-united-nations-sanctions-2368b285b8872d08008998cbb8453a2a" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                    <a href="https://apnews.com/article/houthis-yemen-iran-red-sea-attacks-c8a7a8e98d0c2d3e4f5a6b7c8d9e0f1a" target="_blank" rel="noopener noreferrer" class="impact-source-card">
                         <div class="impact-source-header">
                             <span class="impact-source-name">AP News</span>
                             <i class="fas fa-external-link-alt"></i>
@@ -2246,6 +2491,16 @@
                         <h4 data-de="Houthis und iranische Unterstützung" data-en="Houthis and Iranian Support">Houthis und iranische Unterstützung</h4>
                         <p data-de="Berichte über die Verbindung zwischen den Houthis im Jemen und dem iranischen Regime." data-en="Reports on the connection between the Houthis in Yemen and the Iranian regime.">
                             Berichte über die Verbindung zwischen den Houthis im Jemen und dem iranischen Regime.
+                        </p>
+                    </a>
+                    <a href="https://www.dw.com/en/iran-hezbollah-what-is-their-relationship/a-67191203" target="_blank" rel="noopener noreferrer" class="impact-source-card">
+                        <div class="impact-source-header">
+                            <span class="impact-source-name">Deutsche Welle</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h4 data-de="Iran und Hisbollah: Jahrzehnte der Zusammenarbeit" data-en="Iran and Hezbollah: Decades of Cooperation">Iran und Hisbollah: Jahrzehnte der Zusammenarbeit</h4>
+                        <p data-de="DW untersucht die jahrzehntelange Verbindung zwischen Iran und der Hisbollah im Libanon." data-en="DW examines the decades-long connection between Iran and Hezbollah in Lebanon.">
+                            DW untersucht die jahrzehntelange Verbindung zwischen Iran und der Hisbollah im Libanon.
                         </p>
                     </a>
                 </div>
@@ -2336,7 +2591,7 @@
                 </p>
                 <div class="about-update fade-in delay-2">
                     <i class="fas fa-clock"></i>
-                    <span data-de="Zuletzt aktualisiert: 13. Januar 2026" data-en="Last updated: January 16, 2026">Zuletzt aktualisiert: 16. Januar 2026</span>
+                    <span data-de="Zuletzt aktualisiert: 13. Januar 2026" data-en="Last updated: January 13, 2026">Zuletzt aktualisiert: 13. Januar 2026</span>
                 </div>
                 <p class="fade-in delay-3" data-de="Wir bleiben anonym, um unsere Familien im Iran vor möglichen Bedrohungen oder Repressalien durch das iranische Regime zu schützen." data-en="We choose to stay anonymous to protect our families in Iran from potential threats or pressure by the Iranian regime.">
                     Wir bleiben anonym, um unsere Familien im Iran vor möglichen Bedrohungen oder Repressalien durch das iranische Regime zu schützen.
@@ -2375,6 +2630,7 @@
     <!-- Take Action Section -->
     <section class="action" id="action">
         <div class="container">
+            <!-- Original Action Content -->
             <div class="action-inner">
                 <h2 class="fade-in" data-de="So können Sie unterstützen" data-en="How You Can Help">So können Sie unterstützen</h2>
                 <div class="action-content fade-in delay-1">
@@ -2404,6 +2660,102 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Downloads Subsection -->
+            <div class="downloads-section fade-in">
+                <h3 class="downloads-title" data-de="Materialien zum Herunterladen" data-en="Downloadable Materials">Materialien zum Herunterladen</h3>
+                <p class="downloads-subtitle" data-de="Druckfertige Materialien, um die Aufmerksamkeit auf die Lage im Iran zu lenken." data-en="Print-ready materials to help raise awareness about the situation in Iran.">
+                    Druckfertige Materialien, um die Aufmerksamkeit auf die Lage im Iran zu lenken.
+                </p>
+
+                <!-- Download Cards Grid -->
+                <div class="download-grid">
+                    <!-- Poster A3 - Large Print -->
+                    <a href="materials/poster-a3-iran-awareness.pdf" target="_blank" rel="noopener noreferrer" class="download-card" aria-label="Download Poster A3 PDF - Large format poster for public display">
+                        <div class="download-thumbnail ratio-a3">
+                            <span class="format-badge">A3</span>
+                            <div class="poster-preview">
+                                <i class="fas fa-fist-raised poster-preview-icon"></i>
+                                <div class="poster-preview-title">IRAN</div>
+                                <div class="poster-preview-hashtag">#IranProtests</div>
+                            </div>
+                        </div>
+                        <div class="download-info">
+                            <h4 class="download-title">
+                                <i class="fas fa-file-pdf"></i>
+                                <span data-de="Poster A3 (PDF)" data-en="Poster A3 (PDF)">Poster A3 (PDF)</span>
+                            </h4>
+                            <p class="download-desc" data-de="Großformat für öffentliche Aushänge und Demonstrationen" data-en="Large format for public displays and demonstrations">
+                                Großformat für öffentliche Aushänge und Demonstrationen
+                            </p>
+                            <div class="download-meta">
+                                <span class="download-meta-item"><i class="fas fa-print"></i> 297 × 420 mm</span>
+                                <span class="download-meta-item"><i class="fas fa-expand-arrows-alt"></i> <span data-de="Großdruck" data-en="Large Print">Großdruck</span></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Poster A4 - Wall Display -->
+                    <a href="materials/poster-a4-iran-awareness.pdf" target="_blank" rel="noopener noreferrer" class="download-card" aria-label="Download Poster A4 PDF - Standard poster for notice boards">
+                        <div class="download-thumbnail ratio-a4">
+                            <span class="format-badge">A4</span>
+                            <div class="poster-preview">
+                                <i class="fas fa-fist-raised poster-preview-icon"></i>
+                                <div class="poster-preview-title">IRAN</div>
+                                <div class="poster-preview-hashtag">#IranProtests</div>
+                            </div>
+                        </div>
+                        <div class="download-info">
+                            <h4 class="download-title">
+                                <i class="fas fa-file-pdf"></i>
+                                <span data-de="Poster A4 (PDF)" data-en="Poster A4 (PDF)">Poster A4 (PDF)</span>
+                            </h4>
+                            <p class="download-desc" data-de="Für Pinnwände, Büros und öffentliche Räume" data-en="For notice boards, offices, and public spaces">
+                                Für Pinnwände, Büros und öffentliche Räume
+                            </p>
+                            <div class="download-meta">
+                                <span class="download-meta-item"><i class="fas fa-print"></i> 210 × 297 mm</span>
+                                <span class="download-meta-item"><i class="fas fa-thumbtack"></i> <span data-de="Aushang" data-en="Wall Display">Aushang</span></span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Flyer A6 - Handout -->
+                    <a href="materials/flyer-a6-iran-awareness.pdf" target="_blank" rel="noopener noreferrer" class="download-card" aria-label="Download Flyer A6 PDF - Compact handout for distribution">
+                        <div class="download-thumbnail ratio-a6">
+                            <span class="format-badge">A6</span>
+                            <div class="poster-preview">
+                                <i class="fas fa-fist-raised poster-preview-icon"></i>
+                                <div class="poster-preview-title">IRAN</div>
+                                <div class="poster-preview-hashtag">#IranProtests</div>
+                            </div>
+                        </div>
+                        <div class="download-info">
+                            <h4 class="download-title">
+                                <i class="fas fa-file-pdf"></i>
+                                <span data-de="Flyer A6 (PDF)" data-en="Flyer A6 (PDF)">Flyer A6 (PDF)</span>
+                            </h4>
+                            <p class="download-desc" data-de="Kompaktes Format zum Verteilen und Mitnehmen" data-en="Compact format for distribution and handouts">
+                                Kompaktes Format zum Verteilen und Mitnehmen
+                            </p>
+                            <div class="download-meta">
+                                <span class="download-meta-item"><i class="fas fa-print"></i> 105 × 148 mm</span>
+                                <span class="download-meta-item"><i class="fas fa-hand-holding"></i> <span data-de="Handzettel" data-en="Handout">Handzettel</span></span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Legal Disclaimer -->
+                <div class="download-disclaimer">
+                    <p>
+                        <i class="fas fa-info-circle"></i>
+                        <span data-de="Die bereitgestellten Materialien dienen ausschließlich der Information. Die Nutzung erfolgt in eigener Verantwortung und im Einklang mit den jeweils geltenden lokalen Gesetzen." data-en="The provided materials are for informational purposes only. Use is at your own discretion and in accordance with applicable local laws.">
+                            Die bereitgestellten Materialien dienen ausschließlich der Information. Die Nutzung erfolgt in eigener Verantwortung und im Einklang mit den jeweils geltenden lokalen Gesetzen.
+                        </span>
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2419,6 +2771,12 @@
                     <div class="contact-detail">
                         <i class="fas fa-envelope"></i>
                         <span>iran.protest2026@gmail.com</span>
+                    </div>
+                    <div class="contact-detail">
+                        <a href="https://t.me/iranprotest2026" target="_blank" rel="noopener noreferrer" class="contact-link">
+                            <i class="fab fa-telegram"></i>
+                            <span>@Iran_protest_Admin</span>
+                        </a>
                     </div>
                     <div class="contact-detail">
                         <i class="fas fa-map-marker-alt"></i>
