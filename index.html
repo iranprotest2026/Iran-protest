@@ -2731,12 +2731,12 @@
 
         // ========== ENHANCED SECURITY MEASURES ==========
 
-        // 1. Prevent clickjacking - verify we're not in an unauthorized iframe
+        // 1. Prevent clickjacking
         (function() {
             try {
                 if (window.self !== window.top) {
-                    // Allow only authorized parent domains (Poe)
-                    var allowedParents = ['poe.com', 'quora.com'];
+                    // Allow only authorized parent domains
+                    var allowedParents = ['iran-protest.com', 'youtube.com'];
                     var isAllowed = false;
                     try {
                         var parentHost = window.top.location.hostname;
