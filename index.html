@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Iran Awareness | Iran is Facing Genocide — The World Must Act Now</title>
-    <meta name="description" content="12,000+ people killed in 4 days. Iran is facing genocide. Learn about the crisis and how you can help. #IranProtests #DigitalBlackoutIran">
+    <meta name="description" content="Up to 20,000 people killed in just one week. Iran is facing genocide. The regime claims only 5,000 deaths while cutting internet to hide the massacre. Learn the truth. #IranProtests #DigitalBlackoutIran">
 
     <!-- ============ ENHANCED SECURITY HEADERS ============ -->
+    <!-- HSTS - Force HTTPS -->
+    <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload">
+
+    <!-- Favicon - Lion and Sun Flag -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 48'%3E%3Crect x='0' y='0' width='72' height='16' fill='%23239F40'/%3E%3Crect x='0' y='16' width='72' height='16' fill='%23FFFFFF'/%3E%3Crect x='0' y='32' width='72' height='16' fill='%23DA0000'/%3E%3Ccircle cx='36' cy='24' r='6' fill='%23FFD700'/%3E%3C/svg%3E">
+
     <!-- Content Type & Frame Protection -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
@@ -30,7 +36,7 @@
     <!-- Open Graph / Twitter Cards -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Iran is Facing Genocide — The World Must Act Now">
-    <meta property="og:description" content="12,000+ civilians killed in just 4 days. The world must act now. #IranProtests #DigitalBlackoutIran">
+    <meta property="og:description" content="Up to 20,000 civilians killed in just one week. The regime cut the internet to hide the massacre. The world must act now. #IranProtests #DigitalBlackoutIran">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Fonts -->
@@ -156,15 +162,16 @@
             position: fixed;
             inset: 0;
             background: linear-gradient(rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.92)),
-                        url('http://iran-protest.org/Pics/Flag.png');
+                        url('https://iran-protest.org/Pics/Flag.pngg');
             background-size: cover;
             background-position: center;
             z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
             transition: opacity 0.5s ease, visibility 0.5s ease;
+            overflow-y: auto;
         }
 
         .audience-selector.hidden {
@@ -485,14 +492,15 @@
             display: flex;
             align-items: center;
             position: relative;
-            padding: calc(var(--header-height) + 40px) 0 60px;
+            padding: calc(var(--header-height) + 60px) 0 60px;
             overflow: hidden;
+            margin-top: 20px;
         }
 
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('http://iran-protest.org/Pics/BC1.jpg');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://iran-protest.org/Pics/BC1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -933,13 +941,16 @@
         }
 
         .victim-image {
-            height: 200px;
+            height: 240px;
             background: linear-gradient(135deg, var(--color-gray-200) 0%, var(--color-gray-300) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
             color: var(--color-gray-400);
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
+            background-position: center !important;
         }
 
         .victim-info {
@@ -1468,12 +1479,30 @@
 <body>
     <!-- ==================== AUDIENCE SELECTOR ==================== -->
     <div class="audience-selector" id="audienceSelector">
-        <div class="audience-inner">
+        <div class="audience-inner" style="position: relative;">
+            <!-- Language Toggle for Audience Selector -->
+            <div class="audience-lang-toggle" style="position: absolute; top: -20px; right: 0;">
+                <div class="lang-toggle" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    <button class="lang-btn active" data-lang="en" style="color: rgba(255,255,255,0.7);">EN</button>
+                    <button class="lang-btn" data-lang="de" style="color: rgba(255,255,255,0.7);">DE</button>
+                </div>
+            </div>
+
             <div class="audience-logo">
-                <div class="audience-logo-icon"><i class="fas fa-fist-raised"></i></div>
+                <div class="audience-logo-icon" style="background: transparent; border-radius: 0; width: auto; height: auto; padding: 0;">
+                    <svg viewBox="0 0 72 48" style="height: 32px; width: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                        <rect x="0" y="0" width="72" height="16" fill="#239F40"/>
+                        <rect x="0" y="16" width="72" height="16" fill="#FFFFFF"/>
+                        <rect x="0" y="32" width="72" height="16" fill="#DA0000"/>
+                        <circle cx="36" cy="24" r="6" fill="#FFD700"/>
+                    </svg>
+                </div>
                 <span>Iran Awareness</span>
             </div>
-            <h1 class="audience-question" data-en="12,000+ Killed in Just 4 Days" data-de="12.000+ Getötet in nur 4 Tagen">12,000+ Killed in Just 4 Days</h1>
+            <h1 class="audience-question" style="margin-top: 20px;">
+                <span style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; color: #DC2626; display: block; text-shadow: 0 2px 10px rgba(220,38,38,0.4);" data-en="18,000+" data-de="18.000+">18,000+</span>
+                <span data-en="Killed in Just One Week" data-de="Getötet in nur einer Woche">Killed in Just One Week</span>
+            </h1>
             <p class="audience-subtitle" data-en="Choose your path to learn more and take action" data-de="Wählen Sie Ihren Weg, um mehr zu erfahren und aktiv zu werden">Choose your path to learn more and take action</p>
 
             <div class="audience-cards">
@@ -1498,43 +1527,28 @@
     <header>
         <div class="container">
             <div class="header-inner">
-                <a href="#home" class="logo">
-                    <div class="logo-icon"><i class="fas fa-fist-raised"></i></div>
+                <a href="#home" class="logo" style="gap: 12px;">
+                    <!-- Flag as Logo Icon -->
+                    <div class="logo-icon" style="background: transparent; padding: 0; width: auto; height: auto;" title="Lion and Sun - Symbol of Free Iran">
+                        <svg width="42" height="28" viewBox="0 0 72 48" style="border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
+                            <rect x="0" y="0" width="72" height="16" fill="#239F40"/>
+                            <rect x="0" y="16" width="72" height="16" fill="#FFFFFF"/>
+                            <rect x="0" y="32" width="72" height="16" fill="#DA0000"/>
+                            <g transform="translate(36, 24)">
+                                <circle cx="0" cy="0" r="6" fill="#FFD700"/>
+                                <g fill="#FFD700">
+                                    <polygon points="0,-9 1,-6 -1,-6"/>
+                                    <polygon points="0,9 1,6 -1,6"/>
+                                    <polygon points="-9,0 -6,1 -6,-1"/>
+                                    <polygon points="9,0 6,1 6,-1"/>
+                                </g>
+                                <circle cx="0" cy="0" r="4" fill="#FFD700"/>
+                                <path d="M-2,2 Q-4,0 -3,-2 Q-2,-3 0,-2 Q2,-3 3,-2 Q4,0 2,2 Q1,3 0,2 Q-1,3 -2,2" fill="#DA0000" opacity="0.9"/>
+                            </g>
+                        </svg>
+                    </div>
                     <span>Iran Awareness</span>
                 </a>
-
-                <!-- Old Iranian Flag (Lion and Sun) -->
-                <div class="iran-flag" title="Lion and Sun - Symbol of Free Iran" style="display: flex; align-items: center; margin-left: 16px;">
-                    <svg width="48" height="32" viewBox="0 0 72 48" style="border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.3);">
-                        <!-- Green stripe -->
-                        <rect x="0" y="0" width="72" height="16" fill="#239F40"/>
-                        <!-- White stripe with Lion and Sun -->
-                        <rect x="0" y="16" width="72" height="16" fill="#FFFFFF"/>
-                        <!-- Red stripe -->
-                        <rect x="0" y="32" width="72" height="16" fill="#DA0000"/>
-                        <!-- Lion and Sun emblem (simplified) -->
-                        <g transform="translate(36, 24)">
-                            <!-- Sun rays -->
-                            <circle cx="0" cy="0" r="6" fill="#FFD700"/>
-                            <g fill="#FFD700">
-                                <polygon points="0,-9 1,-6 -1,-6"/>
-                                <polygon points="0,9 1,6 -1,6"/>
-                                <polygon points="-9,0 -6,1 -6,-1"/>
-                                <polygon points="9,0 6,1 6,-1"/>
-                                <polygon points="-6.4,-6.4 -4.2,-4.2 -5.5,-5.5" transform="rotate(0)"/>
-                                <polygon points="6.4,-6.4 4.2,-4.2 5.5,-5.5" transform="rotate(0)"/>
-                                <polygon points="-6.4,6.4 -4.2,4.2 -5.5,5.5" transform="rotate(0)"/>
-                                <polygon points="6.4,6.4 4.2,4.2 5.5,5.5" transform="rotate(0)"/>
-                            </g>
-                            <!-- Sun face circle -->
-                            <circle cx="0" cy="0" r="4" fill="#FFD700"/>
-                            <!-- Simplified lion silhouette -->
-                            <path d="M-2,2 Q-4,0 -3,-2 Q-2,-3 0,-2 Q2,-3 3,-2 Q4,0 2,2 Q1,3 0,2 Q-1,3 -2,2" fill="#DA0000" opacity="0.9"/>
-                            <!-- Sword -->
-                            <line x1="3" y1="-4" x2="5" y2="4" stroke="#DA0000" stroke-width="0.8"/>
-                        </g>
-                    </svg>
-                </div>
 
                 <nav class="header-nav">
                     <ul class="nav-links">
@@ -1550,7 +1564,8 @@
                             <button class="lang-btn" data-lang="de">DE</button>
                         </div>
                         <button class="mobile-menu-btn" aria-label="Toggle menu">
-                            <i class="fas fa-bars"></i>
+                            <i class="fas fa-bars menu-icon-open"></i>
+                            <i class="fas fa-times menu-icon-close" style="display: none;"></i>
                         </button>
                     </div>
                 </nav>
@@ -1602,14 +1617,14 @@
                     <span data-en="The World Must Act Now" data-de="Die Welt muss jetzt handeln">The World Must Act Now</span>
                 </h1>
 
-                <p class="hero-subtitle" data-en="Between January 9-13, 2026, the Islamic regime in Iran killed over 12,000 civilians during peaceful protests. The internet was shut down to hide the massacre. We cannot stay silent." data-de="Zwischen dem 9. und 13. Januar 2026 tötete das islamische Regime im Iran über 12.000 Zivilisten während friedlicher Proteste. Das Internet wurde abgeschaltet, um das Massaker zu verbergen. Wir können nicht schweigen.">
-                    Between January 9-13, 2026, the Islamic regime in Iran killed over 12,000 civilians during peaceful protests. The internet was shut down to hide the massacre. We cannot stay silent.
+                <p class="hero-subtitle" data-en="Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000." data-de="Zwischen dem 8. und 15. Januar 2026 tötete das islamische Regime im Iran Tausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl bis zu 20.000 erreichen könnte.">
+                    Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000.
                 </p>
 
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <div class="hero-stat-number">12,000+</div>
-                        <div class="hero-stat-label" data-en="Killed in 4 Days" data-de="In 4 Tagen getötet">Killed in 4 Days</div>
+                        <div class="hero-stat-number" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; text-shadow: 0 2px 10px rgba(220,38,38,0.5);">18,000+</div>
+                        <div class="hero-stat-label" data-en="Killed in 1 Week" data-de="In 1 Woche getötet">Killed in 1 Week</div>
                     </div>
                     <div class="hero-stat">
                         <div class="hero-stat-number">100%</div>
@@ -1648,16 +1663,13 @@
                         <i class="fas fa-hand-fist"></i>
                         <span data-en="How You Can Help" data-de="So können Sie helfen">How You Can Help</span>
                     </a>
-                    <a href="#happening" class="btn btn-secondary">
-                        <i class="fas fa-info-circle"></i>
-                        <span data-en="Learn More" data-de="Mehr erfahren">Learn More</span>
-                    </a>
                 </div>
 
-                <div class="hero-hashtags">
-                    <a href="https://x.com/search?q=%23IranProtests" target="_blank" rel="noopener noreferrer" class="hashtag">#IranProtests</a>
-                    <a href="https://x.com/search?q=%23DigitalBlackoutIran" target="_blank" rel="noopener noreferrer" class="hashtag">#DigitalBlackoutIran</a>
-                    <a href="https://x.com/search?q=%23IranGenocide" target="_blank" rel="noopener noreferrer" class="hashtag">#IranGenocide</a>
+                <div class="hero-hashtags" style="margin-top: 40px;">
+                    <a href="https://x.com/search?q=%23IranProtests" target="_blank" rel="noopener noreferrer" class="hashtag" style="font-size: 1rem; font-weight: 700; padding: 12px 24px; background: rgba(220, 38, 38, 0.25); border: 2px solid var(--color-red);">#IranProtests</a>
+                    <a href="https://x.com/search?q=%23DigitalBlackoutIran" target="_blank" rel="noopener noreferrer" class="hashtag" style="font-size: 1rem; font-weight: 700; padding: 12px 24px; background: rgba(220, 38, 38, 0.25); border: 2px solid var(--color-red);">#DigitalBlackoutIran</a>
+                    <a href="https://x.com/search?q=%23IranGenocide" target="_blank" rel="noopener noreferrer" class="hashtag" style="font-size: 1rem; font-weight: 700; padding: 12px 24px; background: rgba(220, 38, 38, 0.25); border: 2px solid var(--color-red);">#IranGenocide</a>
+                    <a href="https://x.com/search?q=%23IranMassacre" target="_blank" rel="noopener noreferrer" class="hashtag" style="font-size: 1rem; font-weight: 700; padding: 12px 24px; background: rgba(220, 38, 38, 0.25); border: 2px solid var(--color-red);">#IranMassacre</a>
                 </div>
             </div>
         </div>
@@ -1669,7 +1681,7 @@
     </section>
 
     <!-- ==================== WHAT'S HAPPENING NOW ==================== -->
-    <section class="happening" id="happening" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('http://iran-protest.org//Pics/BC2.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <section class="happening" id="happening" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://iran-protest.org/Pics/BC2.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="container">
             <div class="happening-header">
                 <div class="section-label" style="color: var(--color-red);">
@@ -1758,7 +1770,7 @@
 
 
     <!-- ==================== WHY EUROPE ==================== -->
-    <section class="europe" id="europe" style="background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('http://iran-protest.org//Pics/BC3.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <section class="europe" id="europe" style="background-image: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://iran-protest.org/Pics/BC3.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="container">
             <div class="europe-content">
                 <div class="europe-header">
@@ -1837,6 +1849,28 @@
             <button class="carousel-btn prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
             <div class="carousel-wrapper" id="victimsCarousel">
                 <div class="carousel-track">
+                    <!-- Melina Asadi - 3 years old -->
+                    <div class="victim-card">
+                        <a href="https://x.com/Soranmansournia/status/2012962760028545366" target="_blank" rel="noopener noreferrer" class="victim-image" style="background-image: url('https://pbs.twimg.com/media/G-969n4XEAA9yl3.jpg:large'); background-size: cover; background-position: center;"></a>
+                        <div class="victim-info">
+                            <h4 class="victim-name">Melina Asadi</h4>
+                            <p class="victim-age" data-en="3 years old • Child" data-de="3 Jahre alt • Kind">3 years old • Child</p>
+                            <p class="victim-story" data-en="Killed on January 8, 2026 in Kermanshah, Kurdistan Region. IRGC forces fired pellet rounds randomly into the crowd. Melina was struck by dozens of pellets." data-de="Am 8. Januar 2026 in Kermanshah, Kurdistan-Region, getötet. IRGC-Truppen feuerten willkürlich Schrotmunition in die Menge. Melina wurde von Dutzenden Schrotkugeln getroffen.">Killed on January 8, 2026 in Kermanshah, Kurdistan Region. IRGC forces fired pellet rounds randomly into the crowd. Melina was struck by dozens of pellets.</p>
+                            <a href="https://x.com/Soranmansournia/status/2012962760028545366" target="_blank" rel="noopener noreferrer" class="victim-source" style="font-size: 0.75rem; color: var(--color-red); margin-top: 8px; display: inline-flex; align-items: center; gap: 4px;"><i class="fab fa-x-twitter"></i> <span data-en="Source" data-de="Quelle">Source</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Sam Afshari - 16 years old -->
+                    <div class="victim-card">
+                        <a href="https://x.com/Soranmansournia/status/2013281553275588711" target="_blank" rel="noopener noreferrer" class="victim-image" style="background-image: url('https://pbs.twimg.com/media/G_CZpnSXoAAr8Dp.jpg:large'); background-size: cover; background-position: center;"></a>
+                        <div class="victim-info">
+                            <h4 class="victim-name">Sam Afshari</h4>
+                            <p class="victim-age" data-en="16 years old • Student" data-de="16 Jahre alt • Schüler">16 years old • Student</p>
+                            <p class="victim-story" data-en="Killed on January 8, 2026 in Azimieh District, Karaj. Armed security forces shot him in the head at close range with live ammunition." data-de="Am 8. Januar 2026 im Bezirk Azimieh, Karaj, getötet. Bewaffnete Sicherheitskräfte erschossen ihn aus nächster Nähe mit scharfer Munition in den Kopf.">Killed on January 8, 2026 in Azimieh District, Karaj. Armed security forces shot him in the head at close range with live ammunition.</p>
+                            <a href="https://x.com/Soranmansournia/status/2013281553275588711" target="_blank" rel="noopener noreferrer" class="victim-source" style="font-size: 0.75rem; color: var(--color-red); margin-top: 8px; display: inline-flex; align-items: center; gap: 4px;"><i class="fab fa-x-twitter"></i> <span data-en="Source" data-de="Quelle">Source</span></a>
+                        </div>
+                    </div>
+
                     <div class="victim-card">
                         <a href="https://x.com/i/status/2012555865815990709" target="_blank" rel="noopener noreferrer" class="victim-image" style="background-image: url('https://pbs.twimg.com/media/G-4IV3WXQAAvxF0.jpg:large'); background-size: cover; background-position: center;"></a>
                         <div class="victim-info">
@@ -1887,11 +1921,11 @@
                         </div>
                     </div>
 
-                    <!-- +12,000 More Card -->
+                    <!-- +18,000 More Card -->
                     <div class="victim-card" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%); min-height: 380px;">
                         <div class="victim-info" style="text-align: center; padding: 40px;">
-                            <h4 class="victim-name" style="font-size: 3rem; color: white; margin-bottom: 16px;">+12,000</h4>
-                            <p class="victim-age" style="color: rgba(255,255,255,0.9); font-size: 1.125rem;" data-en="At least 12,000 more victims" data-de="Mindestens 12.000 weitere Opfer">At least 12,000 more victims</p>
+                            <h4 class="victim-name" style="font-size: 3.5rem; font-weight: 800; color: white; margin-bottom: 16px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">+18,000</h4>
+                            <p class="victim-age" style="color: rgba(255,255,255,0.9); font-size: 1.125rem;" data-en="Killed in Just One Week" data-de="In nur einer Woche getötet">Killed in Just One Week</p>
                             <p class="victim-story" style="color: rgba(255,255,255,0.7); font-size: 0.9375rem; margin-top: 16px;" data-en="Students, workers, doctors, artists, children, parents... Each one a life cut short. Each one deserves to be remembered." data-de="Studenten, Arbeiter, Ärzte, Künstler, Kinder, Eltern... Jedes ein zu kurzes Leben. Jeder verdient es, erinnert zu werden.">Students, workers, doctors, artists, children, parents... Each one a life cut short. Each one deserves to be remembered.</p>
                             <div style="margin-top: 24px;">
                                 <i class="fas fa-candle-holder" style="font-size: 2rem; color: rgba(255,255,255,0.8);"></i>
@@ -1919,78 +1953,268 @@
 
         <div class="resources-carousel">
             <div class="resources-track" id="resourcesCarousel">
-                <a href="materials/poster-a3-en.pdf" data-href-de="materials/poster-a3-de.pdf" data-href-en="materials/poster-a3-en.pdf" target="_blank" rel="noopener noreferrer" class="resource-card">
-                    <div class="resource-preview">
+                <!-- English Poster A3 - Our Design -->
+                <a href="https://iran-protest.org/downloads/English - Colored.png" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/English - Colored.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;">
                         <div class="resource-badge">A3</div>
-                        <div class="resource-preview-inner">
-                            <i class="fas fa-fist-raised resource-preview-icon"></i>
-                            <span class="resource-preview-text">POSTER</span>
-                        </div>
                     </div>
                     <div class="resource-info">
-                        <h4 class="resource-title"><i class="fas fa-file-pdf"></i> <span data-en="Poster A3 (PDF)" data-de="Poster A3 (PDF)">Poster A3 (PDF)</span></h4>
-                        <p class="resource-desc" data-en="Large format for public displays and demonstrations" data-de="Großformat für öffentliche Aushänge und Demonstrationen">Large format for public displays and demonstrations</p>
+                        <h4 class="resource-title"><i class="fas fa-file-image"></i> English Poster A3</h4>
+                        <p class="resource-desc" data-en="© Designed by us" data-de="© Von uns gestaltet">© Designed by us</p>
                         <span class="resource-download"><i class="fas fa-download"></i> <span data-en="Download" data-de="Herunterladen">Download</span></span>
                     </div>
                 </a>
 
-                <a href="materials/poster-a4-en.pdf" data-href-de="materials/poster-a4-de.pdf" data-href-en="materials/poster-a4-en.pdf" target="_blank" rel="noopener noreferrer" class="resource-card">
-                    <div class="resource-preview">
-                        <div class="resource-badge">A4</div>
-                        <div class="resource-preview-inner">
-                            <i class="fas fa-fist-raised resource-preview-icon"></i>
-                            <span class="resource-preview-text">POSTER</span>
-                        </div>
+                <!-- German Poster A3 - Our Design -->
+                <a href="https://iran-protest.org/downloads/German - Colored.png" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/German - Colored.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;">
+                        <div class="resource-badge">A3</div>
                     </div>
                     <div class="resource-info">
-                        <h4 class="resource-title"><i class="fas fa-file-pdf"></i> <span data-en="Poster A4 (PDF)" data-de="Poster A4 (PDF)">Poster A4 (PDF)</span></h4>
-                        <p class="resource-desc" data-en="Standard size for notice boards and offices" data-de="Standardgröße für Pinnwände und Büros">Standard size for notice boards and offices</p>
+                        <h4 class="resource-title"><i class="fas fa-file-image"></i> German Poster A3</h4>
+                        <p class="resource-desc" data-en="© Designed by us" data-de="© Von uns gestaltet">© Designed by us</p>
                         <span class="resource-download"><i class="fas fa-download"></i> <span data-en="Download" data-de="Herunterladen">Download</span></span>
                     </div>
                 </a>
 
-                <a href="materials/flyer-a6-en.pdf" data-href-de="materials/flyer-a6-de.pdf" data-href-en="materials/flyer-a6-en.pdf" target="_blank" rel="noopener noreferrer" class="resource-card">
-                    <div class="resource-preview">
+                <!-- English Flyer A6 - Our Design -->
+                <a href="https://iran-protest.org/downloads/English - B&W.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);">
                         <div class="resource-badge">A6</div>
                         <div class="resource-preview-inner">
-                            <i class="fas fa-hand-holding resource-preview-icon"></i>
+                            <i class="fas fa-file-pdf resource-preview-icon"></i>
                             <span class="resource-preview-text">FLYER</span>
                         </div>
                     </div>
                     <div class="resource-info">
-                        <h4 class="resource-title"><i class="fas fa-file-pdf"></i> <span data-en="Flyer A6 (PDF)" data-de="Flyer A6 (PDF)">Flyer A6 (PDF)</span></h4>
-                        <p class="resource-desc" data-en="Compact handout for distribution" data-de="Kompakter Handzettel zum Verteilen">Compact handout for distribution</p>
+                        <h4 class="resource-title"><i class="fas fa-file-pdf"></i> English Flyer A6</h4>
+                        <p class="resource-desc" data-en="© Designed by us (B&W)" data-de="© Von uns gestaltet (S/W)">© Designed by us (B&W)</p>
                         <span class="resource-download"><i class="fas fa-download"></i> <span data-en="Download" data-de="Herunterladen">Download</span></span>
                     </div>
                 </a>
 
-                <a href="materials/social-kit-en.zip" data-href-de="materials/social-kit-de.zip" data-href-en="materials/social-kit-en.zip" target="_blank" rel="noopener noreferrer" class="resource-card">
-                    <div class="resource-preview">
-                        <div class="resource-badge" data-en="KIT" data-de="KIT">KIT</div>
+                <!-- German Flyer A6 - Our Design -->
+                <a href="https://iran-protest.org/downloads/German- B&W.pdf" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);">
+                        <div class="resource-badge">A6</div>
                         <div class="resource-preview-inner">
-                            <i class="fas fa-share-alt resource-preview-icon"></i>
-                            <span class="resource-preview-text">SOCIAL</span>
+                            <i class="fas fa-file-pdf resource-preview-icon"></i>
+                            <span class="resource-preview-text">FLYER</span>
                         </div>
                     </div>
                     <div class="resource-info">
-                        <h4 class="resource-title"><i class="fas fa-images"></i> <span data-en="Social Media Kit" data-de="Social Media Kit">Social Media Kit</span></h4>
-                        <p class="resource-desc" data-en="Images optimized for Instagram, Twitter, Facebook" data-de="Bilder optimiert für Instagram, Twitter, Facebook">Images optimized for Instagram, Twitter, Facebook</p>
+                        <h4 class="resource-title"><i class="fas fa-file-pdf"></i> German Flyer A6</h4>
+                        <p class="resource-desc" data-en="© Designed by us (B&W)" data-de="© Von uns gestaltet (S/W)">© Designed by us (B&W)</p>
                         <span class="resource-download"><i class="fas fa-download"></i> <span data-en="Download" data-de="Herunterladen">Download</span></span>
                     </div>
                 </a>
 
-                <a href="materials/safety-guide-en.pdf" data-href-de="materials/safety-guide-de.pdf" data-href-en="materials/safety-guide-en.pdf" target="_blank" rel="noopener noreferrer" class="resource-card">
-                    <div class="resource-preview">
-                        <div class="resource-badge" data-en="GUIDE" data-de="GUIDE">GUIDE</div>
-                        <div class="resource-preview-inner">
-                            <i class="fas fa-shield-alt resource-preview-icon"></i>
-                            <span class="resource-preview-text">SAFETY</span>
-                        </div>
-                    </div>
+                <!-- Posters by @moeinnajafii (1-19) -->
+                <a href="https://iran-protest.org/downloads/1.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/1.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
-                        <h4 class="resource-title"><i class="fas fa-file-pdf"></i> <span data-en="Safety Guide" data-de="Sicherheitsleitfaden">Safety Guide</span></h4>
-                        <p class="resource-desc" data-en="Encrypted messaging, VPN setup, distribution tips" data-de="Verschlüsselte Kommunikation, VPN-Setup, Verteilungstipps">Encrypted messaging, VPN setup, distribution tips</p>
-                        <span class="resource-download"><i class="fas fa-download"></i> <span data-en="Download" data-de="Herunterladen">Download</span></span>
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/2.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/2.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/3.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/3.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/4.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/4.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/5.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/5.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/6.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/6.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/7.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/7.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/8.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/8.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/9.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/9.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/10.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/10.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/11.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/11.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/12.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/12.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/13.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/13.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/14.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/14.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/15.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/15.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/16.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/16.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/17.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/17.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/18.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/18.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/19.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/19.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <!-- Posters with Unknown Copyright (20-23) -->
+                <a href="https://iran-protest.org/downloads/20.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/20.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/21.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/21.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/22.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/22.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/23.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/23.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
             </div>
@@ -2012,6 +2236,16 @@
                         <i class="fas fa-info-circle" style="margin-top: 2px;"></i>
                         <span data-en="By downloading these files, you acknowledge that you are solely responsible for complying with local laws and regulations." data-de="Durch das Herunterladen dieser Dateien bestätigen Sie, dass Sie allein für die Einhaltung der lokalen Gesetze und Vorschriften verantwortlich sind.">By downloading these files, you acknowledge that you are solely responsible for complying with local laws and regulations.</span>
                     </p>
+                </div>
+
+                <!-- Copyright Notice for Materials -->
+                <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--color-gray-200);">
+                    <h5 style="font-family: var(--font-display); font-size: 0.875rem; color: var(--color-black); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-copyright" style="color: var(--color-gray-500);"></i>
+                        <span data-en="Material Copyright" data-de="Urheberrecht der Materialien">Material Copyright</span>
+                    </h5>
+                    <p style="font-size: 0.8125rem; color: var(--color-gray-600); line-height: 1.7; margin-bottom: 8px;" data-en="Some materials (posters, flyers, social media kit) were created by us specifically for this awareness campaign and are freely available for non-commercial use." data-de="Einige Materialien (Poster, Flyer, Social-Media-Kit) wurden von uns speziell für diese Aufklärungskampagne erstellt und stehen für nicht-kommerzielle Nutzung frei zur Verfügung.">Some materials (posters, flyers, social media kit) were created by us specifically for this awareness campaign and are freely available for non-commercial use.</p>
+                    <p style="font-size: 0.8125rem; color: var(--color-gray-600); line-height: 1.7;" data-en="Other materials may contain images or content sourced from third parties (news agencies, social media). These are used under fair use for human rights documentation. Rights remain with original creators." data-de="Andere Materialien können Bilder oder Inhalte von Dritten enthalten (Nachrichtenagenturen, soziale Medien). Diese werden unter Fair Use für Menschenrechtsdokumentation verwendet. Die Rechte verbleiben bei den ursprünglichen Erstellern.">Other materials may contain images or content sourced from third parties (news agencies, social media). These are used under fair use for human rights documentation. Rights remain with original creators.</p>
                 </div>
             </div>
         </div>
@@ -2072,7 +2306,14 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="footer-logo">
-                        <div class="logo-icon"><i class="fas fa-fist-raised"></i></div>
+                        <div class="logo-icon" style="background: transparent; padding: 0; width: auto; height: auto;">
+                            <svg width="36" height="24" viewBox="0 0 72 48" style="border-radius: 3px;">
+                                <rect x="0" y="0" width="72" height="16" fill="#239F40"/>
+                                <rect x="0" y="16" width="72" height="16" fill="#FFFFFF"/>
+                                <rect x="0" y="32" width="72" height="16" fill="#DA0000"/>
+                                <circle cx="36" cy="24" r="5" fill="#FFD700"/>
+                            </svg>
+                        </div>
                         <span>Iran Awareness</span>
                     </div>
                     <p class="footer-desc" data-en="A private, non-commercial initiative dedicated to raising awareness about the human rights crisis in Iran. No cookies, no tracking, no data collection." data-de="Eine private, nicht-kommerzielle Initiative zur Sensibilisierung für die Menschenrechtskrise im Iran. Keine Cookies, kein Tracking, keine Datensammlung.">A private, non-commercial initiative dedicated to raising awareness about the human rights crisis in Iran. No cookies, no tracking, no data collection.</p>
@@ -2305,19 +2546,26 @@
         // ========== MOBILE MENU ==========
         var mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         var mobileMenu = document.querySelector('.mobile-menu');
+        var menuIconOpen = mobileMenuBtn.querySelector('.menu-icon-open');
+        var menuIconClose = mobileMenuBtn.querySelector('.menu-icon-close');
         var menuOpen = false;
+
+        function updateMenuIcon() {
+            menuIconOpen.style.display = menuOpen ? 'none' : 'inline-block';
+            menuIconClose.style.display = menuOpen ? 'inline-block' : 'none';
+        }
 
         mobileMenuBtn.addEventListener('click', function() {
             menuOpen = !menuOpen;
             mobileMenu.classList.toggle('active', menuOpen);
-            mobileMenuBtn.innerHTML = menuOpen ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            updateMenuIcon();
         });
 
         mobileMenu.querySelectorAll('a').forEach(function(link) {
             link.addEventListener('click', function() {
                 menuOpen = false;
                 mobileMenu.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                updateMenuIcon();
             });
         });
 
