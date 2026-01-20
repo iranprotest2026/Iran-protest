@@ -494,7 +494,7 @@
             display: flex;
             align-items: center;
             position: relative;
-            padding: calc(var(--header-height) + 120px) 0 60px;
+            padding: calc(var(--header-height) + 60px) 0 60px;
             overflow: hidden;
         }
 
@@ -636,6 +636,7 @@
 
         .hero-hashtags {
             margin-top: 48px;
+            margin-bottom: 80px;
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
@@ -740,7 +741,6 @@
 
         .source-card-inner {
             display: flex;
-            flex-direction: column;
             align-items: center;
             gap: 16px;
         }
@@ -1078,15 +1078,16 @@
         }
 
         .resource-card {
-            flex: 0 0 280px;
+            flex: 0 0 260px;
             scroll-snap-align: start;
             background: var(--color-white);
             border: 1px solid var(--color-gray-200);
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
             transition: all var(--transition-medium);
             text-decoration: none;
-            display: block;
+            display: flex !important;
+            flex-direction: column !important;
         }
 
         .resource-card:hover {
@@ -1096,14 +1097,18 @@
         }
 
         .resource-preview {
-            width: 100%;
-            height: 180px;
-            min-height: 180px;
+            width: 100% !important;
+            height: 220px !important;
+            min-height: 220px;
+            flex-shrink: 0;
             background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-gray-200) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
             position: relative;
+        }
+
+        .resource-info {
+            padding: 14px 16px;
+            text-align: center;
         }
 
         .resource-preview-inner {
@@ -1142,37 +1147,35 @@
             border-radius: 6px;
         }
 
-        .resource-info {
-            padding: 20px;
-        }
-
         .resource-title {
             font-family: var(--font-display);
-            font-size: 1rem;
+            font-size: 0.875rem;
             font-weight: 600;
             color: var(--color-black);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 6px;
         }
 
         .resource-title i {
             color: var(--color-red);
+            font-size: 0.75rem;
         }
 
         .resource-desc {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: var(--color-gray-500);
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
         .resource-download {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: var(--color-red);
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             font-weight: 600;
         }
 
@@ -1628,8 +1631,8 @@
                     <span data-en="The World Must Act Now" data-de="Die Welt muss jetzt handeln">The World Must Act Now</span>
                 </h1>
 
-                <p class="hero-subtitle" data-en="Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000. The internet was cut to hide the massacre. We cannot confirm exact numbers — please check the linked sources for more information." data-de="Zwischen dem 8. und 15. Januar 2026 tötete das islamische Regime im Iran Tausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl bis zu 20.000 erreichen könnte. Das Internet wurde abgeschaltet, um das Massaker zu verbergen. Wir können keine genauen Zahlen bestätigen — bitte prüfen Sie die verlinkten Quellen für weitere Informationen.">
-                    Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000. The internet was cut to hide the massacre. We cannot confirm exact numbers — please check the linked sources for more information.
+                <p class="hero-subtitle" data-en="Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000." data-de="Zwischen dem 8. und 15. Januar 2026 tötete das islamische Regime im Iran Tausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl bis zu 20.000 erreichen könnte.">
+                    Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000.
                 </p>
 
                 <div class="hero-stats">
@@ -2019,7 +2022,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/1.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2028,7 +2031,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/2.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2037,7 +2040,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/3.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2046,7 +2049,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/4.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2055,7 +2058,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/5.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2064,7 +2067,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/6.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2073,7 +2076,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/7.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2082,7 +2085,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/8.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2091,7 +2094,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/9.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2100,7 +2103,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/10.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2109,7 +2112,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/11.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2118,7 +2121,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/12.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2127,7 +2130,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/13.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2136,7 +2139,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/14.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2145,7 +2148,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/15.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2154,7 +2157,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/16.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2163,7 +2166,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/17.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2172,7 +2175,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/18.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2181,7 +2184,7 @@
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/19.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <a href="https://instagram.com/moeinnajafii" target="_blank" rel="noopener" style="color: var(--color-red);">@moeinnajafii</a></p>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
