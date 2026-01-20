@@ -11,7 +11,7 @@
     <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload">
 
     <!-- Favicon - Lion and Sun Flag -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 48'%3E%3Crect x='0' y='0' width='72' height='16' fill='%23239F40'/%3E%3Crect x='0' y='16' width='72' height='16' fill='%23FFFFFF'/%3E%3Crect x='0' y='32' width='72' height='16' fill='%23DA0000'/%3E%3Ccircle cx='36' cy='24' r='6' fill='%23FFD700'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" href="https://iran-protest.org/Pics/Flag.png">
 
     <!-- Content Type & Frame Protection -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -117,6 +117,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             transition: background-color var(--transition-medium), color var(--transition-medium);
+            padding-top: env(safe-area-inset-top, 0px);
         }
 
         /* Typography */
@@ -162,7 +163,7 @@
             position: fixed;
             inset: 0;
             background: linear-gradient(rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.92)),
-                        url('https://iran-protest.org/Pics/Flag.pngg');
+                        url('https://iran-protest.org/Pics/Flag.png');
             background-size: cover;
             background-position: center;
             z-index: 9999;
@@ -291,12 +292,13 @@
             top: 0;
             left: 0;
             right: 0;
-            height: var(--header-height);
+            height: calc(var(--header-height) + env(safe-area-inset-top, 20px));
             background: rgba(10, 10, 10, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-top: max(env(safe-area-inset-top, 0px), 20px);
         }
 
         .header-inner {
@@ -398,7 +400,7 @@
         /* Mobile Menu */
         .mobile-menu {
             position: fixed;
-            top: var(--header-height);
+            top: calc(var(--header-height) + max(env(safe-area-inset-top, 0px), 20px));
             left: 0;
             right: 0;
             background: rgba(10, 10, 10, 0.98);
@@ -492,9 +494,8 @@
             display: flex;
             align-items: center;
             position: relative;
-            padding: calc(var(--header-height) + 60px) 0 60px;
+            padding: calc(var(--header-height) + 120px) 0 60px;
             overflow: hidden;
-            margin-top: 20px;
         }
 
         .hero-bg {
@@ -739,6 +740,7 @@
 
         .source-card-inner {
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 16px;
         }
@@ -1029,6 +1031,37 @@
             padding: 0 60px;
         }
 
+        .resources-carousel .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-black);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            z-index: 10;
+        }
+
+        .resources-carousel .carousel-btn:hover {
+            background: var(--color-red);
+            border-color: var(--color-red);
+            color: white;
+        }
+
+        .resources-carousel .carousel-btn.prev { left: 10px; }
+        .resources-carousel .carousel-btn.next { right: 10px; }
+
+        @media (max-width: 640px) {
+            .resources-carousel .carousel-btn { display: none; }
+        }
+
         .resources-track {
             display: flex;
             gap: 24px;
@@ -1053,6 +1086,7 @@
             overflow: hidden;
             transition: all var(--transition-medium);
             text-decoration: none;
+            display: block;
         }
 
         .resource-card:hover {
@@ -1062,7 +1096,9 @@
         }
 
         .resource-preview {
+            width: 100%;
             height: 180px;
+            min-height: 180px;
             background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-gray-200) 100%);
             display: flex;
             align-items: center;
@@ -1490,12 +1526,7 @@
 
             <div class="audience-logo">
                 <div class="audience-logo-icon" style="background: transparent; border-radius: 0; width: auto; height: auto; padding: 0;">
-                    <svg viewBox="0 0 72 48" style="height: 32px; width: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-                        <rect x="0" y="0" width="72" height="16" fill="#239F40"/>
-                        <rect x="0" y="16" width="72" height="16" fill="#FFFFFF"/>
-                        <rect x="0" y="32" width="72" height="16" fill="#DA0000"/>
-                        <circle cx="36" cy="24" r="6" fill="#FFD700"/>
-                    </svg>
+                    <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun - Symbol of Free Iran" style="height: 36px; width: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
                 </div>
                 <span>Iran Awareness</span>
             </div>
@@ -1530,22 +1561,7 @@
                 <a href="#home" class="logo" style="gap: 12px;">
                     <!-- Flag as Logo Icon -->
                     <div class="logo-icon" style="background: transparent; padding: 0; width: auto; height: auto;" title="Lion and Sun - Symbol of Free Iran">
-                        <svg width="42" height="28" viewBox="0 0 72 48" style="border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
-                            <rect x="0" y="0" width="72" height="16" fill="#239F40"/>
-                            <rect x="0" y="16" width="72" height="16" fill="#FFFFFF"/>
-                            <rect x="0" y="32" width="72" height="16" fill="#DA0000"/>
-                            <g transform="translate(36, 24)">
-                                <circle cx="0" cy="0" r="6" fill="#FFD700"/>
-                                <g fill="#FFD700">
-                                    <polygon points="0,-9 1,-6 -1,-6"/>
-                                    <polygon points="0,9 1,6 -1,6"/>
-                                    <polygon points="-9,0 -6,1 -6,-1"/>
-                                    <polygon points="9,0 6,1 6,-1"/>
-                                </g>
-                                <circle cx="0" cy="0" r="4" fill="#FFD700"/>
-                                <path d="M-2,2 Q-4,0 -3,-2 Q-2,-3 0,-2 Q2,-3 3,-2 Q4,0 2,2 Q1,3 0,2 Q-1,3 -2,2" fill="#DA0000" opacity="0.9"/>
-                            </g>
-                        </svg>
+                        <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun Flag" style="height: 28px; width: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
                     </div>
                     <span>Iran Awareness</span>
                 </a>
@@ -1606,19 +1622,14 @@
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-circle"></i>
-                    <span data-en="URGENT — Human Rights Crisis" data-de="DRINGEND — Menschenrechtskrise">URGENT — Human Rights Crisis</span>
-                </div>
-
                 <h1 class="hero-title">
                     <span data-en="Iran is Facing" data-de="Iran steht vor einem">Iran is Facing</span>
                     <span class="highlight" data-en=" Genocide" data-de=" Völkermord"> Genocide</span><br>
                     <span data-en="The World Must Act Now" data-de="Die Welt muss jetzt handeln">The World Must Act Now</span>
                 </h1>
 
-                <p class="hero-subtitle" data-en="Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000." data-de="Zwischen dem 8. und 15. Januar 2026 tötete das islamische Regime im Iran Tausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl bis zu 20.000 erreichen könnte.">
-                    Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000.
+                <p class="hero-subtitle" data-en="Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000. The internet was cut to hide the massacre. We cannot confirm exact numbers — please check the linked sources for more information." data-de="Zwischen dem 8. und 15. Januar 2026 tötete das islamische Regime im Iran Tausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl bis zu 20.000 erreichen könnte. Das Internet wurde abgeschaltet, um das Massaker zu verbergen. Wir können keine genauen Zahlen bestätigen — bitte prüfen Sie die verlinkten Quellen für weitere Informationen.">
+                    Between January 8th–15th, 2026, the Islamic regime in Iran killed thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may reach up to 20,000. The internet was cut to hide the massacre. We cannot confirm exact numbers — please check the linked sources for more information.
                 </p>
 
                 <div class="hero-stats">
@@ -1656,13 +1667,6 @@
                             <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/6CRy0vRNP-k" title="Iran Proteste Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
-                </div>
-
-                <div class="hero-actions">
-                    <a href="#action" class="btn btn-primary">
-                        <i class="fas fa-hand-fist"></i>
-                        <span data-en="How You Can Help" data-de="So können Sie helfen">How You Can Help</span>
-                    </a>
                 </div>
 
                 <div class="hero-hashtags" style="margin-top: 40px;">
@@ -1952,6 +1956,7 @@
         </div>
 
         <div class="resources-carousel">
+            <button class="carousel-btn prev" aria-label="Previous" onclick="scrollResourcesCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
             <div class="resources-track" id="resourcesCarousel">
                 <!-- English Poster A3 - Our Design -->
                 <a href="https://iran-protest.org/downloads/English - Colored.png" target="_blank" rel="noopener noreferrer" class="resource-card" download>
@@ -2218,6 +2223,7 @@
                     </div>
                 </a>
             </div>
+            <button class="carousel-btn next" aria-label="Next" onclick="scrollResourcesCarousel(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
 
         <div class="container" style="margin-top: 40px;">
@@ -2307,12 +2313,7 @@
                 <div class="footer-brand">
                     <div class="footer-logo">
                         <div class="logo-icon" style="background: transparent; padding: 0; width: auto; height: auto;">
-                            <svg width="36" height="24" viewBox="0 0 72 48" style="border-radius: 3px;">
-                                <rect x="0" y="0" width="72" height="16" fill="#239F40"/>
-                                <rect x="0" y="16" width="72" height="16" fill="#FFFFFF"/>
-                                <rect x="0" y="32" width="72" height="16" fill="#DA0000"/>
-                                <circle cx="36" cy="24" r="5" fill="#FFD700"/>
-                            </svg>
+                            <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun Flag" style="height: 24px; width: auto; border-radius: 3px;">
                         </div>
                         <span>Iran Awareness</span>
                     </div>
@@ -2672,7 +2673,15 @@
         }
 
         setupCarousel('victimsCarousel');
-        // Resources carousel doesn't have buttons, uses scroll
+
+        // Resources carousel scroll function
+        function scrollResourcesCarousel(direction) {
+            var carousel = document.getElementById('resourcesCarousel');
+            if (carousel) {
+                carousel.scrollBy({ left: direction * 320, behavior: 'smooth' });
+            }
+        }
+        window.scrollResourcesCarousel = scrollResourcesCarousel;
 
         // ========== MODALS ==========
         function openModal(modalId) {
