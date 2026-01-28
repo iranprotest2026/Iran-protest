@@ -253,23 +253,17 @@
             height: auto;
         }
 
-        /* Fix hero videos grid on mobile */
+        /* Hero videos grid - responsive columns */
         .hero-videos-grid {
-            display: grid !important;
             gap: 16px;
             max-width: 700px;
             margin: 0 auto;
+            grid-template-columns: repeat(2, 1fr);
         }
 
         @media (max-width: 600px) {
             .hero-videos-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-
-        @media (min-width: 601px) {
-            .hero-videos-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-columns: 1fr;
             }
         }
 
@@ -327,20 +321,28 @@
         .audience-selector {
             position: fixed;
             inset: 0;
-            background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+            background: url('https://iran-protest.org/Pics/Flag.png') center center / cover no-repeat;
             z-index: 9999;
             display: flex;
             align-items: flex-start;
             justify-content: center;
-            padding: 50px 12px 20px;
+            padding: 30px 12px 20px;
             transition: opacity 0.5s ease, visibility 0.5s ease;
             overflow-y: auto;
+        }
+
+        .audience-selector::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.85);
+            z-index: -1;
         }
 
         /* Larger phones */
         @media (min-height: 700px) {
             .audience-selector {
-                padding-top: 60px;
+                padding-top: 40px;
             }
         }
 
@@ -348,7 +350,7 @@
         @media (min-width: 769px) {
             .audience-selector {
                 align-items: center;
-                padding: 40px 24px;
+                padding: 30px 24px;
             }
         }
 
@@ -2487,13 +2489,6 @@
                     <div class="audience-big-number" data-en="30,000+" data-de="30.000+">30.000+</div>
                     <div class="audience-subtitle-text" data-en="Killed in Just 2 Days" data-de="Getötet in nur 2 Tagen">Getötet in nur 2 Tagen</div>
 
-                    <!-- Verification Badge -->
-                    <a href="#happening" class="verification-badge" onclick="document.getElementById('audienceSelector').classList.add('hidden');">
-                        <i class="fas fa-check-circle"></i>
-                        <span data-en="Verified sources" data-de="Verifizierte Quellen">Verifizierte Quellen</span>
-                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.7;"></i>
-                    </a>
-                    <time datetime="2026-01-27" class="audience-date" data-en="Jan 8–9, 2026" data-de="8.–9. Jan 2026">8.–9. Jan 2026</time>
                 </div>
 
                 <!-- Documentary Video - Compact -->
@@ -2666,8 +2661,8 @@
 
                 <!-- Hero Videos -->
                 <div class="hero-videos" style="margin-bottom: 32px;">
-                    <!-- English Videos -->
-                    <div class="hero-videos-grid" id="hero-videos-en" data-lang-show="en" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 700px; margin: 0 auto;">
+                    <!-- English Videos (hidden by default, German is default) -->
+                    <div class="hero-videos-grid" id="hero-videos-en" data-lang-show="en" style="display: none;">
                         <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
                             <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/F6qFpk7nXug" title="Iran Protests Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
@@ -2675,8 +2670,8 @@
                             <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/jKSkOEkOCIQ" title="Iran Protests Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <!-- German Videos -->
-                    <div class="hero-videos-grid" id="hero-videos-de" data-lang-show="de" style="display: none; grid-template-columns: repeat(2, 1fr); gap: 16px; max-width: 700px; margin: 0 auto;">
+                    <!-- German Videos (shown by default) -->
+                    <div class="hero-videos-grid" id="hero-videos-de" data-lang-show="de" style="display: grid;">
                         <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
                             <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/FR5qRMGdfTc" title="Iran Proteste Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
@@ -2861,7 +2856,7 @@
                     <span data-en="Remember" data-de="Gedenken">Remember</span>
                 </div>
                 <h2 class="fade-in" data-en="These Were Real People — Not Just Numbers" data-de="Das waren echte Menschen — Keine Zahlen">Das waren echte Menschen — Keine Zahlen</h2>
-                <p class="fade-in delay-1" data-en="Doctors, students, parents — each face represents a life cut short. Share their stories so they won't be forgotten." data-de="Ärzte, Studenten, Eltern — jedes Gesicht steht für ein zu kurzes Leben. Teilen Sie ihre Geschichten, damit sie nicht vergessen werden.">Ärzte, Studenten, Eltern — jedes Gesicht steht für ein zu kurzes Leben. Teilen Sie ihre Geschichten, damit sie nicht vergessen werden.</p>
+                <p class="fade-in delay-1" data-en="Doctors, students, parents — each face represents a life cut short. Share their stories so they won't be forgotten." data-de="��rzte, Studenten, Eltern — jedes Gesicht steht für ein zu kurzes Leben. Teilen Sie ihre Geschichten, damit sie nicht vergessen werden.">Ärzte, Studenten, Eltern — jedes Gesicht steht für ein zu kurzes Leben. Teilen Sie ihre Geschichten, damit sie nicht vergessen werden.</p>
             </div>
         </div>
 
@@ -3103,8 +3098,8 @@
             <button class="carousel-btn prev" aria-label="Previous" onclick="scrollResourcesCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
             <div class="resources-track" id="resourcesCarousel">
                 <!-- English Poster A3 - Our Design -->
-                <a href="https://iran-protest.org/downloads/English - Colored.png" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/English - Colored.png">
+                <a href="https://iran-protest.org/downloads/English%20-%20Colored.png" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/English%20-%20Colored.png'); background-size: cover; background-position: center;">
                         <div class="resource-badge">A3</div>
                     </div>
                     <div class="resource-info">
@@ -3115,8 +3110,8 @@
                 </a>
 
                 <!-- German Poster A3 - Our Design -->
-                <a href="https://iran-protest.org/downloads/German - Colored.png" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/German - Colored.png">
+                <a href="https://iran-protest.org/downloads/German%20-%20Colored.png" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/German%20-%20Colored.png'); background-size: cover; background-position: center;">
                         <div class="resource-badge">A3</div>
                     </div>
                     <div class="resource-info">
