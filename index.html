@@ -20,6 +20,14 @@
     <meta name="rating" content="General">
     <meta name="coverage" content="Worldwide">
     <meta name="distribution" content="Global">
+
+    <!-- Machine-readable dates (ISO 8601) -->
+    <meta name="article:published_time" content="2026-01-10T00:00:00+00:00">
+    <meta name="article:modified_time" content="2026-01-27T12:00:00+00:00">
+    <meta name="dcterms.created" content="2026-01-10">
+    <meta name="dcterms.modified" content="2026-01-27">
+    <meta name="date" content="2026-01-27">
+
     <link rel="canonical" href="https://iran-protest.org/">
 
     <!-- ============ ENHANCED SECURITY HEADERS ============ -->
@@ -130,15 +138,7 @@
                 "name": "What alternative do these protesters actually want?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Video evidence shows some protesters support a constitutional monarchy, others a republic. What unites them is recognition of Reza Pahlavi as a transitional leader — not permanent ruler. He is tasked with facilitating collapse of the current system, ensuring stability, and preparing ground for free elections. The final government form will be decided by Iranian people through referendum."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Are these protests really representative of people inside Iran?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "The strongest evidence comes from inside Iran itself. Thousands of videos show real demonstrations, chants, and demands by ordinary citizens, with consistency between internal protests and diaspora demonstrations. In authoritarian states where independent polling is impossible, first-hand visual evidence is the most reliable indicator."
+                    "text": "The Iranian people are fighting for a secular, democratic republic that respects human rights, freedom of speech, freedom of religion, and women's rights. They want a government chosen through free and fair elections, accountable to its citizens rather than to religious authorities."
                 }
             },
             {
@@ -146,23 +146,7 @@
                 "name": "Are these movements independent, or influenced by foreign powers?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The presence of US or Israeli flags does not indicate foreign control. Iranians face mass killings and systematic repression. The US and Israel are the only states publicly invoking Responsibility to Protect (R2P). For protesters, these flags symbolize a call for international protection — desperation, not ideological alignment."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Does this mean the protests are anti-Palestinian or anti-Islam?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No. The protests are against a political system, not a religion. They are against state violence, not against Palestinians. Thousands of Iranians are being killed, and only two countries speak of intervention. This reflects desperation, not hostility toward Palestinians or Islam."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What guarantees exist that a future Iran will not become another global threat?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Reza Pahlavi has published a clear transition roadmap with commitments to democracy, secular governance, human rights, and international law. The framework is limited to a temporary transitional period. Plans are publicly available at iranopasmigirim.com/en/resources. This is a bridge toward free elections, not a permanent government proposal."
+                    "text": "These protests are entirely homegrown and grassroots. They emerge from decades of oppression, economic mismanagement, and the Iranian people's desire for basic freedoms. The movement is Iranian-led and Iranian-driven."
                 }
             }
         ]
@@ -1776,147 +1760,274 @@
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.4s; }
+
+        /* ==================== MOBILE-FIRST IMPROVEMENTS ==================== */
+        /* Responsive font sizing (18px minimum on mobile) */
+        @media (max-width: 768px) {
+            html {
+                font-size: 18px;
+            }
+            body {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            p, li, span {
+                font-size: 1rem;
+            }
+        }
+
+        /* Minimum tap targets (48px) */
+        button, a, .audience-card, .lang-btn, .nav-links a, .mobile-menu a {
+            min-height: 48px;
+            min-width: 48px;
+        }
+
+        .lang-btn {
+            padding: 12px 16px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* ==================== STICKY BOTTOM CTA ==================== */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px 16px;
+            background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.95) 30%);
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+
+        .sticky-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .sticky-cta-primary {
+            flex: 1;
+            max-width: 280px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: white;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .sticky-cta-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 24px rgba(220, 38, 38, 0.5);
+        }
+
+        .sticky-cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Hide sticky CTA when audience selector is visible */
+        .audience-selector:not(.hidden) ~ .sticky-cta {
+            display: none;
+        }
+
+        /* Add padding to body to account for sticky CTA */
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* ==================== PRIVACY BADGE ==================== */
+        .privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 8px;
+            color: #22C55E;
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
+
+        .privacy-badge i {
+            font-size: 1rem;
+        }
+
+        /* ==================== ACCESSIBILITY FOCUS STATES ==================== */
+        *:focus-visible {
+            outline: 3px solid #DC2626;
+            outline-offset: 2px;
+        }
+
+        /* Skip to content link */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 16px;
+            padding: 12px 24px;
+            background: #DC2626;
+            color: white;
+            font-weight: 600;
+            border-radius: 8px;
+            z-index: 10000;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 16px;
+        }
+
+        /* Screen reader only text */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
     </style>
 </head>
 <body>
+    <!-- Skip to main content link (accessibility) -->
+    <a href="#home" class="skip-link" data-en="Skip to main content" data-de="Zum Hauptinhalt springen">Zum Hauptinhalt springen</a>
+
     <!-- ==================== AUDIENCE SELECTOR ==================== -->
-    <div class="audience-selector" id="audienceSelector">
-        <div class="audience-inner" style="position: relative; max-width: 1100px; width: 100%;">
-            <!-- Language Toggle -->
-            <div style="position: absolute; top: 0; right: 0;">
-                <div class="lang-toggle" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);">
-                    <button class="lang-btn" data-lang="en" style="color: rgba(255,255,255,0.7); padding: 6px 12px; font-size: 0.8rem;">EN</button>
-                    <button class="lang-btn active" data-lang="de" style="color: rgba(255,255,255,0.7); padding: 6px 12px; font-size: 0.8rem;">DE</button>
+    <div class="audience-selector" id="audienceSelector" role="dialog" aria-modal="true" aria-labelledby="audienceTitle">
+        <div class="audience-inner" style="position: relative; max-width: 900px;">
+            <!-- Language Toggle for Audience Selector -->
+            <div class="audience-lang-toggle" style="position: absolute; top: -20px; right: 0;">
+                <div class="lang-toggle" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    <button class="lang-btn" data-lang="en" style="color: rgba(255,255,255,0.7);">EN</button>
+                    <button class="lang-btn active" data-lang="de" style="color: rgba(255,255,255,0.7);">DE</button>
                 </div>
             </div>
 
-            <!-- Main Grid Layout -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center;">
+            <div class="audience-logo">
+                <div class="audience-logo-icon" style="background: transparent; border-radius: 0; width: auto; height: auto; padding: 0;">
+                    <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun - Symbol of Free Iran" style="height: 36px; width: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                </div>
+                <span>Iran Awareness</span>
+            </div>
+            <h1 class="audience-question" style="margin-top: 12px;">
+                <span style="font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 800; color: #DC2626; display: block; text-shadow: 0 4px 20px rgba(220,38,38,0.5); letter-spacing: -0.02em;" data-en="30,000+" data-de="30.000+">30.000+</span>
+                <h2 style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 600; margin-top: 4px;" data-en="Killed in Just 2 Days" data-de="Getötet in nur 2 Tagen">Getötet in nur 2 Tagen</h2>
+                <!-- Verification Badge -->
+                <a href="#happening" class="verification-badge" onclick="document.getElementById('audienceSelector').classList.add('hidden');" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 6px 12px; background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.4); border-radius: 20px; color: #22C55E; font-size: 0.75rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                    <i class="fas fa-check-circle"></i>
+                    <span data-en="Verified by international sources" data-de="Von internationalen Quellen verifiziert">Von internationalen Quellen verifiziert</span>
+                    <i class="fas fa-external-link-alt" style="font-size: 0.625rem; opacity: 0.7;"></i>
+                </a>
+                <time datetime="2026-01-27" style="display: block; color: rgba(255,255,255,0.5); font-size: 0.75rem; margin-top: 6px;" data-en="Jan 8–9, 2026 • Updated: Jan 27, 2026" data-de="8.–9. Jan 2026 • Aktualisiert: 27. Jan 2026">8.–9. Jan 2026 • Aktualisiert: 27. Jan 2026</time>
+            </h1>
 
-                <!-- LEFT SIDE: Headline + Documentary -->
-                <div style="text-align: center;">
-                    <!-- Logo -->
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px;">
-                        <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun - Symbol of Free Iran" style="height: 32px; width: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-                        <span style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: white;">Iran Awareness</span>
-                    </div>
-
-                    <!-- Shocking Headline -->
-                    <div style="margin-bottom: 20px;">
-                        <div style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; color: #DC2626; text-shadow: 0 4px 30px rgba(220,38,38,0.6), 0 0 60px rgba(220,38,38,0.3); letter-spacing: -0.03em; line-height: 1;" data-en="30,000+" data-de="30.000+">30.000+</div>
-                        <div style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 700; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.1em;" data-en="KILLED IN 2 DAYS" data-de="GETÖTET IN 2 TAGEN">GETÖTET IN 2 TAGEN</div>
-                        <div style="color: rgba(255,255,255,0.5); font-size: 0.75rem; margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                            <span style="display: inline-block; width: 6px; height: 6px; background: #DC2626; border-radius: 50%; animation: pulse 2s infinite;"></span>
-                            <span data-en="January 8-9, 2026 • Updated: Jan 27" data-de="8.–9. Januar 2026 • Stand: 27. Jan">8.–9. Januar 2026 • Stand: 27. Jan</span>
-                        </div>
-                    </div>
-
-                    <!-- Documentary Section -->
-                    <div style="background: linear-gradient(135deg, rgba(220,38,38,0.15) 0%, rgba(139,0,0,0.1) 100%); border: 1px solid rgba(220,38,38,0.25); border-radius: 16px; padding: 16px; position: relative; overflow: hidden;">
-                        <div style="position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #DC2626, transparent);"></div>
-
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 10px;">
-                            <i class="fas fa-film" style="color: #DC2626; font-size: 0.875rem;"></i>
-                            <span style="color: white; font-weight: 600; font-size: 0.8rem;" data-en="Documentary Evidence" data-de="Dokumentarische Beweise">Dokumentarische Beweise</span>
-                        </div>
-
-                        <div id="videoContainer" style="position: relative; width: 100%; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.5);">
-                            <div id="videoWarning" style="position: relative; padding-bottom: 56.25%; height: 0; background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);">
-                                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px; text-align: center;">
-                                    <div style="width: 50px; height: 50px; border: 2px solid #DC2626; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
-                                        <i class="fas fa-exclamation" style="font-size: 1.25rem; color: #DC2626;"></i>
-                                    </div>
-                                    <p style="color: rgba(255,255,255,0.8); font-size: 0.75rem; margin-bottom: 12px; line-height: 1.4;" data-en="⚠️ Graphic content warning" data-de="⚠️ Warnung: Verstörende Inhalte">⚠️ Warnung: Verstörende Inhalte</p>
-                                    <button id="watchVideoBtn" style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%); color: white; font-size: 0.75rem; font-weight: 700; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(220,38,38,0.4);">
-                                        <i class="fas fa-play" style="font-size: 0.65rem;"></i>
-                                        <span data-en="Watch" data-de="Ansehen">Ansehen</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div id="videoEmbed" style="display: none; position: relative; padding-bottom: 56.25%; height: 0;">
-                                <iframe id="ytIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" data-src="https://www.youtube.com/embed/7gypdxRyQlk" title="Documentary: Iran Protests" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Documentary Video Section with Warning Overlay -->
+            <div style="margin: 20px 0 16px; padding: 16px; background: rgba(220, 38, 38, 0.12); border: 1px solid rgba(220, 38, 38, 0.3); border-radius: 12px;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px;">
+                    <i class="fas fa-film" style="color: #DC2626; font-size: 1rem;"></i>
+                    <span style="color: #DC2626; font-weight: 700; font-size: 0.9rem;" data-en="Documentary: The True Crime in Iran" data-de="Dokumentation: Das wahre Verbrechen im Iran">Dokumentation: Das wahre Verbrechen im Iran</span>
                 </div>
 
-                <!-- RIGHT SIDE: Path Selection -->
-                <div>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 16px; text-align: center;" data-en="Your voice can save lives. Choose your path:" data-de="Ihre Stimme kann Leben retten. Wählen Sie Ihren Weg:">Ihre Stimme kann Leben retten. Wählen Sie Ihren Weg:</p>
-
-                    <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <!-- Path 1: Learn & Support -->
-                        <div class="audience-card" data-track="international" role="button" tabindex="0" style="display: flex; align-items: center; gap: 16px; padding: 18px 20px; background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; cursor: pointer; transition: all 0.3s ease;">
-                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fas fa-globe" style="font-size: 1.25rem; color: white;"></i>
-                            </div>
-                            <div style="flex: 1; text-align: left;">
-                                <h3 style="color: white; font-size: 1rem; font-weight: 700; margin-bottom: 4px;" data-en="Learn & Take Action" data-de="Lernen & Handeln">Lernen & Handeln</h3>
-                                <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; line-height: 1.4;" data-en="See evidence, understand the crisis, share globally" data-de="Beweise sehen, Krise verstehen, global teilen">Beweise sehen, Krise verstehen, global teilen</p>
-                            </div>
-                            <i class="fas fa-chevron-right" style="color: #DC2626; font-size: 1rem;"></i>
-                        </div>
-
-                        <!-- Path 2: Campaign Resources -->
-                        <div class="audience-card" data-track="iranian" role="button" tabindex="0" style="display: flex; align-items: center; gap: 16px; padding: 18px 20px; background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; cursor: pointer; transition: all 0.3s ease;">
-                            <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <i class="fas fa-download" style="font-size: 1.25rem; color: white;"></i>
-                            </div>
-                            <div style="flex: 1; text-align: left;">
-                                <h3 style="color: white; font-size: 1rem; font-weight: 700; margin-bottom: 4px;" data-en="Get Campaign Materials" data-de="Kampagnenmaterial holen">Kampagnenmaterial holen</h3>
-                                <p style="color: rgba(255,255,255,0.6); font-size: 0.8rem; line-height: 1.4;" data-en="Free posters, flyers, and resources to print & share" data-de="Kostenlose Poster, Flyer und Ressourcen zum Drucken">Kostenlose Poster, Flyer und Ressourcen zum Drucken</p>
-                            </div>
-                            <i class="fas fa-chevron-right" style="color: #DC2626; font-size: 1rem;"></i>
+                <!-- Video Container with Warning Overlay -->
+                <div id="videoContainer" style="position: relative; width: 100%; max-width: 500px; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
+                    <!-- Warning Overlay -->
+                    <div id="videoWarning" style="position: relative; padding-bottom: 56.25%; height: 0; background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; text-align: center;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #DC2626; margin-bottom: 12px;"></i>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 0.875rem; margin-bottom: 16px; line-height: 1.5; max-width: 320px;" data-en="⚠️ Contains graphic content. View only if prepared." data-de="⚠️ Verstörende Inhalte. Nur ansehen, wenn Sie bereit sind.">⚠️ Verstörende Inhalte. Nur ansehen, wenn Sie bereit sind.</p>
+                            <button id="watchVideoBtn" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%); color: white; font-size: 0.875rem; font-weight: 700; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(220,38,38,0.4);">
+                                <i class="fas fa-play"></i>
+                                <span data-en="Watch Documentary" data-de="Dokumentation ansehen">Dokumentation ansehen</span>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Trust indicators -->
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08);">
-                        <div style="display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.5); font-size: 0.7rem;">
-                            <i class="fas fa-shield-alt"></i>
-                            <span data-en="No cookies" data-de="Keine Cookies">Keine Cookies</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.5); font-size: 0.7rem;">
-                            <i class="fas fa-user-secret"></i>
-                            <span data-en="No tracking" data-de="Kein Tracking">Kein Tracking</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.5); font-size: 0.7rem;">
-                            <i class="fas fa-check-circle"></i>
-                            <span data-en="Verified sources" data-de="Verifizierte Quellen">Verifizierte Quellen</span>
-                        </div>
+                    <!-- YouTube Embed (hidden by default) -->
+                    <div id="videoEmbed" style="display: none; position: relative; padding-bottom: 56.25%; height: 0;">
+                        <iframe id="ytIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" data-src="https://www.youtube.com/embed/7gypdxRyQlk" title="Documentary: Iran Protests" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
 
-            <!-- Mobile Layout Override -->
-            <style>
-                @media (max-width: 768px) {
-                    .audience-inner > div:first-of-type {
-                        grid-template-columns: 1fr !important;
-                        gap: 24px !important;
-                    }
-                }
-                @keyframes pulse {
-                    0%, 100% { opacity: 1; }
-                    50% { opacity: 0.4; }
-                }
-            </style>
+            <p class="audience-subtitle" style="margin-top: 16px; margin-bottom: 16px;" data-en="Choose how you want to help:" data-de="Wählen Sie, wie Sie helfen möchten:">Wählen Sie, wie Sie helfen möchten:</p>
+
+            <div class="audience-cards">
+                <div class="audience-card" data-track="international" role="button" tabindex="0">
+                    <div class="audience-card-icon"><i class="fas fa-globe"></i></div>
+                    <h3 class="audience-card-title" data-en="I want to learn & support globally" data-de="Ich möchte lernen & global unterstützen">Ich möchte lernen & global unterstützen</h3>
+                    <p class="audience-card-desc" data-en="Understand the crisis, see verified reports, and learn how you can help from anywhere in the world." data-de="Verstehen Sie die Krise, sehen Sie verifizierte Berichte und erfahren Sie, wie Sie von überall auf der Welt helfen können.">Verstehen Sie die Krise, sehen Sie verifizierte Berichte und erfahren Sie, wie Sie von überall auf der Welt helfen können.</p>
+                    <div class="audience-card-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <div class="audience-card" data-track="iranian" role="button" tabindex="0">
+                    <div class="audience-card-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3 class="audience-card-title" data-en="I am Iranian & want campaign resources" data-de="Ich bin Iraner & möchte Kampagnenmaterial">Ich bin Iraner & möchte Kampagnenmaterial</h3>
+                    <p class="audience-card-desc" data-en="Access printable materials, distribution guides, safety tips, and community resources." data-de="Zugang zu druckbaren Materialien, Verteilungsanleitungen, Sicherheitstipps und Community-Ressourcen.">Zugang zu druckbaren Materialien, Verteilungsanleitungen, Sicherheitstipps und Community-Ressourcen.</p>
+                    <div class="audience-card-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- ==================== HEADER ==================== -->
-    <header>
+    <header role="banner">
         <div class="container">
             <div class="header-inner">
+                <!-- Language Toggle - Left side, prominent -->
+                <div class="header-lang-left" style="display: flex; align-items: center; gap: 12px;">
+                    <div class="lang-toggle" role="group" aria-label="Language selection" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.25); padding: 4px; border-radius: 10px;">
+                        <button class="lang-btn" data-lang="en" aria-label="Switch to English" style="min-width: 48px; min-height: 48px; font-size: 1rem; font-weight: 700;">EN</button>
+                        <button class="lang-btn active" data-lang="de" aria-label="Auf Deutsch wechseln" style="min-width: 48px; min-height: 48px; font-size: 1rem; font-weight: 700;">DE</button>
+                    </div>
+                </div>
+
                 <a href="#home" class="logo" style="gap: 12px;">
                     <!-- Flag as Logo Icon -->
                     <div class="logo-icon" style="background: transparent; padding: 0; width: auto; height: auto;" title="Lion and Sun - Symbol of Free Iran">
-                        <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun Flag" style="height: 28px; width: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
+                        <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun Flag" loading="lazy" style="height: 28px; width: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
                     </div>
                     <span>Iran Awareness</span>
                 </a>
 
-                <nav class="header-nav">
+                <nav class="header-nav" role="navigation" aria-label="Main navigation">
                     <ul class="nav-links">
                         <li><a href="#happening" data-en="See the Evidence" data-de="Beweise sehen">Beweise sehen</a></li>
                         <li><a href="#europe" data-en="Why It Affects You" data-de="Warum es Sie betrifft">Warum es Sie betrifft</a></li>
@@ -1925,11 +2036,7 @@
                     </ul>
 
                     <div class="header-actions">
-                        <div class="lang-toggle">
-                            <button class="lang-btn" data-lang="en">EN</button>
-                            <button class="lang-btn active" data-lang="de">DE</button>
-                        </div>
-                        <button class="mobile-menu-btn" aria-label="Toggle menu">
+                        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" style="min-width: 48px; min-height: 48px;">
                             <i class="fas fa-bars menu-icon-open"></i>
                             <i class="fas fa-times menu-icon-close" style="display: none;"></i>
                         </button>
@@ -1968,7 +2075,7 @@
     </nav>
 
     <!-- ==================== HERO SECTION ==================== -->
-    <section class="hero" id="home">
+    <section class="hero" id="home" role="main" aria-label="Main content">
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
@@ -2364,15 +2471,6 @@
                 </a>
 
                 <!-- Posters by @moeinnajafii (1-19) -->
-              
-                <a href="https://iran-protest.org/downloads/13.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/13.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
-                    <div class="resource-info">
-                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
-                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
-                    </div>
-                </a>
 
                 <a href="https://iran-protest.org/downloads/14.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/14.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
@@ -2385,15 +2483,6 @@
 
                 <a href="https://iran-protest.org/downloads/15.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/15.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
-                    <div class="resource-info">
-                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
-                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
-                    </div>
-                </a>
-
-                <a href="https://iran-protest.org/downloads/16.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/16.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
                         <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
@@ -2438,6 +2527,14 @@
                     </div>
                 </a>
 
+                <a href="https://iran-protest.org/downloads/21.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/21.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
 
                 <a href="https://iran-protest.org/downloads/22.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
                     <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/22.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
@@ -2448,6 +2545,14 @@
                     </div>
                 </a>
 
+                <a href="https://iran-protest.org/downloads/23.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/23.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
             </div>
             <button class="carousel-btn next" aria-label="Next" onclick="scrollResourcesCarousel(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
@@ -2532,13 +2637,13 @@
     </section>
 
 
-    <!-- ==================== UNDERSTANDING THE MOVEMENT ==================== -->
+    <!-- ==================== FAQ SECTION ==================== -->
     <section class="faq-section" id="faq">
         <div class="container">
             <h2 data-en="Understanding the Movement" data-de="Die Bewegung verstehen">Die Bewegung verstehen</h2>
 
             <div class="faq-container">
-                <!-- FAQ 1: What alternative do protesters want? -->
+                <!-- FAQ 1 -->
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
                         <span data-en="What alternative do these protesters actually want?" data-de="Was für eine Alternative wollen diese Demonstranten eigentlich?">Was für eine Alternative wollen diese Demonstranten eigentlich?</span>
@@ -2546,105 +2651,68 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            <p data-en="Video evidence from inside Iran and demonstrations abroad shows that some protesters support a constitutional monarchy, while others advocate for a republic. What unites them is the recognition of Reza Pahlavi as a transitional and temporary leader — not as a permanent ruler."
-                               data-de="Videobeweise aus dem Iran und Demonstrationen im Ausland zeigen, dass einige Demonstranten eine konstitutionelle Monarchie unterstützen, während andere eine Republik befürworten. Was sie eint, ist die Anerkennung von Reza Pahlavi als Übergangs- und vorübergehenden Führer — nicht als dauerhaften Herrscher.">Videobeweise aus dem Iran und Demonstrationen im Ausland zeigen, dass einige Demonstranten eine konstitutionelle Monarchie unterstützen, während andere eine Republik befürworten. Was sie eint, ist die Anerkennung von Reza Pahlavi als Übergangs- und vorübergehenden Führer — nicht als dauerhaften Herrscher.</p>
-                            <p data-en="He is widely referred to as a figure of transition, tasked with: facilitating the collapse of the current system, ensuring stability, and preparing the ground for free and democratic elections. The final form of government is explicitly meant to be decided by the Iranian people through a referendum."
-                               data-de="Er wird weithin als Übergangsfigur bezeichnet, deren Aufgabe es ist: den Zusammenbruch des aktuellen Systems zu erleichtern, Stabilität zu gewährleisten und den Boden für freie und demokratische Wahlen zu bereiten. Die endgültige Regierungsform soll ausdrücklich vom iranischen Volk durch ein Referendum entschieden werden.">Er wird weithin als Übergangsfigur bezeichnet, deren Aufgabe es ist: den Zusammenbruch des aktuellen Systems zu erleichtern, Stabilität zu gewährleisten und den Boden für freie und demokratische Wahlen zu bereiten. Die endgültige Regierungsform soll ausdrücklich vom iranischen Volk durch ein Referendum entschieden werden.</p>
+                            <p data-en="The Iranian people are fighting for a secular, democratic republic that respects human rights, freedom of speech, freedom of religion, and women's rights. They want a government chosen through free and fair elections, accountable to its citizens rather than to religious authorities. The widespread slogan 'Woman, Life, Freedom' captures the core values of this movement: gender equality, individual liberty, and the right to live without oppression."
+                               data-de="Das iranische Volk kämpft für eine säkulare, demokratische Republik, die Menschenrechte, Meinungsfreiheit, Religionsfreiheit und Frauenrechte respektiert. Sie wollen eine Regierung, die durch freie und faire Wahlen gewählt wird und ihren Bürgern gegenüber rechenschaftspflichtig ist – nicht religiösen Autoritäten. Der weit verbreitete Slogan ‚Frau, Leben, Freiheit' erfasst die Kernwerte dieser Bewegung: Geschlechtergleichheit, individuelle Freiheit und das Recht, ohne Unterdrückung zu leben.">Das iranische Volk kämpft für eine säkulare, demokratische Republik, die Menschenrechte, Meinungsfreiheit, Religionsfreiheit und Frauenrechte respektiert. Sie wollen eine Regierung, die durch freie und faire Wahlen gewählt wird und ihren Bürgern gegenüber rechenschaftspflichtig ist – nicht religiösen Autoritäten. Der weit verbreitete Slogan ‚Frau, Leben, Freiheit' erfasst die Kernwerte dieser Bewegung: Geschlechtergleichheit, individuelle Freiheit und das Recht, ohne Unterdrückung zu leben.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- FAQ 2: Are protests representative? -->
+                <!-- FAQ 2 -->
                 <div class="faq-item">
                     <button class="faq-question" onclick="toggleFaq(this)">
-                        <span data-en="Are these protests really representative of people inside Iran?" data-de="Sind diese Proteste wirklich repräsentativ für die Menschen im Iran?">Sind diese Proteste wirklich repräsentativ für die Menschen im Iran?</span>
+                        <span data-en="Are these movements independent, or influenced by foreign powers?" data-de="Sind diese Bewegungen unabhängig oder von ausländischen Mächten beeinflusst?">Sind diese Bewegungen unabhängig oder von ausländischen Mächten beeinflusst?</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-inner">
-                            <p data-en="From a European standpoint, the strongest evidence comes directly from inside the country itself. Thousands of videos shared under protest-related hashtags show real demonstrations inside Iran, chants, slogans, and demands voiced by ordinary citizens, and consistency between internal protests and diaspora demonstrations."
-                               data-de="Aus europäischer Sicht stammen die stärksten Beweise direkt aus dem Land selbst. Tausende von Videos, die unter protestbezogenen Hashtags geteilt werden, zeigen echte Demonstrationen im Iran, Sprechchöre, Slogans und Forderungen gewöhnlicher Bürger sowie Übereinstimmung zwischen internen Protesten und Diaspora-Demonstrationen.">Aus europäischer Sicht stammen die stärksten Beweise direkt aus dem Land selbst. Tausende von Videos, die unter protestbezogenen Hashtags geteilt werden, zeigen echte Demonstrationen im Iran, Sprechchöre, Slogans und Forderungen gewöhnlicher Bürger sowie Übereinstimmung zwischen internen Protesten und Diaspora-Demonstrationen.</p>
-                            <p data-en="In authoritarian states where independent polling is impossible, first-hand visual evidence and citizen voices are often the most reliable indicators available."
-                               data-de="In autoritären Staaten, in denen unabhängige Umfragen unmöglich sind, sind visuelle Beweise aus erster Hand und Bürgerstimmen oft die zuverlässigsten verfügbaren Indikatoren.">In autoritären Staaten, in denen unabhängige Umfragen unmöglich sind, sind visuelle Beweise aus erster Hand und Bürgerstimmen oft die zuverlässigsten verfügbaren Indikatoren.</p>
+                            <p data-en="These protests are entirely homegrown and grassroots. They emerge from decades of oppression, economic mismanagement, and the Iranian people's desire for basic freedoms. The regime frequently claims foreign interference to delegitimize protests, but the reality is clear: millions of ordinary Iranians – students, workers, women, ethnic minorities – are rising up because they've had enough. International solidarity and coverage help protect protesters from violence, but the movement itself is Iranian-led and Iranian-driven."
+                               data-de="Diese Proteste sind vollständig einheimisch und basieren auf Graswurzelbewegungen. Sie entstehen aus Jahrzehnten der Unterdrückung, wirtschaftlichen Misswirtschaft und dem Wunsch des iranischen Volkes nach grundlegenden Freiheiten. Das Regime behauptet häufig ausländische Einmischung, um die Proteste zu delegitimieren, aber die Realität ist klar: Millionen gewöhnlicher Iraner – Studenten, Arbeiter, Frauen, ethnische Minderheiten – erheben sich, weil sie genug haben. Internationale Solidarität und Berichterstattung helfen, Demonstranten vor Gewalt zu schützen, aber die Bewegung selbst wird von Iranern geführt und angetrieben.">Diese Proteste sind vollständig einheimisch und basieren auf Graswurzelbewegungen. Sie entstehen aus Jahrzehnten der Unterdrückung, wirtschaftlichen Misswirtschaft und dem Wunsch des iranischen Volkes nach grundlegenden Freiheiten. Das Regime behauptet häufig ausländische Einmischung, um die Proteste zu delegitimieren, aber die Realität ist klar: Millionen gewöhnlicher Iraner – Studenten, Arbeiter, Frauen, ethnische Minderheiten – erheben sich, weil sie genug haben. Internationale Solidarität und Berichterstattung helfen, Demonstranten vor Gewalt zu schützen, aber die Bewegung selbst wird von Iranern geführt und angetrieben.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- FAQ 3: Foreign influence? -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span data-en="Are these movements independent, or influenced by foreign powers? Why are US and Israeli flags sometimes seen?" data-de="Sind diese Bewegungen unabhängig oder von fremden Mächten beeinflusst? Warum sieht man manchmal US- und Israel-Flaggen?">Sind diese Bewegungen unabhängig oder von fremden Mächten beeinflusst? Warum sieht man manchmal US- und Israel-Flaggen?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p data-en="The presence of US or Israeli flags does not indicate foreign control. Iranians are facing mass killings and systematic repression. Most governments respond only with statements and sanctions. The United States and Israel are the only states that have publicly invoked the Responsibility to Protect (R2P) principle in relation to Iran."
-                               data-de="Das Vorhandensein von US- oder israelischen Flaggen deutet nicht auf ausländische Kontrolle hin. Iraner sind mit Massentötungen und systematischer Unterdrückung konfrontiert. Die meisten Regierungen reagieren nur mit Erklärungen und Sanktionen. Die Vereinigten Staaten und Israel sind die einzigen Staaten, die öffentlich das Prinzip der Schutzverantwortung (R2P) in Bezug auf den Iran angerufen haben.">Das Vorhandensein von US- oder israelischen Flaggen deutet nicht auf ausländische Kontrolle hin. Iraner sind mit Massentötungen und systematischer Unterdrückung konfrontiert. Die meisten Regierungen reagieren nur mit Erklärungen und Sanktionen. Die Vereinigten Staaten und Israel sind die einzigen Staaten, die öffentlich das Prinzip der Schutzverantwortung (R2P) in Bezug auf den Iran angerufen haben.</p>
-                            <p data-en="For protesters, these flags symbolize a call for international protection, not allegiance — desperation, not ideological alignment. This reflects a human survival instinct, not foreign manipulation."
-                               data-de="Für Demonstranten symbolisieren diese Flaggen einen Ruf nach internationalem Schutz, nicht Loyalität — Verzweiflung, nicht ideologische Ausrichtung. Dies spiegelt einen menschlichen Überlebensinstinkt wider, keine ausländische Manipulation.">Für Demonstranten symbolisieren diese Flaggen einen Ruf nach internationalem Schutz, nicht Loyalität — Verzweiflung, nicht ideologische Ausrichtung. Dies spiegelt einen menschlichen Überlebensinstinkt wider, keine ausländische Manipulation.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4: Anti-Palestinian or anti-Islam? -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span data-en="Does this mean the protests are anti-Palestinian or anti-Islam?" data-de="Bedeutet das, dass die Proteste anti-palästinensisch oder anti-islamisch sind?">Bedeutet das, dass die Proteste anti-palästinensisch oder anti-islamisch sind?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p data-en="No. The protests are against a political system, not a religion. They are against state violence, not against Palestinians."
-                               data-de="Nein. Die Proteste richten sich gegen ein politisches System, nicht gegen eine Religion. Sie richten sich gegen staatliche Gewalt, nicht gegen Palästinenser.">Nein. Die Proteste richten sich gegen ein politisches System, nicht gegen eine Religion. Sie richten sich gegen staatliche Gewalt, nicht gegen Palästinenser.</p>
-                            <p data-en="The reasoning is simple: thousands of Iranians are being killed, imprisoned, or executed, and only two countries publicly speak of intervention. This does not equal hostility toward Palestinians or Islam. It reflects a situation where people feel they have no remaining options."
-                               data-de="Die Begründung ist einfach: Tausende von Iranern werden getötet, inhaftiert oder hingerichtet, und nur zwei Länder sprechen öffentlich von einer Intervention. Das bedeutet keine Feindseligkeit gegenüber Palästinensern oder dem Islam. Es spiegelt eine Situation wider, in der die Menschen das Gefühl haben, keine Optionen mehr zu haben.">Die Begründung ist einfach: Tausende von Iranern werden getötet, inhaftiert oder hingerichtet, und nur zwei Länder sprechen öffentlich von einer Intervention. Das bedeutet keine Feindseligkeit gegenüber Palästinensern oder dem Islam. Es spiegelt eine Situation wider, in der die Menschen das Gefühl haben, keine Optionen mehr zu haben.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 5: Future guarantees? -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span data-en="What guarantees exist that a future Iran will not become another global threat?" data-de="Welche Garantien gibt es, dass ein zukünftiger Iran keine weitere globale Bedrohung wird?">Welche Garantien gibt es, dass ein zukünftiger Iran keine weitere globale Bedrohung wird?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p data-en="Reza Pahlavi has published a clear transition roadmap with commitments to democracy, secular governance, human rights, and international law. The framework is explicitly limited to a temporary transitional period."
-                               data-de="Reza Pahlavi hat einen klaren Übergangsfahrplan mit Verpflichtungen zu Demokratie, säkularer Regierungsführung, Menschenrechten und internationalem Recht veröffentlicht. Der Rahmen ist ausdrücklich auf eine vorübergehende Übergangszeit beschränkt.">Reza Pahlavi hat einen klaren Übergangsfahrplan mit Verpflichtungen zu Demokratie, säkularer Regierungsführung, Menschenrechten und internationalem Recht veröffentlicht. Der Rahmen ist ausdrücklich auf eine vorübergehende Übergangszeit beschränkt.</p>
-                            <p data-en="These plans are publicly available at iranopasmigirim.com/en/resources and open to scrutiny. This is not a permanent government proposal — it is a bridge toward free elections, not a new ideology imposed from above."
-                               data-de="Diese Pläne sind öffentlich verfügbar unter iranopasmigirim.com/en/resources und offen für Überprüfung. Dies ist kein dauerhafter Regierungsvorschlag — es ist eine Brücke zu freien Wahlen, keine neue von oben auferlegte Ideologie.">Diese Pläne sind öffentlich verfügbar unter iranopasmigirim.com/en/resources und offen für Überprüfung. Dies ist kein dauerhafter Regierungsvorschlag — es ist eine Brücke zu freien Wahlen, keine neue von oben auferlegte Ideologie.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact CTA -->
-            <div style="text-align: center; margin-top: 40px; padding: 24px; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
-                <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-bottom: 16px;" data-en="Have more questions? We're here to help." data-de="Haben Sie weitere Fragen? Wir helfen gerne.">Haben Sie weitere Fragen? Wir helfen gerne.</p>
-                <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                    <a href="mailto:iran.protest2026@gmail.com" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.3); border-radius: 50px; color: white; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease;">
-                        <i class="fas fa-envelope" style="color: #DC2626;"></i>
-                        <span data-en="Email Us" data-de="E-Mail senden">E-Mail senden</span>
-                    </a>
-                    <a href="https://t.me/Iran_protest_Admin" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: rgba(0,136,204,0.15); border: 1px solid rgba(0,136,204,0.3); border-radius: 50px; color: white; text-decoration: none; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease;">
-                        <i class="fab fa-telegram" style="color: #0088cc;"></i>
-                        <span data-en="Telegram" data-de="Telegram">Telegram</span>
-                    </a>
                 </div>
             </div>
         </div>
     </section>
 
 
+    <!-- ==================== PRIVACY SUMMARY CARD ==================== -->
+    <section class="privacy-summary" style="padding: 40px 0; background: rgba(34, 197, 94, 0.05); border-top: 1px solid rgba(34, 197, 94, 0.1);">
+        <div class="container" style="max-width: 800px;">
+            <div style="display: flex; align-items: flex-start; gap: 20px; flex-wrap: wrap;">
+                <div style="flex: 0 0 auto;">
+                    <div style="width: 56px; height: 56px; background: rgba(34, 197, 94, 0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-shield-alt" style="font-size: 1.5rem; color: #22C55E;"></i>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 style="color: #22C55E; font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-lock" style="font-size: 0.875rem;"></i>
+                        <span data-en="Your Privacy is Protected" data-de="Ihre Privatsphäre ist geschützt">Ihre Privatsphäre ist geschützt</span>
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9375rem; line-height: 1.6; margin-bottom: 12px;" data-en="This site uses no cookies, no tracking, and collects no personal data. We are fully GDPR/DSGVO compliant. Your visit is anonymous." data-de="Diese Seite verwendet keine Cookies, kein Tracking und sammelt keine persönlichen Daten. Wir sind vollständig DSGVO-konform. Ihr Besuch ist anonym.">Diese Seite verwendet keine Cookies, kein Tracking und sammelt keine persönlichen Daten. Wir sind vollständig DSGVO-konform. Ihr Besuch ist anonym.</p>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                        <span class="privacy-badge"><i class="fas fa-check-circle"></i> DSGVO</span>
+                        <span class="privacy-badge"><i class="fas fa-cookie-bite"></i> <span data-en="No Cookies" data-de="Keine Cookies">Keine Cookies</span></span>
+                        <span class="privacy-badge"><i class="fas fa-user-shield"></i> <span data-en="Anonymous" data-de="Anonym">Anonym</span></span>
+                    </div>
+                    <a href="mailto:iran.protest2026@gmail.com" style="display: inline-flex; align-items: center; gap: 8px; color: #22C55E; font-size: 0.875rem; font-weight: 500; text-decoration: none;">
+                        <i class="fas fa-envelope"></i>
+                        <span data-en="Data concerns? Contact us" data-de="Datenschutzfragen? Kontaktieren Sie uns">Datenschutzfragen? Kontaktieren Sie uns</span>
+                        <i class="fas fa-arrow-right" style="font-size: 0.75rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== FOOTER ==================== -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="footer-logo">
                         <div class="logo-icon" style="background: transparent; padding: 0; width: auto; height: auto;">
-                            <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun Flag" style="height: 24px; width: auto; border-radius: 3px;">
+                            <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun Flag" loading="lazy" style="height: 24px; width: auto; border-radius: 3px;">
                         </div>
                         <span>Iran Awareness</span>
                     </div>
@@ -2698,6 +2766,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- ==================== STICKY BOTTOM CTA ==================== -->
+    <div class="sticky-cta" id="stickyCta" role="region" aria-label="Quick actions">
+        <a href="https://x.com/intent/tweet?text=%2330000Killed%20%23IranProtests%20%23DigitalBlackoutIran%20-%20Over%2030%2C000%20killed%20in%202%20days.%20The%20world%20must%20know.%20https%3A%2F%2Firan-protest.org" target="_blank" rel="noopener noreferrer" class="sticky-cta-primary" id="stickyCtaPrimary">
+            <i class="fab fa-x-twitter"></i>
+            <span data-en="Share #IranProtests" data-de="Teilen #IranProtests">Teilen #IranProtests</span>
+        </a>
+        <a href="#action" class="sticky-cta-secondary" onclick="document.getElementById('audienceSelector').classList.add('hidden');">
+            <i class="fas fa-hand-fist"></i>
+        </a>
+    </div>
 
     <!-- ==================== BACK TO TOP ==================== -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -2975,13 +3054,57 @@
         // ========== BACK TO TOP ==========
         var backToTop = document.getElementById('backToTop');
 
+        // ========== STICKY CTA ==========
+        var stickyCta = document.getElementById('stickyCta');
+        // audienceSelector already defined above
+        var lastScrollY = 0;
+        var stickyCtaPrimary = document.getElementById('stickyCtaPrimary');
+
+        function updateStickyCta() {
+            var scrollY = window.pageYOffset;
+            var audienceHidden = audienceSelector.classList.contains('hidden');
+
+            // Only show sticky CTA when audience selector is hidden and user has scrolled
+            if (audienceHidden && scrollY > 200) {
+                stickyCta.classList.add('visible');
+
+                // Change CTA based on scroll position (morph effect)
+                var actionSection = document.getElementById('action');
+                if (actionSection) {
+                    var actionRect = actionSection.getBoundingClientRect();
+                    if (actionRect.top < window.innerHeight && actionRect.bottom > 0) {
+                        // Near action section - change to download
+                        stickyCtaPrimary.innerHTML = '<i class="fas fa-download"></i><span data-en="Get Materials" data-de="Material holen">Material holen</span>';
+                        stickyCtaPrimary.href = '#resources';
+                    } else {
+                        // Default - share
+                        stickyCtaPrimary.innerHTML = '<i class="fab fa-x-twitter"></i><span data-en="Share #IranProtests" data-de="Teilen #IranProtests">Teilen #IranProtests</span>';
+                        stickyCtaPrimary.href = 'https://x.com/intent/tweet?text=%2330000Killed%20%23IranProtests%20%23DigitalBlackoutIran%20-%20Over%2030%2C000%20killed%20in%202%20days.%20The%20world%20must%20know.%20https%3A%2F%2Firan-protest.org';
+                    }
+                    // Update language
+                    setLanguage(currentLang);
+                }
+            } else {
+                stickyCta.classList.remove('visible');
+            }
+
+            lastScrollY = scrollY;
+        }
+
         window.addEventListener('scroll', function() {
             if (window.pageYOffset > 400) {
                 backToTop.classList.add('visible');
             } else {
                 backToTop.classList.remove('visible');
             }
+            updateStickyCta();
         });
+
+        // Also check sticky CTA when audience selector changes
+        var audienceObserver = new MutationObserver(function() {
+            updateStickyCta();
+        });
+        audienceObserver.observe(audienceSelector, { attributes: true, attributeFilter: ['class'] });
 
         backToTop.addEventListener('click', function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
