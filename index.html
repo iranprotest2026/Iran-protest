@@ -248,10 +248,34 @@
             box-sizing: border-box;
         }
 
-        .container {
+        img, video, iframe {
             max-width: 100%;
-            padding-left: 16px;
-            padding-right: 16px;
+            height: auto;
+        }
+
+        /* Fix hero videos grid on mobile */
+        .hero-videos-grid {
+            display: grid !important;
+            gap: 16px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 600px) {
+            .hero-videos-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (min-width: 601px) {
+            .hero-videos-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        /* Ensure all sections don't overflow */
+        section {
+            overflow-x: hidden;
         }
 
         /* Typography */
@@ -277,7 +301,14 @@
         .container {
             max-width: var(--max-width);
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
+            width: 100%;
+        }
+
+        @media (min-width: 769px) {
+            .container {
+                padding: 0 24px;
+            }
         }
 
         /* Utility */
@@ -1187,35 +1218,54 @@
         }
 
         .hero-hashtags {
-            margin-top: 48px;
-            margin-bottom: 80px;
+            margin-top: 32px;
+            margin-bottom: 60px;
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 8px;
             justify-content: center;
+            padding: 0 8px;
+        }
+
+        @media (min-width: 769px) {
+            .hero-hashtags {
+                margin-top: 48px;
+                margin-bottom: 80px;
+                gap: 14px;
+            }
         }
 
         .hashtag {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
+            gap: 4px;
+            padding: 8px 12px;
             background: transparent;
             color: #FFD700;
-            font-size: 1.4em;
+            font-size: 0.7rem;
             font-weight: bold;
             border-radius: 50px;
-            border: 2px solid #FFD700;
+            border: 1px solid #FFD700;
             transition: all 0.3s ease;
             text-shadow: 1px 1px 2px #000, 0 0 20px rgba(255, 215, 0, 0.4);
             text-transform: uppercase;
             letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 769px) {
+            .hashtag {
+                padding: 14px 28px;
+                font-size: 1.4em;
+                gap: 8px;
+                border-width: 2px;
+            }
         }
 
         .hashtag:hover {
             background: rgba(255, 215, 0, 0.15);
             color: #FFD700;
-            transform: scale(1.1);
+            transform: scale(1.05);
             text-shadow: 1px 1px 2px #000, 0 0 30px rgba(255, 215, 0, 0.6);
             box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
         }
@@ -2264,16 +2314,24 @@
             }
         }
 
-        /* Minimum tap targets (48px) */
-        button, a, .audience-card, .lang-btn, .nav-links a, .mobile-menu a {
+        /* Minimum tap targets (48px) - exclude lang-btn which should stay small */
+        button:not(.lang-btn), a:not(.lang-btn), .audience-card, .nav-links a, .mobile-menu a {
             min-height: 48px;
             min-width: 48px;
         }
 
+        /* Keep lang-btn small - override all other styles */
+        .lang-toggle {
+            padding: 2px !important;
+            border-radius: 4px !important;
+        }
         .lang-btn {
-            padding: 12px 16px;
-            font-size: 1rem;
-            font-weight: 600;
+            padding: 4px 8px !important;
+            font-size: 0.6rem !important;
+            font-weight: 600 !important;
+            min-height: 24px !important;
+            min-width: 28px !important;
+            border-radius: 3px !important;
         }
 
         /* ==================== STICKY BOTTOM CTA ==================== */
@@ -2408,8 +2466,8 @@
     <!-- ==================== AUDIENCE SELECTOR ==================== -->
     <div class="audience-selector" id="audienceSelector" role="dialog" aria-modal="true" aria-labelledby="audienceTitle">
         <!-- Language Toggle - Fixed Top Right -->
-        <div style="position: fixed; top: 16px; right: 16px; z-index: 10001;">
-            <div class="lang-toggle" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); padding: 4px;">
+        <div style="position: fixed; top: 12px; right: 12px; z-index: 10001;">
+            <div class="lang-toggle">
                 <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
                 <button class="lang-btn active" data-lang="de" aria-label="Deutsch">DE</button>
             </div>
@@ -2900,6 +2958,134 @@
         </div>
     </section>
 
+    <!-- ==================== TAKE ACTION ==================== -->
+    <section class="action" id="action">
+        <div class="container">
+            <div class="action-header">
+                <div class="section-label">
+                    <i class="fas fa-hand-fist"></i>
+                    <span data-en="Get Involved" data-de="Mitmachen">Get Involved</span>
+                </div>
+                <h2 class="fade-in" data-en="Be Part of History — Take Action Today" data-de="Werden Sie Teil der Geschichte — Handeln Sie heute">Werden Sie Teil der Geschichte — Handeln Sie heute</h2>
+                <p class="fade-in delay-1" data-en="Your 5 minutes of action today could help save lives tomorrow. Choose one and start now." data-de="Ihre 5 Minuten Einsatz heute könnten morgen Leben retten. Wählen Sie eine Aktion und starten Sie jetzt.">Ihre 5 Minuten Einsatz heute könnten morgen Leben retten. Wählen Sie eine Aktion und starten Sie jetzt.</p>
+            </div>
+
+            <div class="action-grid">
+                <div class="action-item fade-in">
+                    <div class="action-icon"><i class="fas fa-share-alt"></i></div>
+                    <div class="action-content">
+                        <h4 data-en="1 Post = 1000 Eyes on Iran" data-de="1 Beitrag = 1000 Augen auf Iran">1 Beitrag = 1000 Augen auf Iran</h4>
+                        <p data-en="Share with #IranProtests — your single post can reach thousands and pressure world leaders to act." data-de="Teilen Sie mit #IranProtests — Ihr einzelner Beitrag kann Tausende erreichen und Druck auf Weltführer ausüben.">Teilen Sie mit #IranProtests — Ihr einzelner Beitrag kann Tausende erreichen und Druck auf Weltführer ausüben.</p>
+                    </div>
+                </div>
+
+                <div class="action-item fade-in delay-1">
+                    <div class="action-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="action-content">
+                        <h4 data-en="Make Politicians Listen — 2 Minutes" data-de="Bringen Sie Politiker zum Zuhören — 2 Minuten">Bringen Sie Politiker zum Zuhören — 2 Minuten</h4>
+                        <p data-en="One email to your representative creates pressure. Politicians track constituent messages — yours will be counted." data-de="Eine E-Mail an Ihren Abgeordneten erzeugt Druck. Politiker zählen Bürgernachrichten — Ihre wird gezählt.">Eine E-Mail an Ihren Abgeordneten erzeugt Druck. Politiker zählen Bürgernachrichten — Ihre wird gezählt.</p>
+                    </div>
+                </div>
+
+                <div class="action-item fade-in delay-2">
+                    <div class="action-icon"><i class="fas fa-newspaper"></i></div>
+                    <div class="action-content">
+                        <h4 data-en="Turn Silence Into Headlines" data-de="Verwandeln Sie Schweigen in Schlagzeilen">Verwandeln Sie Schweigen in Schlagzeilen</h4>
+                        <p data-en="Tip local journalists — media coverage has historically stopped massacres. Your message could trigger the story that saves lives." data-de="Informieren Sie lokale Journalisten — Medienberichterstattung hat historisch Massaker gestoppt. Ihre Nachricht könnte die lebensrettende Geschichte auslösen.">Informieren Sie lokale Journalisten — Medienberichterstattung hat historisch Massaker gestoppt. Ihre Nachricht könnte die lebensrettende Geschichte auslösen.</p>
+                    </div>
+                </div>
+
+                <div class="action-item fade-in delay-3">
+                    <div class="action-icon"><i class="fas fa-print"></i></div>
+                    <div class="action-content">
+                        <h4 data-en="1 Poster = Hundreds of New Allies" data-de="1 Plakat = Hunderte neue Verbündete">1 Plakat = Hunderte neue Verbündete</h4>
+                        <p data-en="Put up one poster at your university or workplace. It stays visible 24/7, reaching people social media never will." data-de="Hängen Sie ein Plakat an Ihrer Uni oder Arbeit auf. Es bleibt 24/7 sichtbar und erreicht Menschen, die Social Media nie erreichen würde.">Hängen Sie ein Plakat an Ihrer Uni oder Arbeit auf. Es bleibt 24/7 sichtbar und erreicht Menschen, die Social Media nie erreichen würde.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== FAQ SECTION ==================== -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 data-en="Understanding the Movement" data-de="Die Bewegung verstehen">Die Bewegung verstehen</h2>
+
+            <div class="faq-container">
+                <!-- FAQ 1: What alternative do protesters want? -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-en="What alternative do these protesters actually want?" data-de="Was für eine Alternative wollen diese Demonstranten eigentlich?">Was für eine Alternative wollen diese Demonstranten eigentlich?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p data-en="The Iranian diaspora is deeply diverse—some advocate for a secular democratic republic, others for a constitutional monarchy. What unites nearly all Iranians is the demand to end the Islamic Republic, which has brought only oppression, economic devastation, and international isolation. Many Iranians, both inside the country and abroad, see Prince Reza Pahlavi—the son of Iran's last king—as a unifying figure who could serve as a transitional leader. His vision is not to restore absolute monarchy, but to help guide the country through a peaceful transition. Once the Islamic Republic falls, Iranians themselves should decide their government—whether a constitutional monarchy or a secular republic—through a free referendum."
+                               data-de="Die iranische Diaspora ist sehr vielfältig – einige befürworten eine säkulare demokratische Republik, andere eine konstitutionelle Monarchie. Was fast alle Iraner eint, ist die Forderung, die Islamische Republik zu beenden, die nur Unterdrückung, wirtschaftliche Verwüstung und internationale Isolation gebracht hat. Viele Iraner, sowohl im In- als auch im Ausland, sehen Prinz Reza Pahlavi – den Sohn des letzten iranischen Königs – als eine einigende Figur, die als Übergangsführer dienen könnte. Seine Vision ist nicht die Wiederherstellung einer absoluten Monarchie, sondern dem Land durch einen friedlichen Übergang zu helfen. Sobald die Islamische Republik fällt, sollten die Iraner selbst durch ein freies Referendum entscheiden, ob sie eine konstitutionelle Monarchie oder eine säkulare Republik wollen.">Die iranische Diaspora ist sehr vielfältig – einige befürworten eine säkulare demokratische Republik, andere eine konstitutionelle Monarchie. Was fast alle Iraner eint, ist die Forderung, die Islamische Republik zu beenden, die nur Unterdrückung, wirtschaftliche Verwüstung und internationale Isolation gebracht hat. Viele Iraner, sowohl im In- als auch im Ausland, sehen Prinz Reza Pahlavi – den Sohn des letzten iranischen Königs – als eine einigende Figur, die als Übergangsführer dienen könnte. Seine Vision ist nicht die Wiederherstellung einer absoluten Monarchie, sondern dem Land durch einen friedlichen Übergang zu helfen. Sobald die Islamische Republik fällt, sollten die Iraner selbst durch ein freies Referendum entscheiden, ob sie eine konstitutionelle Monarchie oder eine säkulare Republik wollen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2: Are protests representative? -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-en="Are these protests truly representative of the people inside Iran?" data-de="Sind diese Proteste wirklich repräsentativ für die Menschen im Iran?">Sind diese Proteste wirklich repräsentativ für die Menschen im Iran?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p data-en="Absolutely. In 2022, following the death of Mahsa Amini, protests erupted in over 150 cities across Iran—including traditionally conservative and religious areas—proving this was not a fringe movement but a nationwide uprising. The internet blackout during January 2026 shows the regime's desperation to hide the scale of opposition. The slogan 'Woman, Life, Freedom' has become a unifying cry across all segments of Iranian society—women, men, students, workers, ethnic minorities, and even former regime supporters who have turned against the system. The regime's own brutality has radicalized even those who once hoped for reform within the system."
+                               data-de="Absolut. Im Jahr 2022, nach dem Tod von Mahsa Amini, brachen Proteste in über 150 Städten im Iran aus – einschließlich traditionell konservativer und religiöser Gebiete – was beweist, dass dies keine Randbewegung, sondern ein landesweiter Aufstand war. Die Internet-Abschaltung im Januar 2026 zeigt die Verzweiflung des Regimes, das Ausmaß der Opposition zu verbergen. Der Slogan ‚Frau, Leben, Freiheit' ist zu einem einigenden Ruf in allen Teilen der iranischen Gesellschaft geworden – Frauen, Männer, Studenten, Arbeiter, ethnische Minderheiten und sogar ehemalige Regime-Unterstützer, die sich gegen das System gewandt haben. Die Brutalität des Regimes hat selbst diejenigen radikalisiert, die einst auf Reformen innerhalb des Systems hofften.">Absolut. Im Jahr 2022, nach dem Tod von Mahsa Amini, brachen Proteste in über 150 Städten im Iran aus – einschließlich traditionell konservativer und religiöser Gebiete – was beweist, dass dies keine Randbewegung, sondern ein landesweiter Aufstand war. Die Internet-Abschaltung im Januar 2026 zeigt die Verzweiflung des Regimes, das Ausmaß der Opposition zu verbergen. Der Slogan ‚Frau, Leben, Freiheit' ist zu einem einigenden Ruf in allen Teilen der iranischen Gesellschaft geworden – Frauen, Männer, Studenten, Arbeiter, ethnische Minderheiten und sogar ehemalige Regime-Unterstützer, die sich gegen das System gewandt haben. Die Brutalität des Regimes hat selbst diejenigen radikalisiert, die einst auf Reformen innerhalb des Systems hofften.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3: Foreign powers influence? -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-en="Are these movements independent, or are they influenced by foreign powers?" data-de="Sind diese Bewegungen unabhängig oder werden sie von ausländischen Mächten beeinflusst?">Sind diese Bewegungen unabhängig oder werden sie von ausländischen Mächten beeinflusst?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p data-en="These protests are 100% homegrown and organic. They stem from 45+ years of oppression, mass executions, poverty, and lack of freedom under the Islamic Republic. The regime always claims foreign interference to delegitimize dissent—this is a classic authoritarian tactic. When protesters occasionally wave American or Israeli flags, they are making a deliberate statement: rejecting the regime's propaganda that has demonized these nations for decades. It's an act of defiance—a way of saying, 'We reject everything you've told us.' It does not mean they want foreign intervention or are aligned with foreign governments. Iranians are proud of their 2,500-year history of civilization and want to determine their own future—free from both theocratic dictatorship and foreign interference."
+                               data-de="Diese Proteste sind zu 100% einheimisch und organisch. Sie stammen aus über 45 Jahren Unterdrückung, Massenhinrichtungen, Armut und Mangel an Freiheit unter der Islamischen Republik. Das Regime behauptet immer ausländische Einmischung, um Widerspruch zu delegitimieren – das ist eine klassische autoritäre Taktik. Wenn Demonstranten gelegentlich amerikanische oder israelische Flaggen schwenken, machen sie eine bewusste Aussage: Sie lehnen die Propaganda des Regimes ab, die diese Nationen jahrzehntelang dämonisiert hat. Es ist ein Akt des Widerstands – eine Art zu sagen: ‚Wir lehnen alles ab, was ihr uns erzählt habt.' Es bedeutet nicht, dass sie ausländische Intervention wollen oder mit ausländischen Regierungen verbündet sind. Iraner sind stolz auf ihre 2.500-jährige Zivilisationsgeschichte und wollen ihre eigene Zukunft bestimmen – frei von theokratischer Diktatur und ausländischer Einmischung.">Diese Proteste sind zu 100% einheimisch und organisch. Sie stammen aus über 45 Jahren Unterdrückung, Massenhinrichtungen, Armut und Mangel an Freiheit unter der Islamischen Republik. Das Regime behauptet immer ausländische Einmischung, um Widerspruch zu delegitimieren – das ist eine klassische autoritäre Taktik. Wenn Demonstranten gelegentlich amerikanische oder israelische Flaggen schwenken, machen sie eine bewusste Aussage: Sie lehnen die Propaganda des Regimes ab, die diese Nationen jahrzehntelang dämonisiert hat. Es ist ein Akt des Widerstands – eine Art zu sagen: ‚Wir lehnen alles ab, was ihr uns erzählt habt.' Es bedeutet nicht, dass sie ausländische Intervention wollen oder mit ausländischen Regierungen verbündet sind. Iraner sind stolz auf ihre 2.500-jährige Zivilisationsgeschichte und wollen ihre eigene Zukunft bestimmen – frei von theokratischer Diktatur und ausländischer Einmischung.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4: Anti-Palestinian or Anti-Islam? -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-en="Does this mean these protests are anti-Palestinian or anti-Islam?" data-de="Bedeutet das, dass diese Proteste anti-palästinensisch oder anti-islamisch sind?">Bedeutet das, dass diese Proteste anti-palästinensisch oder anti-islamisch sind?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p data-en="Not at all. Iranians are not protesting against Islam or Palestinians—they are protesting against a regime that uses religion as a weapon of oppression and has funded foreign militias while its own citizens starve. The Islamic Republic has spent billions on Hezbollah, Hamas, and proxy wars while ordinary Iranians lack medicine, clean water, and economic opportunity. A popular protest chant is: 'Not Gaza, not Lebanon—my life only for Iran!' This is not anti-Palestinian; it is a demand that Iranian resources be spent on Iranians. Many Iranians are Muslims and proud of their heritage, but they reject a government that enforces religion through violence, mandatory hijab, and executions. Freedom of religion—including the freedom to be Muslim, secular, or any other faith—is a core demand of this movement."
+                               data-de="Überhaupt nicht. Iraner protestieren nicht gegen den Islam oder Palästinenser – sie protestieren gegen ein Regime, das Religion als Unterdrückungswaffe benutzt und ausländische Milizen finanziert hat, während die eigenen Bürger hungern. Die Islamische Republik hat Milliarden für Hisbollah, Hamas und Stellvertreterkriege ausgegeben, während normale Iraner keine Medikamente, kein sauberes Wasser und keine wirtschaftlichen Möglichkeiten haben. Ein beliebter Protestgesang lautet: ‚Nicht Gaza, nicht Libanon – mein Leben nur für Iran!' Das ist nicht anti-palästinensisch; es ist eine Forderung, dass iranische Ressourcen für Iraner ausgegeben werden. Viele Iraner sind Muslime und stolz auf ihr Erbe, aber sie lehnen eine Regierung ab, die Religion durch Gewalt, Zwangsverschleierung und Hinrichtungen durchsetzt. Religionsfreiheit – einschließlich der Freiheit, Muslim, säkular oder jeden anderen Glaubens zu sein – ist eine Kernforderung dieser Bewegung.">Überhaupt nicht. Iraner protestieren nicht gegen den Islam oder Palästinenser – sie protestieren gegen ein Regime, das Religion als Unterdrückungswaffe benutzt und ausländische Milizen finanziert hat, während die eigenen Bürger hungern. Die Islamische Republik hat Milliarden für Hisbollah, Hamas und Stellvertreterkriege ausgegeben, während normale Iraner keine Medikamente, kein sauberes Wasser und keine wirtschaftlichen Möglichkeiten haben. Ein beliebter Protestgesang lautet: ‚Nicht Gaza, nicht Libanon – mein Leben nur für Iran!' Das ist nicht anti-palästinensisch; es ist eine Forderung, dass iranische Ressourcen für Iraner ausgegeben werden. Viele Iraner sind Muslime und stolz auf ihr Erbe, aber sie lehnen eine Regierung ab, die Religion durch Gewalt, Zwangsverschleierung und Hinrichtungen durchsetzt. Religionsfreiheit – einschließlich der Freiheit, Muslim, säkular oder jeden anderen Glaubens zu sein – ist eine Kernforderung dieser Bewegung.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5: Guarantees for future Iran? -->
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span data-en="What guarantees exist that a future Iran won't become another oppressive regime?" data-de="Welche Garantien gibt es, dass ein zukünftiges Iran nicht zu einem weiteren unterdrückerischen Regime wird?">Welche Garantien gibt es, dass ein zukünftiges Iran nicht zu einem weiteren unterdrückerischen Regime wird?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p data-en="No one can guarantee the future—but we can guarantee what we know about the present: the Islamic Republic is a brutal dictatorship that murders its own citizens, oppresses women, executes political prisoners, and destabilizes the entire Middle East. The argument that 'it could be worse' has been used by every authoritarian to justify staying in power. Iranians have learned from history. The diaspora includes millions of educated professionals, activists, and thinkers who have lived in democracies and understand how to build democratic institutions. The goal is not just regime change, but building a future Iran based on human rights, rule of law, and democratic accountability. The first step is ending the current nightmare—then Iranians can build the future they deserve."
+                               data-de="Niemand kann die Zukunft garantieren – aber wir können garantieren, was wir über die Gegenwart wissen: Die Islamische Republik ist eine brutale Diktatur, die ihre eigenen Bürger ermordet, Frauen unterdrückt, politische Gefangene hinrichtet und den gesamten Nahen Osten destabilisiert. Das Argument ‚es könnte schlimmer werden' wurde von jedem Autoritären benutzt, um an der Macht zu bleiben. Iraner haben aus der Geschichte gelernt. Die Diaspora umfasst Millionen von gebildeten Fachleuten, Aktivisten und Denkern, die in Demokratien gelebt haben und verstehen, wie man demokratische Institutionen aufbaut. Das Ziel ist nicht nur Regimewechsel, sondern der Aufbau eines zukünftigen Irans basierend auf Menschenrechten, Rechtsstaatlichkeit und demokratischer Rechenschaftspflicht. Der erste Schritt ist, den aktuellen Albtraum zu beenden – dann können die Iraner die Zukunft aufbauen, die sie verdienen.">Niemand kann die Zukunft garantieren – aber wir können garantieren, was wir über die Gegenwart wissen: Die Islamische Republik ist eine brutale Diktatur, die ihre eigenen Bürger ermordet, Frauen unterdrückt, politische Gefangene hinrichtet und den gesamten Nahen Osten destabilisiert. Das Argument ‚es könnte schlimmer werden' wurde von jedem Autoritären benutzt, um an der Macht zu bleiben. Iraner haben aus der Geschichte gelernt. Die Diaspora umfasst Millionen von gebildeten Fachleuten, Aktivisten und Denkern, die in Demokratien gelebt haben und verstehen, wie man demokratische Institutionen aufbaut. Das Ziel ist nicht nur Regimewechsel, sondern der Aufbau eines zukünftigen Irans basierend auf Menschenrechten, Rechtsstaatlichkeit und demokratischer Rechenschaftspflicht. Der erste Schritt ist, den aktuellen Albtraum zu beenden – dann können die Iraner die Zukunft aufbauen, die sie verdienen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ==================== RESOURCES / DOWNLOADS ==================== -->
     <section class="resources" id="resources">
         <div class="container">
@@ -2972,7 +3158,7 @@
                     </div>
                 </a>
 
-                <!-- Posters by @moeinnajafii (1-19) - Lazy loaded -->
+                <!-- Posters by @moeinnajafii (1-19) -->
                 <a href="https://iran-protest.org/downloads/1.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
                     <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/1.jpg"></div>
                     <div class="resource-info">
@@ -3214,93 +3400,6 @@
             </div>
         </div>
     </section>
-
-    <!-- ==================== TAKE ACTION ==================== -->
-    <section class="action" id="action">
-        <div class="container">
-            <div class="action-header">
-                <div class="section-label">
-                    <i class="fas fa-hand-fist"></i>
-                    <span data-en="Get Involved" data-de="Mitmachen">Get Involved</span>
-                </div>
-                <h2 class="fade-in" data-en="Be Part of History — Take Action Today" data-de="Werden Sie Teil der Geschichte — Handeln Sie heute">Werden Sie Teil der Geschichte — Handeln Sie heute</h2>
-                <p class="fade-in delay-1" data-en="Your 5 minutes of action today could help save lives tomorrow. Choose one and start now." data-de="Ihre 5 Minuten Einsatz heute könnten morgen Leben retten. Wählen Sie eine Aktion und starten Sie jetzt.">Ihre 5 Minuten Einsatz heute könnten morgen Leben retten. Wählen Sie eine Aktion und starten Sie jetzt.</p>
-            </div>
-
-            <div class="action-grid">
-                <div class="action-item fade-in">
-                    <div class="action-icon"><i class="fas fa-share-alt"></i></div>
-                    <div class="action-content">
-                        <h4 data-en="1 Post = 1000 Eyes on Iran" data-de="1 Beitrag = 1000 Augen auf Iran">1 Beitrag = 1000 Augen auf Iran</h4>
-                        <p data-en="Share with #IranProtests — your single post can reach thousands and pressure world leaders to act." data-de="Teilen Sie mit #IranProtests — Ihr einzelner Beitrag kann Tausende erreichen und Druck auf Weltführer ausüben.">Teilen Sie mit #IranProtests — Ihr einzelner Beitrag kann Tausende erreichen und Druck auf Weltführer ausüben.</p>
-                    </div>
-                </div>
-
-                <div class="action-item fade-in delay-1">
-                    <div class="action-icon"><i class="fas fa-envelope"></i></div>
-                    <div class="action-content">
-                        <h4 data-en="Make Politicians Listen — 2 Minutes" data-de="Bringen Sie Politiker zum Zuhören — 2 Minuten">Bringen Sie Politiker zum Zuhören — 2 Minuten</h4>
-                        <p data-en="One email to your representative creates pressure. Politicians track constituent messages — yours will be counted." data-de="Eine E-Mail an Ihren Abgeordneten erzeugt Druck. Politiker zählen Bürgernachrichten — Ihre wird gezählt.">Eine E-Mail an Ihren Abgeordneten erzeugt Druck. Politiker zählen Bürgernachrichten — Ihre wird gezählt.</p>
-                    </div>
-                </div>
-
-                <div class="action-item fade-in delay-2">
-                    <div class="action-icon"><i class="fas fa-newspaper"></i></div>
-                    <div class="action-content">
-                        <h4 data-en="Turn Silence Into Headlines" data-de="Verwandeln Sie Schweigen in Schlagzeilen">Verwandeln Sie Schweigen in Schlagzeilen</h4>
-                        <p data-en="Tip local journalists — media coverage has historically stopped massacres. Your message could trigger the story that saves lives." data-de="Informieren Sie lokale Journalisten — Medienberichterstattung hat historisch Massaker gestoppt. Ihre Nachricht könnte die lebensrettende Geschichte auslösen.">Informieren Sie lokale Journalisten — Medienberichterstattung hat historisch Massaker gestoppt. Ihre Nachricht könnte die lebensrettende Geschichte auslösen.</p>
-                    </div>
-                </div>
-
-                <div class="action-item fade-in delay-3">
-                    <div class="action-icon"><i class="fas fa-print"></i></div>
-                    <div class="action-content">
-                        <h4 data-en="1 Poster = Hundreds of New Allies" data-de="1 Plakat = Hunderte neue Verbündete">1 Plakat = Hunderte neue Verbündete</h4>
-                        <p data-en="Put up one poster at your university or workplace. It stays visible 24/7, reaching people social media never will." data-de="Hängen Sie ein Plakat an Ihrer Uni oder Arbeit auf. Es bleibt 24/7 sichtbar und erreicht Menschen, die Social Media nie erreichen würde.">Hängen Sie ein Plakat an Ihrer Uni oder Arbeit auf. Es bleibt 24/7 sichtbar und erreicht Menschen, die Social Media nie erreichen würde.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ==================== FAQ SECTION ==================== -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <h2 data-en="Understanding the Movement" data-de="Die Bewegung verstehen">Die Bewegung verstehen</h2>
-
-            <div class="faq-container">
-                <!-- FAQ 1 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span data-en="What alternative do these protesters actually want?" data-de="Was für eine Alternative wollen diese Demonstranten eigentlich?">Was für eine Alternative wollen diese Demonstranten eigentlich?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p data-en="The Iranian people are fighting for a secular, democratic republic that respects human rights, freedom of speech, freedom of religion, and women's rights. They want a government chosen through free and fair elections, accountable to its citizens rather than to religious authorities. The widespread slogan 'Woman, Life, Freedom' captures the core values of this movement: gender equality, individual liberty, and the right to live without oppression."
-                               data-de="Das iranische Volk kämpft für eine säkulare, demokratische Republik, die Menschenrechte, Meinungsfreiheit, Religionsfreiheit und Frauenrechte respektiert. Sie wollen eine Regierung, die durch freie und faire Wahlen gewählt wird und ihren Bürgern gegenüber rechenschaftspflichtig ist – nicht religiösen Autoritäten. Der weit verbreitete Slogan ‚Frau, Leben, Freiheit' erfasst die Kernwerte dieser Bewegung: Geschlechtergleichheit, individuelle Freiheit und das Recht, ohne Unterdrückung zu leben.">Das iranische Volk kämpft für eine säkulare, demokratische Republik, die Menschenrechte, Meinungsfreiheit, Religionsfreiheit und Frauenrechte respektiert. Sie wollen eine Regierung, die durch freie und faire Wahlen gewählt wird und ihren Bürgern gegenüber rechenschaftspflichtig ist – nicht religiösen Autoritäten. Der weit verbreitete Slogan ‚Frau, Leben, Freiheit' erfasst die Kernwerte dieser Bewegung: Geschlechtergleichheit, individuelle Freiheit und das Recht, ohne Unterdrückung zu leben.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
-                        <span data-en="Are these movements independent, or influenced by foreign powers?" data-de="Sind diese Bewegungen unabhängig oder von ausländischen Mächten beeinflusst?">Sind diese Bewegungen unabhängig oder von ausländischen Mächten beeinflusst?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="faq-answer-inner">
-                            <p data-en="These protests are entirely homegrown and grassroots. They emerge from decades of oppression, economic mismanagement, and the Iranian people's desire for basic freedoms. The regime frequently claims foreign interference to delegitimize protests, but the reality is clear: millions of ordinary Iranians – students, workers, women, ethnic minorities – are rising up because they've had enough. International solidarity and coverage help protect protesters from violence, but the movement itself is Iranian-led and Iranian-driven."
-                               data-de="Diese Proteste sind vollständig einheimisch und basieren auf Graswurzelbewegungen. Sie entstehen aus Jahrzehnten der Unterdrückung, wirtschaftlichen Misswirtschaft und dem Wunsch des iranischen Volkes nach grundlegenden Freiheiten. Das Regime behauptet häufig ausländische Einmischung, um die Proteste zu delegitimieren, aber die Realität ist klar: Millionen gewöhnlicher Iraner – Studenten, Arbeiter, Frauen, ethnische Minderheiten – erheben sich, weil sie genug haben. Internationale Solidarität und Berichterstattung helfen, Demonstranten vor Gewalt zu schützen, aber die Bewegung selbst wird von Iranern geführt und angetrieben.">Diese Proteste sind vollständig einheimisch und basieren auf Graswurzelbewegungen. Sie entstehen aus Jahrzehnten der Unterdrückung, wirtschaftlichen Misswirtschaft und dem Wunsch des iranischen Volkes nach grundlegenden Freiheiten. Das Regime behauptet häufig ausländische Einmischung, um die Proteste zu delegitimieren, aber die Realität ist klar: Millionen gewöhnlicher Iraner – Studenten, Arbeiter, Frauen, ethnische Minderheiten – erheben sich, weil sie genug haben. Internationale Solidarität und Berichterstattung helfen, Demonstranten vor Gewalt zu schützen, aber die Bewegung selbst wird von Iranern geführt und angetrieben.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
     <!-- ==================== PRIVACY SUMMARY CARD ==================== -->
     <section class="privacy-summary" style="padding: 40px 0; background: rgba(34, 197, 94, 0.05); border-top: 1px solid rgba(34, 197, 94, 0.1);">
