@@ -222,6 +222,14 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        /* Mobile-first: 18px base font */
+        @media (max-width: 768px) {
+            html {
+                font-size: 18px;
+            }
         }
 
         body {
@@ -230,8 +238,20 @@
             color: var(--color-black);
             line-height: 1.6;
             overflow-x: hidden;
+            max-width: 100vw;
             transition: background-color var(--transition-medium), color var(--transition-medium);
             padding-top: env(safe-area-inset-top, 0px);
+        }
+
+        /* Fix right-side cropping on mobile */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 100%;
+            padding-left: 16px;
+            padding-right: 16px;
         }
 
         /* Typography */
@@ -1093,6 +1113,36 @@
             font-size: 0.875rem;
             color: var(--color-gray-500);
             margin-top: 4px;
+        }
+
+        .hero-stat-link {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .hero-stat-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .hero-stat-sources {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+            justify-content: center;
+        }
+
+        .source-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
         }
 
         .hero-actions {
@@ -2227,22 +2277,28 @@
         }
 
         /* ==================== STICKY BOTTOM CTA ==================== */
+        /* Sticky CTA - Mobile only */
         .sticky-cta {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 12px 16px;
-            background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.95) 30%);
+            padding: 12px 16px 16px;
+            background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.98) 40%);
             z-index: 1000;
-            display: flex;
-            gap: 10px;
+            display: none;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transform: translateY(100%);
             transition: opacity 0.3s ease, transform 0.3s ease;
             pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-cta {
+                display: flex;
+            }
         }
 
         .sticky-cta.visible {
@@ -2252,56 +2308,37 @@
         }
 
         .sticky-cta-primary {
-            flex: 1;
-            max-width: 280px;
+            width: 100%;
+            max-width: 320px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 14px 24px;
+            padding: 16px 24px;
+            min-height: 52px;
             background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
             color: white;
             font-size: 1rem;
             font-weight: 700;
             border: none;
-            border-radius: 12px;
+            border-radius: 14px;
             cursor: pointer;
             text-decoration: none;
-            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.5);
             transition: all 0.3s ease;
         }
 
         .sticky-cta-primary:hover {
             transform: scale(1.02);
-            box-shadow: 0 6px 24px rgba(220, 38, 38, 0.5);
-        }
-
-        .sticky-cta-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px 16px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 0.875rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .sticky-cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 6px 28px rgba(220, 38, 38, 0.6);
         }
 
         /* Hide sticky CTA when audience selector is visible */
         .audience-selector:not(.hidden) ~ .sticky-cta {
-            display: none;
+            display: none !important;
         }
 
-        /* Add padding to body to account for sticky CTA */
+        /* Add padding to body to account for sticky CTA on mobile */
         @media (max-width: 768px) {
             body {
                 padding-bottom: 80px;
@@ -2536,18 +2573,36 @@
                     Am 8. und 9. Januar 2026 massakrierte das islamische Regime im Iran Zehntausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl 30.000 übersteigen könnte.
                 </p>
 
+                <!-- Last Updated Notice -->
+                <div class="hero-updated" style="margin-bottom: 20px;">
+                    <time datetime="2026-01-27" style="display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.6); font-size: 0.75rem;">
+                        <i class="fas fa-sync-alt" style="font-size: 0.6rem;"></i>
+                        <span data-en="Last updated: January 27, 2026" data-de="Zuletzt aktualisiert: 27. Januar 2026">Last updated: January 27, 2026</span>
+                    </time>
+                </div>
+
                 <div class="hero-stats">
-                    <div class="hero-stat">
+                    <a href="#happening" class="hero-stat hero-stat-link" style="text-decoration: none;">
                         <div class="hero-stat-number" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; text-shadow: 0 2px 10px rgba(220,38,38,0.5);">30,000+</div>
                         <div class="hero-stat-label" data-en="Killed in 2 Days" data-de="In 2 Tagen getötet">In 2 Tagen getötet</div>
-                    </div>
+                        <div class="hero-stat-sources">
+                            <span class="source-badge" title="Iran International">Iran Int'l</span>
+                            <span class="source-badge" title="Reuters">Reuters</span>
+                        </div>
+                    </a>
                     <div class="hero-stat">
                         <div class="hero-stat-number">100%</div>
                         <div class="hero-stat-label" data-en="Internet Blackout" data-de="Internet-Blackout">Internet Blackout</div>
+                        <div class="hero-stat-sources">
+                            <span class="source-badge" title="NetBlocks">NetBlocks</span>
+                        </div>
                     </div>
                     <div class="hero-stat">
                         <div class="hero-stat-number">45+</div>
                         <div class="hero-stat-label" data-en="Years of Oppression" data-de="Jahre der Unterdrückung">Years of Oppression</div>
+                        <div class="hero-stat-sources">
+                            <span class="source-badge" title="Amnesty International">Amnesty</span>
+                        </div>
                     </div>
                 </div>
 
@@ -3339,14 +3394,11 @@
         </div>
     </footer>
 
-    <!-- ==================== STICKY BOTTOM CTA ==================== -->
-    <div class="sticky-cta" id="stickyCta" role="region" aria-label="Quick actions">
+    <!-- ==================== STICKY BOTTOM CTA (Mobile Only) ==================== -->
+    <div class="sticky-cta" id="stickyCta" role="region" aria-label="Share awareness">
         <a href="https://x.com/intent/tweet?text=%2330000Killed%20%23IranProtests%20%23DigitalBlackoutIran%20-%20Over%2030%2C000%20killed%20in%202%20days.%20The%20world%20must%20know.%20https%3A%2F%2Firan-protest.org" target="_blank" rel="noopener noreferrer" class="sticky-cta-primary" id="stickyCtaPrimary">
             <i class="fab fa-x-twitter"></i>
-            <span data-en="Share #IranProtests" data-de="Teilen #IranProtests">Teilen #IranProtests</span>
-        </a>
-        <a href="#action" class="sticky-cta-secondary" onclick="document.getElementById('audienceSelector').classList.add('hidden');">
-            <i class="fas fa-hand-fist"></i>
+            <span data-en="Share Awareness" data-de="Teilen">Share Awareness</span>
         </a>
     </div>
 
@@ -3673,8 +3725,6 @@
         // ========== STICKY CTA ==========
         var stickyCta = document.getElementById('stickyCta');
         // audienceSelector already defined above
-        var lastScrollY = 0;
-        var stickyCtaPrimary = document.getElementById('stickyCtaPrimary');
 
         function updateStickyCta() {
             var scrollY = window.pageYOffset;
@@ -3683,28 +3733,9 @@
             // Only show sticky CTA when audience selector is hidden and user has scrolled
             if (audienceHidden && scrollY > 200) {
                 stickyCta.classList.add('visible');
-
-                // Change CTA based on scroll position (morph effect)
-                var actionSection = document.getElementById('action');
-                if (actionSection) {
-                    var actionRect = actionSection.getBoundingClientRect();
-                    if (actionRect.top < window.innerHeight && actionRect.bottom > 0) {
-                        // Near action section - change to download
-                        stickyCtaPrimary.innerHTML = '<i class="fas fa-download"></i><span data-en="Get Materials" data-de="Material holen">Material holen</span>';
-                        stickyCtaPrimary.href = '#resources';
-                    } else {
-                        // Default - share
-                        stickyCtaPrimary.innerHTML = '<i class="fab fa-x-twitter"></i><span data-en="Share #IranProtests" data-de="Teilen #IranProtests">Teilen #IranProtests</span>';
-                        stickyCtaPrimary.href = 'https://x.com/intent/tweet?text=%2330000Killed%20%23IranProtests%20%23DigitalBlackoutIran%20-%20Over%2030%2C000%20killed%20in%202%20days.%20The%20world%20must%20know.%20https%3A%2F%2Firan-protest.org';
-                    }
-                    // Update language
-                    setLanguage(currentLang);
-                }
             } else {
                 stickyCta.classList.remove('visible');
             }
-
-            lastScrollY = scrollY;
         }
 
         window.addEventListener('scroll', function() {
