@@ -276,17 +276,29 @@
         .audience-selector {
             position: fixed;
             inset: 0;
-            background: linear-gradient(rgba(10, 10, 10, 0.88), rgba(10, 10, 10, 0.92)),
-                        url('https://iran-protest.org/Pics/Flag.png');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
             z-index: 9999;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            padding: 20px 16px;
+            padding: 50px 12px 20px;
             transition: opacity 0.5s ease, visibility 0.5s ease;
             overflow-y: auto;
+        }
+
+        /* Larger phones */
+        @media (min-height: 700px) {
+            .audience-selector {
+                padding-top: 60px;
+            }
+        }
+
+        /* Desktop: center content vertically */
+        @media (min-width: 769px) {
+            .audience-selector {
+                align-items: center;
+                padding: 40px 24px;
+            }
         }
 
         .audience-selector.hidden {
@@ -297,26 +309,64 @@
 
         .audience-inner {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Desktop: use grid layout for better fit */
+        @media (min-width: 900px) {
+            .audience-inner {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+                text-align: left;
+                align-items: center;
+            }
+        }
+
+        .audience-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .audience-right {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .audience-logo {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: white;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 6px;
+        }
+
+        .audience-logo img {
+            height: 22px !important;
+        }
+
+        @media (min-width: 900px) {
+            .audience-logo {
+                font-size: 1rem;
+                justify-content: flex-start;
+                margin-bottom: 20px;
+            }
+            .audience-logo img {
+                height: 28px !important;
+            }
         }
 
         .audience-logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             background: var(--color-red);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -326,36 +376,58 @@
             font-family: var(--font-display);
             font-size: clamp(1.5rem, 4vw, 2.5rem);
             color: white;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .audience-subtitle {
             color: var(--color-gray-400);
-            font-size: 1.125rem;
-            margin-bottom: 48px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        @media (min-width: 769px) {
+            .audience-subtitle {
+                font-size: 1rem;
+                margin-bottom: 20px;
+            }
         }
 
         .audience-cards {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        @media (min-width: 500px) {
+            .audience-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
         }
 
         @media (max-width: 640px) {
             .audience-cards {
                 grid-template-columns: 1fr;
-                gap: 10px;
+                gap: 8px;
             }
         }
 
         .audience-card {
             background: #171717;
-            border: 2px solid #262626;
-            border-radius: 14px;
-            padding: 16px 14px;
+            border: 1px solid #262626;
+            border-radius: 10px;
+            padding: 10px 12px;
             cursor: pointer;
             transition: all var(--transition-medium);
             text-align: left;
+        }
+
+        @media (min-width: 900px) {
+            .audience-card {
+                padding: 16px 14px;
+                border-radius: 14px;
+                border-width: 2px;
+            }
         }
 
         .audience-card:hover {
@@ -365,40 +437,279 @@
         }
 
         .audience-card-icon {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             background: var(--color-red-light);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.125rem;
+            font-size: 0.9rem;
             color: var(--color-red);
-            margin-bottom: 10px;
+            margin-bottom: 0;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 900px) {
+            .audience-card-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.125rem;
+            }
         }
 
         .audience-card-title {
             font-family: var(--font-display);
-            font-size: 1rem;
+            font-size: 0.8rem;
             color: white;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
+        }
+
+        @media (min-width: 900px) {
+            .audience-card-title {
+                font-size: 1rem;
+                margin-bottom: 4px;
+            }
         }
 
         .audience-card-desc {
             color: var(--color-gray-400);
-            font-size: 0.8125rem;
-            line-height: 1.4;
+            font-size: 0.7rem;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 900px) {
+            .audience-card-desc {
+                font-size: 0.8125rem;
+                line-height: 1.4;
+            }
         }
 
         .audience-card-arrow {
-            margin-top: 10px;
+            margin-top: 0;
             color: var(--color-red);
-            font-size: 1rem;
+            font-size: 0.8rem;
             transition: transform var(--transition-fast);
+        }
+
+        @media (min-width: 900px) {
+            .audience-card-arrow {
+                font-size: 1rem;
+            }
         }
 
         .audience-card:hover .audience-card-arrow {
             transform: translateX(6px);
+        }
+
+        /* Audience Card with flexbox layout */
+        .audience-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .audience-card-icon {
+            flex-shrink: 0;
+            margin-bottom: 0;
+        }
+
+        .audience-card-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .audience-card-arrow {
+            flex-shrink: 0;
+            margin-top: 0;
+            align-self: center;
+        }
+
+        /* Audience Stats Section */
+        .audience-stats {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        @media (min-width: 900px) {
+            .audience-stats {
+                text-align: left;
+                margin-bottom: 20px;
+            }
+        }
+
+        .audience-big-number {
+            font-size: clamp(2rem, 9vw, 4rem);
+            font-weight: 800;
+            color: #DC2626;
+            line-height: 1;
+            text-shadow: 0 4px 30px rgba(220,38,38,0.5);
+            letter-spacing: -0.02em;
+        }
+
+        .audience-subtitle-text {
+            color: white;
+            font-size: clamp(0.8rem, 2.2vw, 1.25rem);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .audience-date {
+            display: block;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.6rem;
+            margin-top: 4px;
+        }
+
+        /* Verification Badge */
+        .verification-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 6px;
+            padding: 4px 8px;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.4);
+            border-radius: 12px;
+            color: #22C55E;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        @media (min-width: 900px) {
+            .verification-badge {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+                margin-top: 10px;
+            }
+        }
+
+        .verification-badge:hover {
+            background: rgba(34, 197, 94, 0.25);
+            transform: translateY(-1px);
+        }
+
+        /* Video Section */
+        .audience-video-box {
+            margin-top: 10px;
+            padding: 8px;
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.25);
+            border-radius: 10px;
+        }
+
+        @media (min-width: 900px) {
+            .audience-video-box {
+                margin-top: 16px;
+                padding: 12px;
+            }
+        }
+
+        .audience-video-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-bottom: 6px;
+            color: #DC2626;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        @media (min-width: 900px) {
+            .audience-video-header {
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+                justify-content: flex-start;
+            }
+        }
+
+        .audience-video-container {
+            position: relative;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+        }
+
+        @media (min-width: 900px) {
+            .audience-video-container {
+                max-width: 400px;
+                margin: 0;
+            }
+        }
+
+        .audience-video-warning {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .audience-video-warning-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .audience-video-warning-content i {
+            font-size: 1.2rem;
+            color: #DC2626;
+            margin-bottom: 4px;
+        }
+
+        .audience-video-warning-content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.65rem;
+            margin-bottom: 6px;
+        }
+
+        .audience-video-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 5px 12px;
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(220,38,38,0.4);
+        }
+
+        @media (min-width: 900px) {
+            .audience-video-warning-content i {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+            .audience-video-warning-content p {
+                font-size: 0.75rem;
+                margin-bottom: 10px;
+            }
+            .audience-video-btn {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .audience-video-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(220,38,38,0.5);
         }
 
         /* ==================== HEADER ==================== */
@@ -407,13 +718,20 @@
             top: 0;
             left: 0;
             right: 0;
-            height: calc(var(--header-height) + env(safe-area-inset-top, 20px));
-            background: rgba(10, 10, 10, 0.95);
+            height: 64px;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.98) 0%, rgba(10, 10, 10, 0.95) 100%);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding-top: max(env(safe-area-inset-top, 0px), 20px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 0 16px;
+        }
+
+        @media (min-width: 769px) {
+            header {
+                height: 72px;
+                padding: 0 24px;
+            }
         }
 
         .header-inner {
@@ -421,16 +739,34 @@
             align-items: center;
             justify-content: space-between;
             height: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 16px;
+        }
+
+        /* Language toggle on left */
+        .header-lang-left {
+            flex-shrink: 0;
+            order: 1;
         }
 
         .logo {
             font-family: var(--font-display);
-            font-size: 1.125rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
             color: white;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            order: 2;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 769px) {
+            .logo {
+                font-size: 1.125rem;
+                gap: 10px;
+            }
         }
 
         .logo-icon {
@@ -447,79 +783,120 @@
         .header-nav {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 20px;
+            order: 3;
+            flex: 1;
+            justify-content: flex-end;
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 8px;
             list-style: none;
         }
 
+        @media (min-width: 1024px) {
+            .nav-links {
+                gap: 16px;
+            }
+        }
+
         .nav-links a {
-            color: var(--color-gray-400);
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color var(--transition-fast);
+            color: var(--color-gray-300);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            transition: all var(--transition-fast);
+            padding: 10px 12px;
+            border-radius: 8px;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 1024px) {
+            .nav-links a {
+                font-size: 0.875rem;
+                padding: 10px 16px;
+            }
         }
 
         .nav-links a:hover {
             color: white;
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
 
         .lang-toggle {
             display: flex;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            padding: 4px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 4px;
+            padding: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .lang-btn {
-            padding: 8px 16px;
-            font-size: 0.875rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.7);
+            padding: 3px 6px;
+            font-size: 0.5625rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.5);
             background: transparent;
             border: none;
-            border-radius: 8px;
+            border-radius: 3px;
             cursor: pointer;
             transition: all var(--transition-fast);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+
+        @media (min-width: 769px) {
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 0.625rem;
+            }
         }
 
         .lang-btn:hover {
             color: white;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .lang-btn.active {
-            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            background: var(--color-red);
             color: white;
-            box-shadow: 0 2px 10px rgba(220, 38, 38, 0.4);
+            box-shadow: 0 1px 4px rgba(220, 38, 38, 0.3);
         }
 
         .mobile-menu-btn {
             display: none;
-            background: transparent;
-            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
             color: white;
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             cursor: pointer;
-            padding: 8px;
+            padding: 12px;
+            width: 48px;
+            height: 48px;
         }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
+            .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
+
+            /* Hide logo text on small mobile */
+            .logo span {
+                display: none;
+            }
+        }
+
+        @media (min-width: 480px) and (max-width: 768px) {
+            .logo span {
+                display: inline;
+            }
         }
 
         /* Mobile Menu */
@@ -1199,10 +1576,12 @@
 
         .resources-track {
             display: flex;
-            gap: 24px;
+            gap: 16px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
+            /* Optimize for smooth scrolling on mobile */
+            -webkit-overflow-scrolling: touch;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
             padding: 20px 0;
@@ -1213,11 +1592,13 @@
         }
 
         .resource-card {
-            flex: 0 0 260px;
+            flex: 0 0 200px;
             scroll-snap-align: start;
             background: var(--color-white);
             border: 1px solid var(--color-gray-200);
-            border-radius: 16px;
+            border-radius: 12px;
+            /* GPU acceleration for smooth scrolling */
+            will-change: transform;
             overflow: hidden;
             transition: all var(--transition-medium);
             text-decoration: none;
@@ -1233,10 +1614,13 @@
 
         .resource-preview {
             width: 100% !important;
-            height: 220px !important;
-            min-height: 220px;
+            height: 160px !important;
+            min-height: 160px;
             flex-shrink: 0;
             background: linear-gradient(135deg, var(--color-gray-100) 0%, var(--color-gray-200) 100%);
+            /* Lazy load placeholder */
+            background-size: cover;
+            background-position: center;
             display: block;
             position: relative;
         }
@@ -1316,7 +1700,61 @@
 
         @media (max-width: 640px) {
             .resources-carousel { padding: 0 20px; }
-            .resource-card { flex: 0 0 260px; }
+            .resource-card { flex: 0 0 220px; }
+        }
+
+        /* Mobile optimizations for resources */
+        @media (max-width: 480px) {
+            .resource-card {
+                flex: 0 0 160px;
+            }
+            .resource-preview {
+                height: 120px !important;
+                min-height: 120px;
+            }
+            .resource-info {
+                padding: 10px;
+            }
+            .resource-title {
+                font-size: 0.75rem;
+            }
+            .resource-desc {
+                font-size: 0.65rem;
+            }
+            .resource-download {
+                font-size: 0.65rem;
+                padding: 4px 8px;
+            }
+        }
+
+        /* Lazy load styles */
+        .resource-preview.lazy {
+            background-image: none !important;
+            background-color: #1a1a1a;
+        }
+        .resource-preview.lazy::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 24px;
+            height: 24px;
+            margin: -12px 0 0 -12px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-top-color: var(--color-red);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .resource-preview.loaded {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .resource-preview.loaded::after {
+            display: none;
         }
 
         /* ==================== TAKE ACTION ==================== */
@@ -1932,76 +2370,85 @@
 
     <!-- ==================== AUDIENCE SELECTOR ==================== -->
     <div class="audience-selector" id="audienceSelector" role="dialog" aria-modal="true" aria-labelledby="audienceTitle">
-        <div class="audience-inner" style="position: relative; max-width: 900px;">
-            <!-- Language Toggle for Audience Selector -->
-            <div class="audience-lang-toggle" style="position: absolute; top: -20px; right: 0;">
-                <div class="lang-toggle" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
-                    <button class="lang-btn" data-lang="en" style="color: rgba(255,255,255,0.7);">EN</button>
-                    <button class="lang-btn active" data-lang="de" style="color: rgba(255,255,255,0.7);">DE</button>
-                </div>
+        <!-- Language Toggle - Fixed Top Right -->
+        <div style="position: fixed; top: 16px; right: 16px; z-index: 10001;">
+            <div class="lang-toggle" style="background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.2); padding: 4px;">
+                <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+                <button class="lang-btn active" data-lang="de" aria-label="Deutsch">DE</button>
             </div>
+        </div>
 
-            <div class="audience-logo">
-                <div class="audience-logo-icon" style="background: transparent; border-radius: 0; width: auto; height: auto; padding: 0;">
-                    <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun - Symbol of Free Iran" style="height: 36px; width: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
-                </div>
-                <span>Iran Awareness</span>
-            </div>
-            <h1 class="audience-question" style="margin-top: 12px;">
-                <span style="font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 800; color: #DC2626; display: block; text-shadow: 0 4px 20px rgba(220,38,38,0.5); letter-spacing: -0.02em;" data-en="30,000+" data-de="30.000+">30.000+</span>
-                <h2 style="color: white; font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 600; margin-top: 4px;" data-en="Killed in Just 2 Days" data-de="Getötet in nur 2 Tagen">Getötet in nur 2 Tagen</h2>
-                <!-- Verification Badge -->
-                <a href="#happening" class="verification-badge" onclick="document.getElementById('audienceSelector').classList.add('hidden');" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; padding: 6px 12px; background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.4); border-radius: 20px; color: #22C55E; font-size: 0.75rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
-                    <i class="fas fa-check-circle"></i>
-                    <span data-en="Verified by international sources" data-de="Von internationalen Quellen verifiziert">Von internationalen Quellen verifiziert</span>
-                    <i class="fas fa-external-link-alt" style="font-size: 0.625rem; opacity: 0.7;"></i>
-                </a>
-                <time datetime="2026-01-27" style="display: block; color: rgba(255,255,255,0.5); font-size: 0.75rem; margin-top: 6px;" data-en="Jan 8–9, 2026 • Updated: Jan 27, 2026" data-de="8.–9. Jan 2026 • Aktualisiert: 27. Jan 2026">8.–9. Jan 2026 • Aktualisiert: 27. Jan 2026</time>
-            </h1>
-
-            <!-- Documentary Video Section with Warning Overlay -->
-            <div style="margin: 20px 0 16px; padding: 16px; background: rgba(220, 38, 38, 0.12); border: 1px solid rgba(220, 38, 38, 0.3); border-radius: 12px;">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px;">
-                    <i class="fas fa-film" style="color: #DC2626; font-size: 1rem;"></i>
-                    <span style="color: #DC2626; font-weight: 700; font-size: 0.9rem;" data-en="Documentary: The True Crime in Iran" data-de="Dokumentation: Das wahre Verbrechen im Iran">Dokumentation: Das wahre Verbrechen im Iran</span>
+        <div class="audience-inner">
+            <!-- LEFT COLUMN: Stats & Video -->
+            <div class="audience-left">
+                <!-- Logo -->
+                <div class="audience-logo">
+                    <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun - Symbol of Free Iran" style="height: 28px; width: auto; border-radius: 4px;">
+                    <span>Iran Awareness</span>
                 </div>
 
-                <!-- Video Container with Warning Overlay -->
-                <div id="videoContainer" style="position: relative; width: 100%; max-width: 500px; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-                    <!-- Warning Overlay -->
-                    <div id="videoWarning" style="position: relative; padding-bottom: 56.25%; height: 0; background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);">
-                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 16px; text-align: center;">
-                            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; color: #DC2626; margin-bottom: 12px;"></i>
-                            <p style="color: rgba(255,255,255,0.9); font-size: 0.875rem; margin-bottom: 16px; line-height: 1.5; max-width: 320px;" data-en="⚠️ Contains graphic content. View only if prepared." data-de="⚠️ Verstörende Inhalte. Nur ansehen, wenn Sie bereit sind.">⚠️ Verstörende Inhalte. Nur ansehen, wenn Sie bereit sind.</p>
-                            <button id="watchVideoBtn" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%); color: white; font-size: 0.875rem; font-weight: 700; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(220,38,38,0.4);">
-                                <i class="fas fa-play"></i>
-                                <span data-en="Watch Documentary" data-de="Dokumentation ansehen">Dokumentation ansehen</span>
-                            </button>
+                <!-- Big Number with proper mobile margin -->
+                <div id="audienceTitle" class="audience-stats">
+                    <div class="audience-big-number" data-en="30,000+" data-de="30.000+">30.000+</div>
+                    <div class="audience-subtitle-text" data-en="Killed in Just 2 Days" data-de="Getötet in nur 2 Tagen">Getötet in nur 2 Tagen</div>
+
+                    <!-- Verification Badge -->
+                    <a href="#happening" class="verification-badge" onclick="document.getElementById('audienceSelector').classList.add('hidden');">
+                        <i class="fas fa-check-circle"></i>
+                        <span data-en="Verified sources" data-de="Verifizierte Quellen">Verifizierte Quellen</span>
+                        <i class="fas fa-external-link-alt" style="font-size: 0.6rem; opacity: 0.7;"></i>
+                    </a>
+                    <time datetime="2026-01-27" class="audience-date" data-en="Jan 8–9, 2026" data-de="8.–9. Jan 2026">8.–9. Jan 2026</time>
+                </div>
+
+                <!-- Documentary Video - Compact -->
+                <div class="audience-video-box">
+                    <div class="audience-video-header">
+                        <i class="fas fa-film"></i>
+                        <span data-en="Documentary" data-de="Dokumentation">Dokumentation</span>
+                    </div>
+                    <div id="videoContainer" class="audience-video-container">
+                        <!-- Warning Overlay -->
+                        <div id="videoWarning" class="audience-video-warning">
+                            <div class="audience-video-warning-content">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <p data-en="⚠️ Graphic content" data-de="⚠️ Verstörende Inhalte">⚠️ Verstörende Inhalte</p>
+                                <button id="watchVideoBtn" class="audience-video-btn">
+                                    <i class="fas fa-play"></i>
+                                    <span data-en="Watch" data-de="Ansehen">Ansehen</span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- YouTube Embed (hidden by default) -->
+                        <div id="videoEmbed" style="display: none; position: relative; padding-bottom: 56.25%; height: 0;">
+                            <iframe id="ytIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" data-src="https://www.youtube.com/embed/7gypdxRyQlk" title="Documentary: Iran Protests" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
-
-                    <!-- YouTube Embed (hidden by default) -->
-                    <div id="videoEmbed" style="display: none; position: relative; padding-bottom: 56.25%; height: 0;">
-                        <iframe id="ytIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" data-src="https://www.youtube.com/embed/7gypdxRyQlk" title="Documentary: Iran Protests" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
                 </div>
             </div>
 
-            <p class="audience-subtitle" style="margin-top: 16px; margin-bottom: 16px;" data-en="Choose how you want to help:" data-de="Wählen Sie, wie Sie helfen möchten:">Wählen Sie, wie Sie helfen möchten:</p>
+            <!-- RIGHT COLUMN: Choice Cards -->
+            <div class="audience-right">
+                <p class="audience-subtitle" data-en="How do you want to help?" data-de="Wie möchten Sie helfen?">Wie möchten Sie helfen?</p>
 
-            <div class="audience-cards">
-                <div class="audience-card" data-track="international" role="button" tabindex="0">
-                    <div class="audience-card-icon"><i class="fas fa-globe"></i></div>
-                    <h3 class="audience-card-title" data-en="I want to learn & support globally" data-de="Ich möchte lernen & global unterstützen">Ich möchte lernen & global unterstützen</h3>
-                    <p class="audience-card-desc" data-en="Understand the crisis, see verified reports, and learn how you can help from anywhere in the world." data-de="Verstehen Sie die Krise, sehen Sie verifizierte Berichte und erfahren Sie, wie Sie von überall auf der Welt helfen können.">Verstehen Sie die Krise, sehen Sie verifizierte Berichte und erfahren Sie, wie Sie von überall auf der Welt helfen können.</p>
-                    <div class="audience-card-arrow"><i class="fas fa-arrow-right"></i></div>
-                </div>
+                <div class="audience-cards">
+                    <div class="audience-card" data-track="international" role="button" tabindex="0">
+                        <div class="audience-card-icon"><i class="fas fa-globe"></i></div>
+                        <div class="audience-card-content">
+                            <h3 class="audience-card-title" data-en="Learn & Support Globally" data-de="Lernen & Global Unterstützen">Lernen & Global Unterstützen</h3>
+                            <p class="audience-card-desc" data-en="Understand the crisis and learn how you can help from anywhere." data-de="Verstehen Sie die Krise und erfahren Sie, wie Sie helfen können.">Verstehen Sie die Krise und erfahren Sie, wie Sie helfen können.</p>
+                        </div>
+                        <div class="audience-card-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
 
-                <div class="audience-card" data-track="iranian" role="button" tabindex="0">
-                    <div class="audience-card-icon"><i class="fas fa-hands-helping"></i></div>
-                    <h3 class="audience-card-title" data-en="I am Iranian & want campaign resources" data-de="Ich bin Iraner & möchte Kampagnenmaterial">Ich bin Iraner & möchte Kampagnenmaterial</h3>
-                    <p class="audience-card-desc" data-en="Access printable materials, distribution guides, safety tips, and community resources." data-de="Zugang zu druckbaren Materialien, Verteilungsanleitungen, Sicherheitstipps und Community-Ressourcen.">Zugang zu druckbaren Materialien, Verteilungsanleitungen, Sicherheitstipps und Community-Ressourcen.</p>
-                    <div class="audience-card-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="audience-card" data-track="iranian" role="button" tabindex="0">
+                        <div class="audience-card-icon"><i class="fas fa-hands-helping"></i></div>
+                        <div class="audience-card-content">
+                            <h3 class="audience-card-title" data-en="I'm Iranian – Get Resources" data-de="Ich bin Iraner – Materialien">Ich bin Iraner – Materialien</h3>
+                            <p class="audience-card-desc" data-en="Access printable materials, safety tips, and guides." data-de="Druckbare Materialien, Sicherheitstipps und Anleitungen.">Druckbare Materialien, Sicherheitstipps und Anleitungen.</p>
+                        </div>
+                        <div class="audience-card-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2011,11 +2458,11 @@
     <header role="banner">
         <div class="container">
             <div class="header-inner">
-                <!-- Language Toggle - Left side, prominent -->
-                <div class="header-lang-left" style="display: flex; align-items: center; gap: 12px;">
-                    <div class="lang-toggle" role="group" aria-label="Language selection" style="background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.25); padding: 4px; border-radius: 10px;">
-                        <button class="lang-btn" data-lang="en" aria-label="Switch to English" style="min-width: 48px; min-height: 48px; font-size: 1rem; font-weight: 700;">EN</button>
-                        <button class="lang-btn active" data-lang="de" aria-label="Auf Deutsch wechseln" style="min-width: 48px; min-height: 48px; font-size: 1rem; font-weight: 700;">DE</button>
+                <!-- Language Toggle - Left side, compact -->
+                <div class="header-lang-left">
+                    <div class="lang-toggle" role="group" aria-label="Language selection">
+                        <button class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
+                        <button class="lang-btn active" data-lang="de" aria-label="Auf Deutsch wechseln">DE</button>
                     </div>
                 </div>
 
@@ -2416,25 +2863,25 @@
             <div class="resources-track" id="resourcesCarousel">
                 <!-- English Poster A3 - Our Design -->
                 <a href="https://iran-protest.org/downloads/English - Colored.png" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/English - Colored.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;">
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/English - Colored.png">
                         <div class="resource-badge">A3</div>
                     </div>
                     <div class="resource-info">
-                        <h4 class="resource-title"><i class="fas fa-file-image"></i> English Poster A3</h4>
-                        <p class="resource-desc" data-en="© Designed by us" data-de="© Von uns gestaltet">© Designed by us</p>
-                        <span class="resource-download"><i class="fas fa-download"></i> <span data-en="Get it free" data-de="Kostenlos holen">Kostenlos holen</span></span>
+                        <h4 class="resource-title"><i class="fas fa-file-image"></i> English A3</h4>
+                        <p class="resource-desc" data-en="© By us" data-de="© Von uns">© By us</p>
+                        <span class="resource-download"><i class="fas fa-download"></i> <span data-en="Free" data-de="Gratis">Free</span></span>
                     </div>
                 </a>
 
                 <!-- German Poster A3 - Our Design -->
                 <a href="https://iran-protest.org/downloads/German - Colored.png" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/German - Colored.png'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;">
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/German - Colored.png">
                         <div class="resource-badge">A3</div>
                     </div>
                     <div class="resource-info">
-                        <h4 class="resource-title"><i class="fas fa-file-image"></i> German Poster A3</h4>
-                        <p class="resource-desc" data-en="© Designed by us" data-de="© Von uns gestaltet">© Designed by us</p>
-                        <span class="resource-download"><i class="fas fa-download"></i> <span data-en="Get it free" data-de="Kostenlos holen">Kostenlos holen</span></span>
+                        <h4 class="resource-title"><i class="fas fa-file-image"></i> German A3</h4>
+                        <p class="resource-desc" data-en="© By us" data-de="© Von uns">© By us</p>
+                        <span class="resource-download"><i class="fas fa-download"></i> <span data-en="Free" data-de="Gratis">Free</span></span>
                     </div>
                 </a>
 
@@ -2470,10 +2917,126 @@
                     </div>
                 </a>
 
-                <!-- Posters by @moeinnajafii (1-19) -->
+                <!-- Posters by @moeinnajafii (1-19) - Lazy loaded -->
+                <a href="https://iran-protest.org/downloads/1.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/1.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/2.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/2.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/3.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/3.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/4.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/4.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/5.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/5.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/6.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/6.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/7.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/7.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/8.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/8.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/9.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/9.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/10.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/10.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/11.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/11.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/12.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/12.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/13.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/13.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
 
                 <a href="https://iran-protest.org/downloads/14.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/14.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/14.jpg"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
                         <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
@@ -2482,7 +3045,16 @@
                 </a>
 
                 <a href="https://iran-protest.org/downloads/15.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/15.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/15.jpg"></div>
+                    <div class="resource-info">
+                        <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
+                        <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
+                        <span class="resource-download"><i class="fas fa-download"></i> Download</span>
+                    </div>
+                </a>
+
+                <a href="https://iran-protest.org/downloads/16.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/16.jpg"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
                         <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
@@ -2491,7 +3063,7 @@
                 </a>
 
                 <a href="https://iran-protest.org/downloads/17.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/17.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/17.jpg"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
                         <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
@@ -2500,7 +3072,7 @@
                 </a>
 
                 <a href="https://iran-protest.org/downloads/18.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/18.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/18.jpg"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
                         <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
@@ -2509,7 +3081,7 @@
                 </a>
 
                 <a href="https://iran-protest.org/downloads/19.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/19.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/19.jpg"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
                         <p class="resource-desc">© <span style="color: var(--color-red);">@moeinnajafii</span></p>
@@ -2519,37 +3091,37 @@
 
                 <!-- Posters with Unknown Copyright (20-23) -->
                 <a href="https://iran-protest.org/downloads/20.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/20.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/20.jpg"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <p class="resource-desc" data-en="© Unknown" data-de="© Unbekannt">© Unknown</p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
 
                 <a href="https://iran-protest.org/downloads/21.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/21.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/21.jpg"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <p class="resource-desc" data-en="© Unknown" data-de="© Unbekannt">© Unknown</p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
 
                 <a href="https://iran-protest.org/downloads/22.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/22.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/22.jpg"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <p class="resource-desc" data-en="© Unknown" data-de="© Unbekannt">© Unknown</p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
 
                 <a href="https://iran-protest.org/downloads/23.jpg" target="_blank" rel="noopener noreferrer" class="resource-card" download>
-                    <div class="resource-preview" style="background-image: url('https://iran-protest.org/downloads/23.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;"></div>
+                    <div class="resource-preview lazy" data-bg="https://iran-protest.org/downloads/23.jpg"></div>
                     <div class="resource-info">
                         <h4 class="resource-title"><i class="fas fa-image"></i> Poster</h4>
-                        <p class="resource-desc" data-en="© Unknown (contact us)" data-de="© Unbekannt (kontaktieren Sie uns)">© Unknown (contact us)</p>
+                        <p class="resource-desc" data-en="© Unknown" data-de="© Unbekannt">© Unknown</p>
                         <span class="resource-download"><i class="fas fa-download"></i> Download</span>
                     </div>
                 </a>
@@ -2888,6 +3460,50 @@
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
             document.documentElement.classList.toggle('dark', e.matches);
         });
+
+        // ========== LAZY LOADING FOR RESOURCE IMAGES ==========
+        (function() {
+            var lazyElements = document.querySelectorAll('.resource-preview.lazy');
+
+            if ('IntersectionObserver' in window) {
+                var lazyObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            var el = entry.target;
+                            var bgUrl = el.getAttribute('data-bg');
+                            if (bgUrl) {
+                                // Preload image before showing
+                                var img = new Image();
+                                img.onload = function() {
+                                    el.style.backgroundImage = 'url(' + bgUrl + ')';
+                                    el.classList.remove('lazy');
+                                    el.classList.add('loaded');
+                                };
+                                img.src = bgUrl;
+                            }
+                            lazyObserver.unobserve(el);
+                        }
+                    });
+                }, {
+                    rootMargin: '100px 200px', // Start loading when within 200px horizontally
+                    threshold: 0
+                });
+
+                lazyElements.forEach(function(el) {
+                    lazyObserver.observe(el);
+                });
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                lazyElements.forEach(function(el) {
+                    var bgUrl = el.getAttribute('data-bg');
+                    if (bgUrl) {
+                        el.style.backgroundImage = 'url(' + bgUrl + ')';
+                        el.classList.remove('lazy');
+                        el.classList.add('loaded');
+                    }
+                });
+            }
+        })();
 
         // ========== LANGUAGE HANDLING ==========
         // Auto-detect browser language, default to German
