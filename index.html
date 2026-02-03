@@ -6,7 +6,7 @@
     <title>Iran Awareness | Iran is Facing Genocide — The World Must Act Now</title>
     <meta name="description" content="Über 30.000 Menschen in nur 2 Tagen getötet (8.-9. Januar 2026). Iran steht vor einem Völkermord. Das Regime behauptet nur 5.000 Tote, während es das Internet abschaltet. Erfahren Sie die Wahrheit und helfen Sie.">
 
-    <!-- ============ SEO META TAGS ============ -->
+    <!-- ============ SEO + SOCIAL PREVIEW METADATA ============ -->
     <meta name="keywords" content="Iran Proteste 2026, Iran Genocide, Digital Blackout Iran, Woman Life Freedom, Frau Leben Freiheit, Iran Human Rights, Iran Revolution, January 2026 Iran, Iran Massacre, Iran Awareness, Free Iran, Iran Democracy">
     <meta name="author" content="Iran Awareness Initiative">
     <meta name="language" content="de, en">
@@ -21,7 +21,7 @@
     <meta name="coverage" content="Worldwide">
     <meta name="distribution" content="Global">
 
-    <!-- Machine-readable dates (ISO 8601) -->
+    <!-- Machine-readable dates (ISO 8601, useful for crawlers) -->
     <meta name="article:published_time" content="2026-01-10T00:00:00+00:00">
     <meta name="article:modified_time" content="2026-01-27T12:00:00+00:00">
     <meta name="dcterms.created" content="2026-01-10">
@@ -30,7 +30,7 @@
 
     <link rel="canonical" href="https://iran-protest.org/">
 
-    <!-- ============ ENHANCED SECURITY HEADERS ============ -->
+    <!-- ============ DEFENSE-IN-DEPTH SECURITY HEADERS ============ -->
     <!-- HSTS - Force HTTPS -->
     <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload">
 
@@ -38,24 +38,24 @@
     <link rel="icon" type="image/png" href="https://iran-protest.org/Pics/Flag.png">
     <link rel="apple-touch-icon" href="https://iran-protest.org/Pics/Flag.png">
 
-    <!-- Content Type & Frame Protection -->
+    <!-- MIME type hardening + clickjacking protection -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="X-Permitted-Cross-Domain-Policies" content="none">
 
-    <!-- Referrer & DNS Prefetch Control -->
+    <!-- Referrer policy + DNS prefetch control -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="x-dns-prefetch-control" content="off">
 
-    <!-- Permissions Policy (disable unnecessary features) -->
+    <!-- Permissions Policy (disable unnecessary browser features) -->
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
 
-    <!-- Prevent search engine indexing of cached versions -->
+    <!-- Prevent search engines from indexing cached versions -->
     <meta name="robots" content="index, follow, noarchive, noimageindex">
 
-    <!-- ============ ANTI-ATTACK MEASURES ============ -->
-    <!-- Disable automatic format detection that can be exploited -->
+    <!-- ============ ADDITIONAL SAFETY HARDENING ============ -->
+    <!-- Disable automatic format detection to reduce spoofing -->
     <meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
 
     <!-- ============ OPEN GRAPH (Facebook, LinkedIn, etc.) ============ -->
@@ -78,7 +78,7 @@
     <meta name="twitter:image" content="https://iran-protest.org/Pics/Flag.png">
     <meta name="twitter:image:alt" content="Lion and Sun - Symbol of Free Iran">
 
-    <!-- ============ STRUCTURED DATA (JSON-LD) ============ -->
+    <!-- ============ STRUCTURED DATA (JSON-LD FOR SEARCH) ============ -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -267,9 +267,10 @@
             }
         }
 
-        /* Ensure all sections don't overflow */
+        /* Ensure all sections don't overflow + align anchor offsets */
         section {
             overflow-x: hidden;
+            scroll-margin-top: calc(var(--header-height) + 20px);
         }
 
         /* Typography */
@@ -466,13 +467,14 @@
         }
 
         .audience-card {
-            background: #171717;
-            border: 1px solid #262626;
+            background: linear-gradient(145deg, #1d1d1d 0%, #121212 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 10px;
             padding: 10px 12px;
             cursor: pointer;
             transition: all var(--transition-medium);
             text-align: left;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
         }
 
         @media (min-width: 900px) {
@@ -486,7 +488,12 @@
         .audience-card:hover {
             border-color: var(--color-red);
             transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(220, 38, 38, 0.2);
+            box-shadow: 0 14px 28px rgba(220, 38, 38, 0.25);
+        }
+
+        .audience-card:focus-visible {
+            border-color: var(--color-red);
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.35);
         }
 
         .audience-card-icon {
@@ -1132,6 +1139,11 @@
 
         .hero-stat {
             text-align: left;
+            padding: 12px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
         }
 
         .hero-stat-number {
@@ -1195,6 +1207,7 @@
             cursor: pointer;
             transition: all var(--transition-fast);
             border: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
         }
 
         .btn-primary {
@@ -1336,21 +1349,22 @@
 
         /* Source Cards */
         .source-card {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.12);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.18);
             border-radius: 16px;
             padding: 20px;
             transition: all var(--transition-medium);
             text-decoration: none;
             display: block;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
         }
 
         .source-card:hover {
             transform: translateY(-4px);
             background: rgba(255,255,255,0.15);
             border-color: var(--color-red);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
         }
 
         .source-card-inner {
@@ -1441,16 +1455,18 @@
         }
 
         .europe-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 16px;
             padding: 28px;
             transition: all var(--transition-medium);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
         }
 
         .europe-card:hover {
             background: rgba(255,255,255,0.06);
             border-color: var(--color-red);
+            transform: translateY(-3px);
         }
 
         .europe-card-icon {
@@ -1549,11 +1565,13 @@
             border-radius: 20px;
             overflow: hidden;
             transition: all var(--transition-medium);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
         }
 
         .victim-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
+            border-color: var(--color-red);
         }
 
         .victim-image {
@@ -1706,6 +1724,7 @@
             text-decoration: none;
             display: flex !important;
             flex-direction: column !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
         }
 
         .resource-card:hover {
@@ -2462,12 +2481,12 @@
     </style>
 </head>
 <body>
-    <!-- Skip to main content link (accessibility) -->
+    <!-- Accessibility: skip link for keyboard and screen-reader users -->
     <a href="#home" class="skip-link" data-en="Skip to main content" data-de="Zum Hauptinhalt springen">Zum Hauptinhalt springen</a>
 
-    <!-- ==================== AUDIENCE SELECTOR ==================== -->
+    <!-- ==================== AUDIENCE SELECTOR (ENTRY GATE) ==================== -->
     <div class="audience-selector" id="audienceSelector" role="dialog" aria-modal="true" aria-labelledby="audienceTitle">
-        <!-- Language Toggle - Fixed Top Right -->
+        <!-- Language toggle pinned to the top-right -->
         <div style="position: fixed; top: 12px; right: 12px; z-index: 10001;">
             <div class="lang-toggle">
                 <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
@@ -2476,7 +2495,7 @@
         </div>
 
         <div class="audience-inner">
-            <!-- LEFT COLUMN: Stats & Video -->
+            <!-- LEFT COLUMN: Stats + video preview -->
             <div class="audience-left">
                 <!-- Logo -->
                 <div class="audience-logo">
@@ -2484,21 +2503,21 @@
                     <span>Iran Awareness</span>
                 </div>
 
-                <!-- Big Number with proper mobile margin -->
+                <!-- Impact headline -->
                 <div id="audienceTitle" class="audience-stats">
                     <div class="audience-big-number" data-en="30,000+" data-de="30.000+">30.000+</div>
                     <div class="audience-subtitle-text" data-en="Killed in Just 2 Days" data-de="Getötet in nur 2 Tagen">Getötet in nur 2 Tagen</div>
 
                 </div>
 
-                <!-- Documentary Video - Compact -->
+                <!-- Documentary video (with warning overlay) -->
                 <div class="audience-video-box">
                     <div class="audience-video-header">
                         <i class="fas fa-film"></i>
                         <span data-en="Documentary" data-de="Dokumentation">Dokumentation</span>
                     </div>
                     <div id="videoContainer" class="audience-video-container">
-                        <!-- Warning Overlay -->
+                        <!-- Warning overlay (shown before video playback) -->
                         <div id="videoWarning" class="audience-video-warning">
                             <div class="audience-video-warning-content">
                                 <i class="fas fa-exclamation-triangle"></i>
@@ -2509,7 +2528,7 @@
                                 </button>
                             </div>
                         </div>
-                        <!-- YouTube Embed (hidden by default) -->
+                        <!-- YouTube embed (lazy-loaded and hidden by default) -->
                         <div id="videoEmbed" style="display: none; position: relative; padding-bottom: 56.25%; height: 0;">
                             <iframe id="ytIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" data-src="https://www.youtube.com/embed/7gypdxRyQlk" title="Documentary: Iran Protests" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
@@ -2517,7 +2536,7 @@
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: Choice Cards -->
+            <!-- RIGHT COLUMN: Audience pathways -->
             <div class="audience-right">
                 <p class="audience-subtitle" data-en="How do you want to help?" data-de="Wie möchten Sie helfen?">Wie möchten Sie helfen?</p>
 
@@ -2544,11 +2563,11 @@
         </div>
     </div>
 
-    <!-- ==================== HEADER ==================== -->
+    <!-- ==================== HEADER / GLOBAL NAV ==================== -->
     <header role="banner">
         <div class="container">
             <div class="header-inner">
-                <!-- Language Toggle - Left side, compact -->
+                <!-- Language toggle (compact, left side) -->
                 <div class="header-lang-left">
                     <div class="lang-toggle" role="group" aria-label="Language selection">
                         <button class="lang-btn" data-lang="en" aria-label="Switch to English">EN</button>
@@ -2557,7 +2576,7 @@
                 </div>
 
                 <a href="#home" class="logo" style="gap: 12px;">
-                    <!-- Flag as Logo Icon -->
+                    <!-- Flag used as the logo icon -->
                     <div class="logo-icon" style="background: transparent; padding: 0; width: auto; height: auto;" title="Lion and Sun - Symbol of Free Iran">
                         <img src="https://iran-protest.org/Pics/Flag.png" alt="Lion and Sun Flag" loading="lazy" style="height: 28px; width: auto; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">
                     </div>
@@ -2583,7 +2602,7 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
+    <!-- Mobile menu (small screens only) -->
     <div class="mobile-menu">
         <a href="#happening" data-en="See the Evidence" data-de="Beweise sehen">Beweise sehen</a>
         <a href="#europe" data-en="Why It Affects You" data-de="Warum es Sie betrifft">Warum es Sie betrifft</a>
@@ -2591,7 +2610,7 @@
         <a href="#action" data-en="Help Now" data-de="Jetzt helfen">Jetzt helfen</a>
     </div>
 
-    <!-- ==================== FLOATING SECTION NAV ==================== -->
+    <!-- ==================== FLOATING SECTION NAV (DESKTOP) ==================== -->
     <nav class="section-nav" aria-label="Section navigation">
         <div class="section-nav-item active" data-section="home">
             <div class="section-nav-dot"></div>
@@ -2626,7 +2645,7 @@
                     Am 8. und 9. Januar 2026 massakrierte das islamische Regime im Iran Zehntausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl 30.000 übersteigen könnte.
                 </p>
 
-                <!-- Last Updated Notice -->
+                <!-- Last updated timestamp -->
                 <div class="hero-updated" style="margin-bottom: 20px;">
                     <time datetime="2026-01-27" style="display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.6); font-size: 0.75rem;">
                         <i class="fas fa-sync-alt" style="font-size: 0.6rem;"></i>
@@ -2659,9 +2678,9 @@
                     </div>
                 </div>
 
-                <!-- Hero Videos -->
+                <!-- Hero videos (language-specific grids) -->
                 <div class="hero-videos" style="margin-bottom: 32px;">
-                    <!-- English Videos (hidden by default, German is default) -->
+                    <!-- English videos (hidden by default; German is default) -->
                     <div class="hero-videos-grid" id="hero-videos-en" data-lang-show="en" style="display: none;">
                         <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
                             <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/F6qFpk7nXug" title="Iran Protests Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -2670,7 +2689,7 @@
                             <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/jKSkOEkOCIQ" title="Iran Protests Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <!-- German Videos (shown by default) -->
+                    <!-- German videos (shown by default) -->
                     <div class="hero-videos-grid" id="hero-videos-de" data-lang-show="de" style="display: grid;">
                         <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
                             <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/FR5qRMGdfTc" title="Iran Proteste Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
