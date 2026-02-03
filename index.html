@@ -327,7 +327,7 @@
         .audience-selector {
             position: fixed;
             inset: 0;
-            background: radial-gradient(circle at top left, rgba(220, 38, 38, 0.2), rgba(10, 10, 10, 0.8) 45%), url('https://iran-protest.org/Pics/Flag.png') center center / cover no-repeat;
+            background: url('https://iran-protest.org/Pics/Flag.png') center center / cover no-repeat;
             z-index: 9999;
             display: flex;
             align-items: flex-start;
@@ -341,7 +341,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(140deg, rgba(10, 10, 10, 0.75) 0%, rgba(10, 10, 10, 0.9) 40%, rgba(10, 10, 10, 0.75) 100%);
+            background: rgba(10, 10, 10, 0.85);
             z-index: -1;
         }
 
@@ -366,31 +366,18 @@
             pointer-events: none;
         }
 
-        .audience-shell {
-            width: 100%;
-            max-width: 960px;
-            padding: 20px;
-            border-radius: 28px;
-            background: rgba(8, 8, 8, 0.65);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-            backdrop-filter: blur(24px);
-        }
-
         .audience-inner {
             text-align: center;
+            max-width: 900px;
             width: 100%;
         }
 
         /* Desktop: use grid layout for better fit */
         @media (min-width: 900px) {
-            .audience-shell {
-                padding: 32px;
-            }
             .audience-inner {
                 display: grid;
-                grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-                gap: 36px;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
                 text-align: left;
                 align-items: center;
             }
@@ -399,13 +386,12 @@
         .audience-left {
             display: flex;
             flex-direction: column;
-            gap: 16px;
         }
 
         .audience-right {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
         }
 
         .audience-logo {
@@ -414,15 +400,10 @@
             font-weight: 700;
             color: white;
             margin-bottom: 10px;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            width: fit-content;
+            gap: 6px;
         }
 
         .audience-logo img {
@@ -458,9 +439,9 @@
         }
 
         .audience-subtitle {
-            color: var(--color-gray-300);
-            font-size: 0.9rem;
-            margin-bottom: 6px;
+            color: var(--color-gray-400);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
         }
 
         @media (min-width: 769px) {
@@ -473,7 +454,7 @@
         .audience-cards {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 8px;
         }
 
         @media (min-width: 500px) {
@@ -491,14 +472,14 @@
         }
 
         .audience-card {
-            background: linear-gradient(140deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+            background: linear-gradient(145deg, #1d1d1d 0%, #121212 100%);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 14px 16px;
+            border-radius: 10px;
+            padding: 10px 12px;
             cursor: pointer;
             transition: all var(--transition-medium);
             text-align: left;
-            box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
         }
 
         @media (min-width: 900px) {
@@ -510,9 +491,9 @@
         }
 
         .audience-card:hover {
-            border-color: rgba(220, 38, 38, 0.6);
-            transform: translateY(-3px);
-            box-shadow: 0 18px 32px rgba(220, 38, 38, 0.2);
+            border-color: var(--color-red);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 28px rgba(220, 38, 38, 0.25);
         }
 
         .audience-card:focus-visible {
@@ -544,9 +525,9 @@
 
         .audience-card-title {
             font-family: var(--font-display);
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             color: white;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         @media (min-width: 900px) {
@@ -557,9 +538,9 @@
         }
 
         .audience-card-desc {
-            color: var(--color-gray-300);
-            font-size: 0.78rem;
-            line-height: 1.4;
+            color: var(--color-gray-400);
+            font-size: 0.7rem;
+            line-height: 1.3;
         }
 
         @media (min-width: 900px) {
@@ -571,16 +552,9 @@
 
         .audience-card-arrow {
             margin-top: 0;
-            color: var(--color-gray-400);
+            color: var(--color-red);
             font-size: 0.8rem;
             transition: transform var(--transition-fast);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.08);
         }
 
         @media (min-width: 900px) {
@@ -685,11 +659,10 @@
         /* Video Section */
         .audience-video-box {
             margin-top: 10px;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+            padding: 8px;
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.25);
+            border-radius: 10px;
         }
 
         @media (min-width: 900px) {
@@ -703,13 +676,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            color: #F87171;
+            gap: 6px;
+            margin-bottom: 6px;
+            color: #DC2626;
             font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+            font-size: 0.75rem;
         }
 
         @media (min-width: 900px) {
@@ -725,9 +696,9 @@
             width: 100%;
             max-width: 280px;
             margin: 0 auto;
-            border-radius: 14px;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.4);
         }
 
         @media (min-width: 900px) {
@@ -741,10 +712,10 @@
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
-            background: linear-gradient(135deg, #120202 0%, #0a0a0a 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
         }
 
-        .audience-video-overlay {
+        .audience-video-warning-content {
             position: absolute;
             top: 0;
             left: 0;
@@ -754,19 +725,20 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 12px;
+            padding: 8px;
             text-align: center;
-            gap: 6px;
         }
 
-        .audience-video-overlay i {
-            font-size: 1.3rem;
-            color: #F87171;
+        .audience-video-warning-content i {
+            font-size: 1.2rem;
+            color: #DC2626;
+            margin-bottom: 4px;
         }
 
-        .audience-video-overlay p {
-            color: rgba(255,255,255,0.85);
-            font-size: 0.7rem;
+        .audience-video-warning-content p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.65rem;
+            margin-bottom: 6px;
         }
 
         .audience-video-btn {
@@ -786,11 +758,13 @@
         }
 
         @media (min-width: 900px) {
-            .audience-video-overlay i {
-                font-size: 1.6rem;
+            .audience-video-warning-content i {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
             }
-            .audience-video-overlay p {
-                font-size: 0.8rem;
+            .audience-video-warning-content p {
+                font-size: 0.75rem;
+                margin-bottom: 10px;
             }
             .audience-video-btn {
                 padding: 8px 16px;
@@ -1087,14 +1061,14 @@
             display: flex;
             align-items: center;
             position: relative;
-            padding: calc(var(--header-height) + 80px) 0 80px;
+            padding: calc(var(--header-height) + 60px) 0 60px;
             overflow: hidden;
         }
 
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: linear-gradient(120deg, rgba(0,0,0,0.7) 10%, rgba(10,10,10,0.85) 50%, rgba(0,0,0,0.7) 90%), url('https://iran-protest.org/Pics/BC1.jpg');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://iran-protest.org/Pics/BC1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1111,24 +1085,7 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 1100px;
-        }
-
-        .hero-layout {
-            display: grid;
-            gap: 32px;
-        }
-
-        @media (min-width: 1024px) {
-            .hero-layout {
-                grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-                align-items: center;
-            }
-        }
-
-        .hero-copy {
-            display: flex;
-            flex-direction: column;
+            max-width: 900px;
         }
 
         .hero-badge {
@@ -1162,9 +1119,8 @@
         .hero-title {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             line-height: 1.05;
-            text-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
         }
 
         .hero-title .highlight {
@@ -1172,28 +1128,27 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(1.125rem, 2vw, 1.35rem);
-            color: var(--color-gray-300);
-            max-width: 680px;
-            margin-bottom: 28px;
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: var(--color-gray-400);
+            max-width: 700px;
+            margin-bottom: 40px;
             line-height: 1.7;
         }
 
         .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-            margin-bottom: 28px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-bottom: 40px;
         }
 
         .hero-stat {
             text-align: left;
-            padding: 14px 16px;
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+            padding: 12px 16px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
         }
 
         .hero-stat-number {
@@ -1205,9 +1160,9 @@
         }
 
         .hero-stat-label {
-            font-size: 0.85rem;
-            color: var(--color-gray-300);
-            margin-top: 6px;
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+            margin-top: 4px;
         }
 
         .hero-stat-link {
@@ -1243,18 +1198,17 @@
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
-            margin-bottom: 24px;
+            gap: 16px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 14px 24px;
-            font-size: 0.95rem;
+            padding: 14px 28px;
+            font-size: 0.9375rem;
             font-weight: 600;
-            border-radius: 999px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all var(--transition-fast);
             border: none;
@@ -1284,11 +1238,11 @@
         }
 
         .hero-hashtags {
-            margin-top: 24px;
+            margin-top: 32px;
             margin-bottom: 60px;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
             padding: 0 8px;
         }
@@ -1304,18 +1258,18 @@
         .hashtag {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 14px;
-            background: rgba(255, 215, 0, 0.08);
+            gap: 4px;
+            padding: 8px 12px;
+            background: transparent;
             color: #FFD700;
-            font-size: 0.72rem;
-            font-weight: 700;
-            border-radius: 999px;
-            border: 1px solid rgba(255, 215, 0, 0.5);
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 50px;
+            border: 1px solid #FFD700;
             transition: all 0.3s ease;
-            text-shadow: 1px 1px 2px #000, 0 0 20px rgba(255, 215, 0, 0.35);
+            text-shadow: 1px 1px 2px #000, 0 0 20px rgba(255, 215, 0, 0.4);
             text-transform: uppercase;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.02em;
             white-space: nowrap;
         }
 
@@ -1334,65 +1288,6 @@
             transform: scale(1.05);
             text-shadow: 1px 1px 2px #000, 0 0 30px rgba(255, 215, 0, 0.6);
             box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
-        }
-
-        .hero-teaser {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(14px);
-        }
-
-        .hero-teaser-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.75rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #FCA5A5;
-            margin-bottom: 12px;
-        }
-
-        .hero-teaser h3 {
-            color: white;
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .hero-teaser p {
-            color: var(--color-gray-300);
-            font-size: 0.95rem;
-        }
-
-        .hero-teaser-list {
-            display: grid;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        .hero-teaser-item {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            font-size: 0.9rem;
-            color: var(--color-gray-200);
-        }
-
-        .hero-teaser-item i {
-            color: #F87171;
-            margin-top: 2px;
-        }
-
-        .hero-media {
-            margin-top: 24px;
-            padding: 18px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
         }
 
         /* Hero Scroll Indicator */
@@ -2604,8 +2499,7 @@
             </div>
         </div>
 
-        <div class="audience-shell">
-            <div class="audience-inner">
+        <div class="audience-inner">
             <!-- LEFT COLUMN: Stats + video preview -->
             <div class="audience-left">
                 <!-- Logo -->
@@ -2630,7 +2524,7 @@
                     <div id="videoContainer" class="audience-video-container">
                         <!-- Warning overlay (shown before video playback) -->
                         <div id="videoWarning" class="audience-video-warning">
-                            <div class="audience-video-overlay">
+                            <div class="audience-video-warning-content">
                                 <i class="fas fa-exclamation-triangle"></i>
                                 <p data-en="⚠️ Graphic content" data-de="⚠️ Verstörende Inhalte">⚠️ Verstörende Inhalte</p>
                                 <button id="watchVideoBtn" class="audience-video-btn">
@@ -2670,7 +2564,6 @@
                         <div class="audience-card-arrow"><i class="fas fa-arrow-right"></i></div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
@@ -2747,104 +2640,67 @@
         <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-layout">
-                    <div class="hero-copy">
-                        <h1 class="hero-title">
-                            <span data-en="Iran is Facing" data-de="Iran steht vor einem">Iran is Facing</span>
-                            <span class="highlight" data-en=" Genocide" data-de=" Völkermord"> Genocide</span><br>
-                            <span data-en="The World Must Act Now" data-de="Die Welt muss jetzt handeln">The World Must Act Now</span>
-                        </h1>
+                <h1 class="hero-title">
+                    <span data-en="Iran is Facing" data-de="Iran steht vor einem">Iran is Facing</span>
+                    <span class="highlight" data-en=" Genocide" data-de=" Völkermord"> Genocide</span><br>
+                    <span data-en="The World Must Act Now" data-de="Die Welt muss jetzt handeln">The World Must Act Now</span>
+                </h1>
 
-                        <p class="hero-subtitle" data-en="On January 8th–9th, 2026, the Islamic regime in Iran massacred tens of thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may exceed 30,000." data-de="Am 8. und 9. Januar 2026 massakrierte das islamische Regime im Iran Zehntausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl 30.000 übersteigen könnte.">
-                            Am 8. und 9. Januar 2026 massakrierte das islamische Regime im Iran Zehntausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl 30.000 übersteigen könnte.
-                        </p>
+                <p class="hero-subtitle" data-en="On January 8th–9th, 2026, the Islamic regime in Iran massacred tens of thousands of civilians during peaceful protests. While the government claims only 5,000 deaths, international journalists confirm the death toll may exceed 30,000." data-de="Am 8. und 9. Januar 2026 massakrierte das islamische Regime im Iran Zehntausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl 30.000 übersteigen könnte.">
+                    Am 8. und 9. Januar 2026 massakrierte das islamische Regime im Iran Zehntausende von Zivilisten während friedlicher Proteste. Während die Regierung nur 5.000 Tote behauptet, bestätigen internationale Journalisten, dass die Opferzahl 30.000 übersteigen könnte.
+                </p>
 
-                        <!-- Last updated timestamp -->
-                        <div class="hero-updated" style="margin-bottom: 20px;">
-                            <time datetime="2026-01-27" style="display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.6); font-size: 0.75rem;">
-                                <i class="fas fa-sync-alt" style="font-size: 0.6rem;"></i>
-                                <span data-en="Last updated: January 27, 2026" data-de="Zuletzt aktualisiert: 27. Januar 2026">Last updated: January 27, 2026</span>
-                            </time>
+                <!-- Last updated timestamp -->
+                <div class="hero-updated" style="margin-bottom: 20px;">
+                    <time datetime="2026-01-27" style="display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.6); font-size: 0.75rem;">
+                        <i class="fas fa-sync-alt" style="font-size: 0.6rem;"></i>
+                        <span data-en="Last updated: January 27, 2026" data-de="Zuletzt aktualisiert: 27. Januar 2026">Last updated: January 27, 2026</span>
+                    </time>
+                </div>
+
+                <div class="hero-stats">
+                    <a href="#happening" class="hero-stat hero-stat-link" style="text-decoration: none;">
+                        <div class="hero-stat-number" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; text-shadow: 0 2px 10px rgba(220,38,38,0.5);">30,000+</div>
+                        <div class="hero-stat-label" data-en="Killed in 2 Days" data-de="In 2 Tagen getötet">In 2 Tagen getötet</div>
+                        <div class="hero-stat-sources">
+                            <span class="source-badge" title="Iran International">Iran Int'l</span>
+                            <span class="source-badge" title="Reuters">Reuters</span>
                         </div>
-
-                        <div class="hero-stats">
-                            <a href="#happening" class="hero-stat hero-stat-link" style="text-decoration: none;">
-                                <div class="hero-stat-number" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; text-shadow: 0 2px 10px rgba(220,38,38,0.5);">30,000+</div>
-                                <div class="hero-stat-label" data-en="Killed in 2 Days" data-de="In 2 Tagen getötet">In 2 Tagen getötet</div>
-                                <div class="hero-stat-sources">
-                                    <span class="source-badge" title="Iran International">Iran Int'l</span>
-                                    <span class="source-badge" title="Reuters">Reuters</span>
-                                </div>
-                            </a>
-                            <div class="hero-stat">
-                                <div class="hero-stat-number">100%</div>
-                                <div class="hero-stat-label" data-en="Internet Blackout" data-de="Internet-Blackout">Internet Blackout</div>
-                                <div class="hero-stat-sources">
-                                    <span class="source-badge" title="NetBlocks">NetBlocks</span>
-                                </div>
-                            </div>
-                            <div class="hero-stat">
-                                <div class="hero-stat-number">45+</div>
-                                <div class="hero-stat-label" data-en="Years of Oppression" data-de="Jahre der Unterdrückung">Years of Oppression</div>
-                                <div class="hero-stat-sources">
-                                    <span class="source-badge" title="Amnesty International">Amnesty</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="hero-actions">
-                            <a class="btn btn-primary" href="#happening">
-                                <i class="fas fa-bullhorn"></i>
-                                <span data-en="See the evidence" data-de="Beweise sehen">See the evidence</span>
-                            </a>
-                            <a class="btn btn-secondary" href="#action">
-                                <i class="fas fa-hand-fist"></i>
-                                <span data-en="Take action now" data-de="Jetzt handeln">Take action now</span>
-                            </a>
+                    </a>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">100%</div>
+                        <div class="hero-stat-label" data-en="Internet Blackout" data-de="Internet-Blackout">Internet Blackout</div>
+                        <div class="hero-stat-sources">
+                            <span class="source-badge" title="NetBlocks">NetBlocks</span>
                         </div>
                     </div>
-
-                    <aside class="hero-teaser">
-                        <span class="hero-teaser-label"><i class="fas fa-bolt"></i><span data-en="Quick impact" data-de="Schnell wirken">Quick impact</span></span>
-                        <h3 data-en="Turn attention into action" data-de="Aufmerksamkeit in Aktion verwandeln">Turn attention into action</h3>
-                        <p data-en="Use the resources below to amplify verified reporting and support people on the ground." data-de="Nutzen Sie die Ressourcen unten, um verifizierte Berichte zu verbreiten und Menschen vor Ort zu unterstützen.">Use the resources below to amplify verified reporting and support people on the ground.</p>
-                        <div class="hero-teaser-list">
-                            <div class="hero-teaser-item">
-                                <i class="fas fa-share-nodes"></i>
-                                <span data-en="Share one credible source today." data-de="Teilen Sie heute eine glaubwürdige Quelle.">Share one credible source today.</span>
-                            </div>
-                            <div class="hero-teaser-item">
-                                <i class="fas fa-envelope-open-text"></i>
-                                <span data-en="Send a 2-minute note to your representative." data-de="Schicken Sie eine 2‑Minuten‑Nachricht an Ihre Vertreter.">Send a 2-minute note to your representative.</span>
-                            </div>
-                            <div class="hero-teaser-item">
-                                <i class="fas fa-print"></i>
-                                <span data-en="Download printable materials for your city." data-de="Laden Sie druckbare Materialien für Ihre Stadt herunter.">Download printable materials for your city.</span>
-                            </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">45+</div>
+                        <div class="hero-stat-label" data-en="Years of Oppression" data-de="Jahre der Unterdrückung">Years of Oppression</div>
+                        <div class="hero-stat-sources">
+                            <span class="source-badge" title="Amnesty International">Amnesty</span>
                         </div>
-                    </aside>
+                    </div>
                 </div>
 
                 <!-- Hero videos (language-specific grids) -->
-                <div class="hero-media">
-                    <div class="hero-videos">
-                        <!-- English videos (hidden by default; German is default) -->
-                        <div class="hero-videos-grid" id="hero-videos-en" data-lang-show="en" style="display: none;">
-                            <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-                                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/F6qFpk7nXug" title="Iran Protests Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-                                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/jKSkOEkOCIQ" title="Iran Protests Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+                <div class="hero-videos" style="margin-bottom: 32px;">
+                    <!-- English videos (hidden by default; German is default) -->
+                    <div class="hero-videos-grid" id="hero-videos-en" data-lang-show="en" style="display: none;">
+                        <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
+                            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/F6qFpk7nXug" title="Iran Protests Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <!-- German videos (shown by default) -->
-                        <div class="hero-videos-grid" id="hero-videos-de" data-lang-show="de" style="display: grid;">
-                            <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-                                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/FR5qRMGdfTc" title="Iran Proteste Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-                                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/6CRy0vRNP-k" title="Iran Proteste Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
+                        <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
+                            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/jKSkOEkOCIQ" title="Iran Protests Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <!-- German videos (shown by default) -->
+                    <div class="hero-videos-grid" id="hero-videos-de" data-lang-show="de" style="display: grid;">
+                        <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
+                            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/FR5qRMGdfTc" title="Iran Proteste Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="hero-video-wrapper" style="position: relative; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
+                            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/6CRy0vRNP-k" title="Iran Proteste Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
